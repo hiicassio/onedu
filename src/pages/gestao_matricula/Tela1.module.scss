@@ -1,0 +1,332 @@
+.matriculaPage {
+    width: 100%;
+    max-width: 940px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    margin: 0 auto;
+
+    .gestaoPresenteButton {
+        position: fixed;
+        right: 0px;
+        top: calc(50vh - 23px);
+        width: 36px;
+        height: 46px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background: #FFFFFF;
+        border: 1px solid #E6E6E6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+
+        svg {
+            font-size: 25px;
+        }
+    }
+
+    .matriculaHero {
+        display: flex;
+        background-image: url("./img/bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        padding: 7px;
+        height: 207.8px;
+        border-radius: 10px;
+        justify-content: space-between;
+        flex-direction: column;
+
+        .matriculaHero_text {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 550px;
+            padding: 10px 52px 10px 52px;
+
+            h1 {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 31px;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 13px;
+            }
+        }
+
+        .matriculaHero_actions {
+            display: flex;
+            min-height: 75px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 21px 10px 52px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background: #F3F4F133;
+
+            .matriculaHero_cta {
+                color: #00397B;
+                background-color: #fff;
+                width: 255px;
+                height: 32px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0px 14.16px 0px 13px;
+
+                span {
+                    font-size: 12px;
+                    line-height: 32px;
+                }
+
+                .matriculaHero_divider {
+                    width: 1px;
+                    height: 13px;
+                    background-color: #E1E1E1;
+                }
+
+                svg {
+                    font-size: 12.84px;
+                }
+            }
+
+            .icon {
+                font-size: 35px;
+                color: #fff;
+            }
+        }
+    }
+
+    .matriculaActions {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+
+        .matriculaCard {
+            width: 100%;
+            max-width: 152px;
+            min-height: 138px;
+            background-color: #fff;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 8px;
+            border: 1px solid #fff;
+
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+
+            &:hover {
+                border: 1px solid transparent;
+                background:
+                    linear-gradient(#fff, #fff) padding-box,
+                    linear-gradient(180deg, #00397B 0%, #0068E1 100%) border-box;
+                box-shadow: 0px 4px 4px 0px #0000002B;
+            }
+
+            .icon {
+                font-size: 35px;
+                color: #00397B;
+                margin-bottom: 16px;
+            }
+
+            &:nth-child(1) {
+                .icon {
+                    font-size: 40px;
+                }
+            }
+
+            .matriculaCard_text {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                width: 100%;
+
+                span {
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 14px;
+                    text-align: center;
+
+                    &:nth-child(2) {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .matriculaCard_iconWrapper {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+            }
+
+            .matriculaCard_badge {
+                background-color: #E0EBFA;
+                width: 21px;
+                height: 21px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+
+                .icon {
+                    font-size: 13px;
+                    margin: 0px;
+                    color: #00397B;
+                }
+
+                p {
+                    font-weight: 700;
+                    font-size: 12px;
+                    line-height: 14px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .matriculaCard--active {
+            border: 1px solid transparent;
+            background:
+                linear-gradient(#fff, #fff) padding-box,
+                linear-gradient(180deg, #00397B 0%, #0068E1 100%) border-box;
+            box-shadow: 0px 4px 4px 0px #0000002B;
+        }
+
+        .matriculaStats {
+            color: #00397B;
+            background-color: #F6FAFD;
+            flex-grow: 1;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            max-width: 350px;
+            min-width: 250px;
+            min-height: 138px;
+            border: 1px dashed #197DFF;
+
+            .matriculaStats_header {
+                display: flex;
+                min-height: 35px;
+                align-items: center;
+                border-bottom: 0.5px solid #D5D5D5;
+                padding: 0px 39.35px;
+            }
+
+            .matriculaStats_title {
+                font-size: 10px;
+                width: 100%;
+                color: #000;
+            }
+
+            .matriculaStats_grid {
+                padding: 10px;
+                display: flex;
+                flex-grow: 1;
+            }
+
+            .matriculaStats_item {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                align-items: center;
+                gap: 5px;
+                justify-content: center;
+            }
+
+            .matriculaStats_label {
+                font-size: 6px;
+                line-height: 8px;
+            }
+
+            .matriculaStats_value {
+                font-weight: 700;
+                font-size: 30px;
+                color: #197DFF;
+            }
+        }
+    }
+
+    .matriculaExtras {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        width: 100%;
+
+        .matriculaExtras_header {
+            border-bottom: 1px solid #E1E1E1;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+
+        .matriculaExtras_title {
+            font-size: 12px;
+            color: #707070;
+        }
+
+        .matriculaExtras_grid {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .matriculaExtras_card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            gap: 15px;
+            flex-grow: 1;
+            flex-basis: 0;
+            max-width: 228px;
+            height: 94px;
+        }
+
+        .matriculaExtras_icon {
+            background: #FBF9F9;
+            min-width: 53px;
+            min-height: 53px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #E9E9E9;
+
+            svg {
+                font-size: 19px;
+                color: #00397B;
+            }
+        }
+
+        .matriculaExtras_text {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            align-items: flex-start;
+            gap: 5px;
+
+            span {
+                font-size: 12px;
+
+                &:nth-child(2) {
+                    font-weight: 700;
+                }
+
+                &:nth-child(3) {
+                    font-size: 8px;
+                    color: #1E1E1E;
+                }
+            }
+        }
+    }
+}

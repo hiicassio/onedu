@@ -1,0 +1,260 @@
+.analiseCandidato {
+    width: 700px;
+    max-width: 513px;
+    display: flex;
+    flex-direction: column;
+
+    .analiseCandidato_content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex-grow: 1;
+
+        .analiseCandidato_header {
+            padding: 30px 48px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: -20px;
+
+            .analiseCandidato_title {
+                font-weight: 700;
+                font-size: 20px;
+            }
+
+            svg {
+                font-size: 23px;
+                color: #707070;
+                cursor: pointer;
+            }
+        }
+
+        .analiseCandidato_dividir {
+            height: 1px;
+            background-color: #EEEEF0;
+        }
+
+        .analiseCandidato_steps {
+            padding: 0px 48px;
+
+            .analiseCandidato_steps_area {
+                border: 1px solid #E1E1E1;
+                display: flex;
+                background-color: #F3F4F1;
+                border-radius: 5px;
+
+                .analiseCandidato_step {
+                    padding: 0px 10px;
+                    display: flex;
+                    align-items: center;
+                    flex-grow: 1;
+                    min-height: 34px;
+                    border-radius: 5px;
+                    gap: 5px;
+
+                    svg {
+                        font-size: 12px;
+                        color: #CCCCCC;
+                    }
+
+                    span {
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 32px;
+                    }
+                }
+
+                .analiseCandidato_step_select {
+                    background-color: #fff;
+
+                    svg,
+                    span {
+                        color: #00397B;
+                    }
+                }
+            }
+        }
+
+        .analiseCandidato_form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .analiseCandidato_section {
+                padding: 0px 48px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .analiseCandidato_sectionTitle {
+                    font-weight: 400;
+                    font-size: 10px;
+                    line-height: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                    svg{
+                        color: #707070;
+                        font-size: 12px;
+                        cursor: pointer;
+                    }
+                }
+
+                .analiseCandidato_sectionContent {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .analiseCandidato_field {
+                        border: 1px solid #ECECEC;
+                        display: flex;
+                        height: 39px;
+                        border-radius: 6px;
+                        align-items: center;
+                        padding: 3px 3px 3px 9px;
+                        gap: 11px;
+
+                        .analiseCandidato_fieldIcon {
+                            min-width: 33px;
+                            height: 33px;
+                            border-radius: 5px;
+                            background: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            svg {
+                                font-size: 15px;
+                                color: #00397B;
+                            }
+                        }
+
+                        .analiseCandidato_avatar {
+                            width: 23px;
+                            height: 23px;
+                            border-radius: 50%;
+                        }
+
+                        .analiseCandidato_fieldGroup {
+                            display: flex;
+                            flex-direction: column;
+                            flex-grow: 1;
+                            min-width: 0;
+
+                            span {
+                                font-size: 10px;
+                                color: #929291;
+                            }
+
+                            input,
+                            select {
+                                outline: none;
+                                border: none;
+                                background-color: transparent;
+                                font-size: 12px;
+                                width: 100%;
+                                min-width: 0;
+                            }
+
+                            select {
+                                margin-left: -5px;
+                            }
+
+                            input[type="date"]::-webkit-calendar-picker-indicator {
+                                display: none;
+                                -webkit-appearance: none;
+                            }
+
+                            input[type="date"] {
+                                appearance: textfield;
+                            }
+                        }
+
+                        .analiseCandidato_fieldAction {
+                            min-width: 33px;
+                            height: 33px;
+                            border-radius: 5px;
+                            background: #F3F4F1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            svg {
+                                font-size: 11.31px;
+                                color: #00397B;
+                            }
+                        }
+                    }
+
+                    .atencao {
+                        color: #00397B;
+                        background: #E0EEFF;
+                        height: 211px;
+                        border-radius: 5px;
+                        padding: 21px 31px;
+
+                        span {
+                            font-weight: 700;
+                            font-size: 12px;
+                            line-height: 32px;
+                            letter-spacing: 0%;
+
+                        }
+
+                        p {
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 14px;
+                            letter-spacing: 0%;
+                        }
+                    }
+
+                    .analiseCandidato_grid {
+                        display: flex;
+                        gap: 7px;
+
+                        .analiseCandidato_field {
+                            flex-grow: 1;
+                            min-width: 0;
+                            background-color: #F3F4F1;
+
+                            .analiseCandidato_fieldAction {
+                                background-color: #fff;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .analiseCandidato_footer {
+        background-color: #EEEEF0;
+        height: 66px;
+        padding: 17px 48px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .analiseCandidato_nextButton {
+            width: 123px;
+            height: 31px;
+            border-radius: 10px;
+            color: #fff;
+            background: #00397B;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 17px;
+
+            span {
+                font-weight: 700;
+                font-size: 15px;
+            }
+
+            svg {
+                font-size: 17px;
+            }
+        }
+    }
+}

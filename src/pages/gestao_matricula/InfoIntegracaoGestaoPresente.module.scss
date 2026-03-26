@@ -1,0 +1,137 @@
+.infoIntegracao {
+    max-width: 513px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .infoIntegracao_content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 24px 60px 0px 60px;
+
+        .infoIntegracao_close {
+            display: flex;
+            justify-content: flex-end;
+
+            svg {
+                font-size: 23px;
+                color: #707070;
+                cursor: pointer;
+            }
+        }
+
+        .infoIntegracao_image {
+            width: 146px;
+            height: 62px;
+        }
+
+        .infoIntegracao_description {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: 0%;
+        }
+
+        .infoIntegracao_dataSection {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .infoIntegracao_dataTitle {
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 20px;
+                letter-spacing: 0%;
+            }
+
+            .infoIntegracao_dataDescription {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0%;
+            }
+        }
+
+        .infoIntegracao_dataGrid {
+            display: flex;
+            flex-direction: column;
+            gap: 26.5px;
+
+            .infoIntegracao_dataItem {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .infoIntegracao_dataLabel {
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 20px;
+                    letter-spacing: 0%;
+                }
+
+                .infoIntegracao_dataValue,
+                .infoIntegracao_dataValueStatus {
+                    font-weight: 700;
+                    font-size: 12px;
+                    line-height: 12px;
+                    letter-spacing: 0%;
+                    color: #197DFF;
+                }
+
+                .infoIntegracao_dataValueStatus {
+                    color: #089A25;
+                }
+            }
+
+            .infoIntegracao_divider {
+                flex-grow: 1;
+                height: .5px;
+                background-color: #707070;
+            }
+        }
+    }
+
+    .infoIntegracao_footer {
+        min-height: 66px;
+        background-color: #EEEEF0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0px 41px;
+        gap: 6px;
+
+        .infoIntegracao_buttonPrimary {
+            width: 123px;
+            height: 31px;
+            border-radius: 10px;
+            background-color: #E1E1E1;
+            color: #00397B;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+
+        .infoIntegracao_buttonSecondary {
+            background: #00397B;
+            color: #fff;
+            width: 109px;
+            height: 31px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 15px;
+
+            svg {
+                font-size: 17px;
+            }
+        }
+    }
+}

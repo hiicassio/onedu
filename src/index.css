@@ -1,0 +1,75 @@
+/* @font-face {
+  font-family: 'AlteHaasGroteskBold';
+  src: url('./arquivos/fonts/AlteHaasGroteskBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlteHaasGroteskRegular';
+  src: url('./arquivos/fonts/AlteHaasGroteskRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  /* font-family: 'AlteHaasGroteskRegular', sans-serif; */
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+  background-image: url(./assets/fundo.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+code {
+  /* font-family: 'AlteHaasGroteskRegular', sans-serif; */
+}
+
+button {
+  transition: .2s ease-in-out;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  opacity: .8;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D7E8FF;
+  border-radius: 0px;
+}
+
+/* --- Firefox --- */
+/* * {
+    scrollbar-width: thin;
+    scrollbar-color: #f2f2f2 transparent;
+} */
