@@ -11,17 +11,6 @@
         gap: 40px;
         padding: 24px 48px 0px 48px;
 
-        .infoIntegracao_close {
-            display: flex;
-            justify-content: flex-end;
-
-            svg {
-                font-size: 23px;
-                color: #707070;
-                cursor: pointer;
-            }
-        }
-
         .infoIntegracao_image {
             width: 146px;
             height: 62px;
@@ -101,37 +90,5 @@
         justify-content: flex-end;
         padding: 0px 41px;
         gap: 6px;
-
-        .infoIntegracao_buttonPrimary {
-            width: 123px;
-            height: 31px;
-            border-radius: 10px;
-            background-color: #E1E1E1;
-            color: #00397B;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 100%;
-            letter-spacing: 0%;
-        }
-
-        .infoIntegracao_buttonSecondary {
-            background: #00397B;
-            color: #fff;
-            width: 109px;
-            height: 31px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 100%;
-            letter-spacing: 0%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0px 15px;
-
-            svg {
-                font-size: 17px;
-            }
-        }
     }
 }

@@ -23,21 +23,15 @@ function App() {
       <br />
       <br />
       <button style={styles} onClick={() => setOpenCloseDrawerInfoIntegracaoGestaoPresente(true)}>Open Drawer InfoIntegracaoGestaoPresente</button>
-      <DrawerComponent
-        bgColor="#fff"
+      <AnaliseCandidato
         openCloseDrawer={openCloseDrawer}
         setOpenCloseDrawer={setOpenCloseDrawer}
-      >
-        <AnaliseCandidato setOpenCloseDrawer={setOpenCloseDrawer} />
-      </DrawerComponent>
+      />
 
-      <DrawerComponent
-        bgColor='#fff'
+      <InfoIntegracaoGestaoPresente
         openCloseDrawer={openCloseDrawerInfoIntegracaoGestaoPresente}
         setOpenCloseDrawer={setOpenCloseDrawerInfoIntegracaoGestaoPresente}
-      >
-        <InfoIntegracaoGestaoPresente setOpenCloseDrawer={setOpenCloseDrawerInfoIntegracaoGestaoPresente} />
-      </DrawerComponent>
+      />
     </div>
   )
 }
