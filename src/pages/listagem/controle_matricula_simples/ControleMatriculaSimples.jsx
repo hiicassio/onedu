@@ -337,7 +337,7 @@ const ControleMatriculaSimples = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 2000)
+        }, 3000)
     }, []);
 
     if (loading) {

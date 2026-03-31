@@ -4,44 +4,9 @@
     justify-content: center;
     height: 100dvh;
     width: 100vw;
-
-    .loader {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: #2E1CCB;
-        position: relative;
-    }
-
-    .loader::before,
-    .loader::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        border: 8px solid transparent;
-        animation: pulse 1.5s infinite;
-    }
-
-    .loader::before {
-        border-color: rgba(0, 150, 255, 0.6);
-        animation-delay: 0s;
-    }
-
-    .loader::after {
-        border-color: rgba(0, 150, 255, 0.3);
-        animation-delay: 0.5s;
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        100% {
-            transform: scale(1.6);
-            opacity: 0;
-        }
+    background-color: #fff;
+    img{
+        width: 250px;
+        height: 250px;
     }
 }
