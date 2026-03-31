@@ -3,6 +3,7 @@ import DrawerComponent from './components/DrawerComponent';
 import AnaliseCandidato from './pages/analise_candidato/AnaliseCandidato';
 import InfoIntegracaoGestaoPresente from './pages/gestao_matricula/InfoIntegracaoGestaoPresente';
 import ControleMatriculaSimples from './pages/listagem/controle_matricula_simples/ControleMatriculaSimples';
+import RoutesComponent from './routes/RoutesComponent';
 
 const styles = {
   backgroundColor: '#197DFF',
@@ -34,7 +35,8 @@ function App() {
     //     setOpenCloseDrawer={setOpenCloseDrawerInfoIntegracaoGestaoPresente}
     //   />
     // </div>
-    <ControleMatriculaSimples />
+    // <ControleMatriculaSimples />
+    <RoutesComponent />
   )
 }
 

@@ -11,9 +11,10 @@ import WhatsappIcon from './icones/WhatsappIcon';
 import CrossCircleIcon from './icones/CrossCircleIcon';
 import DocumentIconList from './icones/DocumentIconList';
 import InfoIcon from './icones/InfoIcon';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import GestaoMatriculasHeader from './GestaoMatriculasHeader';
 import MatriculasSearchAndFilter from './MatriculasSearchAndFilter';
+import LoadingComponent from '../../../components/LoadingComponent';
 
 const students = [
     {
@@ -324,12 +325,25 @@ const students = [
 const ControleMatriculaSimples = () => {
     const [selectHead, setSelectHead] = useState(1);
     const [rowColapse, setRowColapse] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     const handleRowColapse = (id) => {
         if (id === rowColapse) {
             return setRowColapse(0);
         }
         setRowColapse(id);
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000)
+    }, []);
+
+    if (loading) {
+        return (
+            <LoadingComponent />
+        )
     }
     return (
         <div className={styles.container}>

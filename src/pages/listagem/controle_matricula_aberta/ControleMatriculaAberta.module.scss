@@ -35,7 +35,43 @@
                     max-width: 10%;
 
                     &:nth-child(1) {
-                        min-width: 40%;
+                        min-width: 71px;
+                        justify-content: left;
+                        padding-left: 27px;
+                    }
+
+                    &:nth-child(3) {
+                        min-width: 222px;
+                        justify-content: left;
+                        padding-left: 27px;
+                    }
+
+                    &:nth-child(4) {
+                        min-width: 97px;
+                        justify-content: left;
+                        padding-left: 27px;
+                    }
+
+                    &:nth-child(7) {
+                        min-width: 204px;
+                        justify-content: left;
+                        padding-left: 27px;
+                    }
+
+                    &:nth-child(9) {
+                        min-width: 71px;
+                        justify-content: left;
+                        padding-left: 27px;
+                    }
+
+                    &:nth-child(11) {
+                        min-width: 71px;
+                        justify-content: left;
+                        padding-left: 27px;
+                    }
+
+                    &:nth-child(13) {
+                        min-width: 71px;
                         justify-content: left;
                         padding-left: 27px;
                     }
@@ -51,37 +87,6 @@
                         letter-spacing: 0%;
                         text-transform: uppercase;
                         color: #777777;
-                    }
-
-                    .headerActions {
-                        display: flex;
-                        border-radius: 5px;
-                        overflow: hidden;
-                        border: 1px solid #E2E2E2;
-
-                        .viewButton {
-                            height: 26px;
-                            width: 30px;
-                            border: none;
-                            background-color: transparent;
-                            border-radius: 5px;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-
-                            svg {
-                                font-size: 12px;
-                                color: #A4A4A4;
-                            }
-                        }
-
-                        .active {
-                            background-color: #fff;
-
-                            svg {
-                                color: #00397B;
-                            }
-                        }
                     }
                 }
 
@@ -109,42 +114,31 @@
                 .mainRow {
                     display: flex;
 
-                    .student {
-                        width: 100%;
-                        min-width: 40%;
-                        display: flex;
-                        gap: 11px;
-                        align-items: center;
-                        padding: 8px 20px;
-
-                        .avatar {
-                            width: 27px;
-                            height: 27px;
-                            border-radius: 50%;
-                            border: 1.5px solid #FBF9F9;
-                        }
-
-                        span {
-                            font-size: 12px;
-                        }
-
-                        .index {
-                            font-weight: 700;
-                            color: #00397B;
-                        }
-
-                        .studentName {
-                            font-weight: 400;
-                        }
-                    }
-
-
                     .cell {
                         display: flex;
                         justify-content: center;
+                        width: 300px;
                         align-items: center;
-                        width: 100%;
-                        max-width: 10%;
+                        min-width: 71px;
+
+                        .studentAvatarArea {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            gap: 5px;
+                            padding: 8px 20px;
+
+                            svg {
+                                font-size: 11px;
+                            }
+
+                            .avatar {
+                                width: 27px;
+                                height: 27px;
+                                border-radius: 50%;
+                                border: 1.5px solid #FBF9F9;
+                            }
+                        }
 
                         span {
                             font-weight: 400;
@@ -153,64 +147,73 @@
                             letter-spacing: 0%;
                         }
 
+                        &:nth-child(1) {
+                            min-width: 95px;
+
+                            span {
+                                font-weight: 700;
+                                color: #00397B;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            min-width: 222px;
+                            justify-content: flex-start;
+                        }
+
+                        &:nth-child(3) {
+                            min-width: 100px;
+                        }
+
+                        &:nth-child(4) {
+                            min-width: 204px;
+                        }
+
+                        &:nth-child(5) {
+                            min-width: 100px;
+                        }
+
+                        &:nth-child(6) {
+                            min-width: 100px;
+                        }
+
+                        &:nth-child(7) {
+                            min-width: 100px;
+                        }
+
+                        &:nth-child(8) {
+                            padding: 0px;
+                            min-width: 10px;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
                         .matricula {
                             font-weight: 700;
                         }
 
                         .shiftButton {
-                            width: 95px;
-                            height: 21px;
-                            border-radius: 11px;
-                            background: #E8FFE8;
                             display: flex;
                             align-items: center;
-                            gap: 10px;
-                            padding: 2px;
-
-                            .shiftCode {
-                                width: 23px;
-                                height: 17px;
-                                border-radius: 11px;
-                                background: #007E16;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                font-weight: 700;
-                                font-size: 10px;
-                                line-height: 13px;
-                                letter-spacing: 0%;
-                                color: #fff;
-                            }
+                            justify-content: center;
+                            height: 21px;
+                            border-radius: 5px;
+                            background: #D7E8FF;
+                            padding: 0px 20px;
+                            color: #197DFF;
 
                             .shiftDate {
-                                font-weight: 400;
-                                font-size: 10px;
+                                font-weight: 700;
+                                font-style: Bold;
+                                font-size: 12px;
                                 line-height: 13px;
                                 letter-spacing: 0%;
-
                             }
                         }
 
-                        .TR {
-                            background-color: #D7E8FF;
-
-                            .shiftCode {
-                                background-color: #0044FF;
-                            }
-                        }
-
-
-                        .MC {
-                            background-color: #FCD4D4;
-
-                            .shiftCode {
-                                background-color: #FF0000;
-                            }
-                        }
-
-                        .iconSituacao {
-                            color: #FF1616;
-                            display: none;
+                        .em_fila {
+                            background: #FFDFCA;
+                            color: #F58334;
                         }
 
                         .arrowColapse {
@@ -239,6 +242,13 @@
                     .actions {
                         display: flex;
                         gap: 8px;
+                        align-items: center;
+
+                        .dividir {
+                            width: 1px;
+                            height: 12.71px;
+                            background-color: #CCCCCC;
+                        }
 
                         svg {
                             font-size: 15.5px;
@@ -247,6 +257,10 @@
 
                             &:nth-child(1) {
                                 color: #E34141;
+                            }
+
+                            &:nth-child(2) {
+                                color: #089A25;
                             }
                         }
                     }
@@ -275,12 +289,8 @@
                 }
             }
 
-            .alert {
-                background-color: #FFDEDE !important;
-
-                .iconSituacao {
-                    display: flex !important;
-                }
+            .elegivel {
+                background-color: #E8FFE8 !important;
             }
         }
     }

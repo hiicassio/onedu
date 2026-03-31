@@ -4,16 +4,15 @@ import ArrowSmallLeftIcon from './icones/ArrowSmallLeftIcon';
 import BellSchoolIcon from './icones/BellSchoolIcon';
 import GraduationIcon from './icones/GraduationIcon';
 import UserTrustIcon from './icones/UserTrustIcon';
-import UserForbiddenAltIcon from './icones/UserForbiddenAltIcon';
-import ChartUserIcon from './icones/ChartUserIcon';
-import PriorityArrowsIcon from './icones/PriorityArrowsIcon';
+import MemberListIcon from './icones/MemberListIcon';
+import DeleteUserIcon from './icones/DeleteUserIcon';
 import CamadaIcon from './icones/CamadaIcon';
 import HourglassEndIcon from './icones/HourglassEndIcon';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const GestaoMatriculasHeader = () => {
-    const [selected, setSelected] = useState(1);
+    const [selected, setSelected] = useState(2);
     const navigation = useNavigate();
 
     return (
@@ -25,7 +24,7 @@ const GestaoMatriculasHeader = () => {
                 {/* Título */}
                 <div className={styles.gestaoMatriculasHeader_title}>
                     <span className={styles.gestaoMatriculasHeader_titleText}>
-                        Controle de Matrículas
+                        Intenção de Vagas
                     </span>
                     <InfoIcon />
                 </div>
@@ -67,17 +66,12 @@ const GestaoMatriculasHeader = () => {
                     </button>
 
                     <button className={styles.gestaoMatriculasHeader_statIcon}>
-                        <UserForbiddenAltIcon />
+                        <MemberListIcon />
                         <span>32</span>
                     </button>
 
                     <button className={styles.gestaoMatriculasHeader_statIcon}>
-                        <ChartUserIcon />
-                        <span>32</span>
-                    </button>
-
-                    <button className={styles.gestaoMatriculasHeader_statIcon}>
-                        <PriorityArrowsIcon />
+                        <DeleteUserIcon />
                         <span>32</span>
                     </button>
                 </div>
