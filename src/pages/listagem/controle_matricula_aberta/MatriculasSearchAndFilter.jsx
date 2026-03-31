@@ -2,7 +2,8 @@ import styles from "./MatriculasSearchAndFilter.module.scss";
 import CaminhoIcon from './icones/CaminhoIcon';
 import FeatherSearchIcon from './icones/FeatherSearchIcon';
 import CloseIcon from './icones/CloseIcon';
-import UserAddIcon from './icones/UserAddIcon';
+import DropdownSelectIcon from './icones/DropdownSelectIcon';
+import ArrowAngleBottomIcon from "./icones/ArrowAngleBottomIcon";
 
 const MatriculasSearchAndFilter = () => {
     return (
@@ -46,9 +47,14 @@ const MatriculasSearchAndFilter = () => {
 
                 {/* Botão principal */}
                 <button className={styles.matriculasToolbar_primaryButton}>
-                    <UserAddIcon />
-                    <div className={styles.matriculasToolbar_divider}></div>
-                    <span>Nova Matrícula</span>
+                    <div className={styles.matriculasToolbar_primaryButtonAreaIcon}>
+                        <DropdownSelectIcon />
+                    </div>
+                    <div className={styles.matriculasToolbar_primaryButtonText}>
+                        <span>Situação</span>
+                        <span>Todas</span>
+                    </div>
+                    <ArrowAngleBottomIcon />
                 </button>
             </div>
         </div>
