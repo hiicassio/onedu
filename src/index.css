@@ -21,9 +21,9 @@
 body {
   margin: 0;
   padding: 20px;
-  /* font-family: 'AlteHaasGroteskRegular', sans-serif;
+  font-family: 'AlteHaasGroteskRegular', sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+  -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/fundo.png);
   background-attachment: fixed;
   background-position: center;
@@ -33,7 +33,7 @@ body {
 }
 
 code {
-  /* font-family: 'AlteHaasGroteskRegular', sans-serif; */
+  font-family: 'AlteHaasGroteskRegular', sans-serif;
 }
 
 button {
@@ -46,9 +46,11 @@ button:hover {
   opacity: .8;
 }
 
+*,
 input,
 select,
 textarea,
+span,
 button {
   font: inherit;
   color: inherit;

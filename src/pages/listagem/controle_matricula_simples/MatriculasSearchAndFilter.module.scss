@@ -1,0 +1,151 @@
+.matriculasToolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .matriculasToolbar_sideButton {
+        width: 45px;
+        height: 39px;
+        border-radius: 9px;
+        background: #E9E9E9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            font-size: 20.2px;
+        }
+
+    }
+
+    .matriculasToolbar_search {
+        background-color: #fff;
+        min-width: 406px;
+        height: 39px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        padding: 0px 4px;
+        gap: 10px;
+
+        .matriculasToolbar_searchIcon {
+            width: 29px;
+            height: 29px;
+            border-radius: 5px;
+            background: #F3F4F1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                color: #00397B;
+                font-size: 11.3px;
+            }
+        }
+
+        .matriculasToolbar_searchInput {
+            flex-grow: 1;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 13px;
+            letter-spacing: 0%;
+
+        }
+    }
+
+    .matriculasToolbar_actions {
+        display: flex;
+        gap: 10px;
+        flex-grow: 1;
+
+        .matriculasToolbar_filter {
+            background-color: #fff;
+            display: flex;
+            width: 323px;
+            height: 39px;
+            border-radius: 7px;
+            padding: 0px 4px;
+            align-items: center;
+            gap: 3px;
+            overflow: hidden;
+
+            .matriculasToolbar_filter_searchIcon {
+                min-width: 27px;
+                height: 29px;
+                border-radius: 5px;
+                background: #F3F4F1;
+
+                svg {
+                    color: #00397B;
+                    font-size: 11.3px;
+                }
+            }
+
+            .matriculasToolbar_filter_body {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                overflow: auto;
+
+                .matriculasToolbar_filterItem {
+                    height: 29px;
+                    border-radius: 5px;
+                    background: #F3F4F1;
+                    padding: 0px 11px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    min-width: fit-content;
+                    white-space: nowrap;
+
+                    .matriculasToolbar_filterText {
+                        font-weight: 400;
+                        font-size: 10px;
+                        line-height: 32px;
+                        letter-spacing: 0%;
+                        color: #00397B;
+                    }
+
+                    svg {
+                        color: #FB0404;
+                        font-size: 7px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .matriculasToolbar_primaryButton {
+            flex-grow: 1;
+            background-color: #fff;
+            height: 39px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            padding: 0px 11px;
+            gap: 10px;
+
+            svg {
+                font-size: 15px;
+            }
+
+            .matriculasToolbar_divider {
+                height: 16px;
+                width: 1px;
+                background-color: #E9E9E9;
+            }
+
+            span {
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 12px;
+                line-height: 13px;
+                letter-spacing: 0%;
+            }
+        }
+    }
+}

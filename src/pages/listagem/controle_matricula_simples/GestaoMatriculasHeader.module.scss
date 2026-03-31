@@ -1,0 +1,287 @@
+.gestaoMatriculasHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .gestaoMatriculasHeader_top {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .gestaoMatriculasHeader_title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .gestaoMatriculasHeader_titleText {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 13px;
+                letter-spacing: 0%;
+            }
+
+            svg {
+                color: #707070;
+                font-size: 11.52px;
+            }
+        }
+
+        .gestaoMatriculasHeader_actions {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .gestaoMatriculasHeader_iconButton {
+                width: 30px;
+                height: 30px;
+                border-radius: 5px;
+                background: #197DFF;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    font-size: 16px;
+                    color: #fff;
+                }
+
+                &:nth-child(2) {
+                    background: #fff;
+
+                    svg {
+                        color: #00397B;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .gestaoMatriculasHeader_mainButton {
+                display: flex;
+                align-items: center;
+                background-color: #fff;
+                width: 142px;
+                height: 30px;
+                border-radius: 5px;
+                padding: 8px;
+                gap: 8px;
+
+                svg {
+                    font-size: 12px;
+                    color: #00397B;
+                }
+
+                .gestaoMatriculasHeader_divider {
+                    width: 1px;
+                    height: 16px;
+                    background-color: #B4B4B4;
+                }
+
+                span {
+                    font-weight: 400;
+                    font-size: 10px;
+                    line-height: 12px;
+                    letter-spacing: 0%;
+                }
+            }
+        }
+    }
+
+    .gestaoMatriculasHeader_content {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+
+        .gestaoMatriculasHeader_statsGroup {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            height: 59px;
+            border-radius: 7px;
+            padding: 0px 5px;
+            gap: 9px;
+
+            .gestaoMatriculasHeader_statCard {
+                background-color: #00397B;
+                color: #fff;
+                width: 49px;
+                height: 49px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2px;
+
+                span {
+                    font-weight: 400;
+                    font-size: 7px;
+                    line-height: 7px;
+                    letter-spacing: -0.2%;
+                    text-align: center;
+
+                    &:nth-child(2) {
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 100%;
+                        letter-spacing: -0.2%;
+                    }
+                }
+            }
+
+            .gestaoMatriculasHeader_divider {
+                height: 59px;
+                width: 1px;
+                background-color: #EBEBEB;
+            }
+
+            .gestaoMatriculasHeader_statIcon {
+                width: 49px;
+                height: 49px;
+                border-radius: 5px;
+                background: #C3FFCF;
+                color: #089A25;
+                position: relative;
+
+                svg {
+                    font-size: 12px;
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
+                }
+
+                span {
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 100%;
+                    letter-spacing: -0.2%;
+                    position: absolute;
+                    right: 14.5px;
+                    bottom: 8px;
+                }
+
+                &:nth-child(4) {
+                    background: #FFE0E0;
+                    color: #FF0000;
+                }
+
+                &:nth-child(5) {
+                    background: #FFDAC0;
+                    color: #F58334;
+                }
+
+                &:nth-child(6) {
+                    background: #CEE3FF;
+                    color: #197DFF;
+                }
+            }
+        }
+
+        .gestaoMatriculasHeader_statsGroupSecondary {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            height: 59px;
+            border-radius: 7px;
+            padding: 0px 5px;
+            gap: 9px;
+
+            .gestaoMatriculasHeader_statCard {
+                width: 49px;
+                height: 49px;
+                border-radius: 5px;
+                background: #F3F4F1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2px;
+                flex-direction: column;
+
+                span {
+                    font-weight: 400;
+                    font-size: 7px;
+                    line-height: 7px;
+                    letter-spacing: -0.2%;
+                    text-align: center;
+                    color: #929291;
+
+                    &:nth-child(2) {
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 100%;
+                        letter-spacing: -0.2%;
+
+                    }
+                }
+
+                &:nth-child(2) {
+                    background: #E2E2E2;
+                    overflow: hidden;
+                    padding-top: 10px;
+                    color: #fff;
+
+                    .gestaoMatriculasHeader_statCardProgress {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 2px;
+                        background-color: #F58434;
+                        height: 100%;
+                        width: 100%;
+
+                        span {
+                            font-weight: 400;
+                            font-size: 7px;
+                            line-height: 7px;
+                            letter-spacing: -0.2%;
+                            text-align: center;
+                            color: #fff;
+                            // max-width: 40px;
+
+                            &:nth-child(2) {
+                                font-weight: 700;
+                                font-size: 12px;
+                                line-height: 100%;
+                                letter-spacing: -0.2%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .gestaoMatriculasHeader_tools {
+            height: 59px;
+            border-radius: 7px;
+            padding: 0px 5px;
+            display: flex;
+            background: #E2E2E2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .gestaoMatriculasHeader_iconButton {
+                width: 54px;
+                height: 51px;
+                border-radius: 7px;
+                background: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    color: #A9A9A9;
+                    font-size: 27.43px;
+                }
+            }
+
+            .gestaoMatriculasHeader_iconButtonSelected {
+                background: #fff;
+
+                svg {
+                    color: #00397B;
+                }
+            }
+        }
+    }
+}
