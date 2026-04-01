@@ -3,6 +3,7 @@ import RotasPublicas from "./RotasPublicas.jsx";
 import RotasPrivadas from "./RotasPrivadas.jsx";
 import ControleMatriculaSimples from "../pages/listagem/controle_matricula_simples/ControleMatriculaSimples.jsx";
 import ControleMatriculaAberta from "../pages/listagem/controle_matricula_aberta/ControleMatriculaAberta.jsx";
+import Teste from "../pages/listagem/teste/Teste.jsx";
 
 const router = createHashRouter([
     {
@@ -11,7 +12,11 @@ const router = createHashRouter([
         children: [
             {
                 path: "",
-                element: <ControleMatriculaSimples />
+                element: <Teste />
+            },
+            {
+                path: "teste",
+                element: <Teste />
             },
             {
                 path: "controle-matricula",
