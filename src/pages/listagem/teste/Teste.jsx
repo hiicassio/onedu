@@ -7,11 +7,15 @@ import CircleAIcon from './icones/CircleAIcon';
 import Circle1Icon from './icones/Circle1Icon';
 import { useState } from 'react';
 import alunos from './alunos.json';
+import Filtro from './Filtro';
+import Header from './Header';
 
 const Teste = () => {
     const [selectHead, setSelectHead] = useState(1);
     return (
         <div className={styles.testeContainer}>
+            <Header />
+            <Filtro />
             <div className={styles.tableArea}>
                 <div className={styles.table}>
                     <div className={styles.header}>

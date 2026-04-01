@@ -2,6 +2,9 @@
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     .tableArea {
         overflow: auto;
@@ -179,6 +182,7 @@
                         span {
                             display: block;
                             height: 100%;
+                            border-radius: 10px;
                             background: #3b82f6;
                         }
                     }
