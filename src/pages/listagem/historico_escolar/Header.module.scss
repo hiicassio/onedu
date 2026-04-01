@@ -1,6 +1,7 @@
 .containerHeader {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     max-width: 942px;
     align-items: center;
     gap: 40px;
@@ -23,6 +24,7 @@
             .infoIcon {
                 font-size: 11.52px;
                 color: #707070;
+                cursor: pointer;
             }
         }
 

@@ -340,11 +340,11 @@ const ControleMatriculaSimples = () => {
         }, 3000)
     }, []);
 
-    if (loading) {
-        return (
-            <LoadingComponent />
-        )
-    }
+    // if (loading) {
+    //     return (
+    //         <LoadingComponent />
+    //     )
+    // }
     return (
         <div className={styles.container}>
             <GestaoMatriculasHeader />

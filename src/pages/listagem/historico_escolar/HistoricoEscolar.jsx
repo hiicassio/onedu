@@ -1,6 +1,6 @@
 import ArrowAngleBottomIcon from './icones/ArrowAngleBottomIcon';
 import LoadingIcon from './icones/LoadingIcon';
-import styles from './Teste.module.scss';
+import styles from './HistoricoEscolar.module.scss';
 import user from './icones/user.png';
 import user2 from './icones/user2.png';
 import CircleAIcon from './icones/CircleAIcon';
@@ -10,10 +10,10 @@ import alunos from './alunos.json';
 import Filtro from './Filtro';
 import Header from './Header';
 
-const Teste = () => {
+const HistoricoEscolar = () => {
     const [selectHead, setSelectHead] = useState(1);
     return (
-        <div className={styles.testeContainer}>
+        <div className={styles.historicoEscolarContainer}>
             <Header />
             <Filtro />
             <div className={styles.tableArea}>
@@ -72,7 +72,7 @@ const Teste = () => {
                                     {aluno.loading && <LoadingIcon className={styles.loadingIcon} />}
                                 </div>
 
-                                <div className={`${styles.iconCell} ${styles.td}`}>
+                                <div className={styles.td}>
                                     <ArrowAngleBottomIcon className={styles.arrowIcon} />
                                 </div>
                             </div>
@@ -84,4 +84,4 @@ const Teste = () => {
     );
 };
 
-export default Teste;
+export default HistoricoEscolar;

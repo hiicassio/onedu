@@ -316,9 +316,9 @@ const ControleMatriculaAberta = () => {
         return () => clearTimeout(timer);
     }, []);
 
-    if (loading) {
-        return <LoadingComponent />
-    }
+    // if (loading) {
+    //     return <LoadingComponent />
+    // }
 
     return (
         <div className={styles.container}>
