@@ -112,6 +112,17 @@
                         .loadingIcon {
                             color: #089A25;
                             font-size: 13px;
+
+                            animation-name: loadingIcon;
+                            animation-duration: 3s;
+                            animation-iteration-count: infinite;
+                            animation-timing-function: linear;
+                        }
+
+                        @keyframes loadingIcon {
+                            100% {
+                                transform: rotate(360deg);
+                            }
                         }
 
                         .arrowIcon {
