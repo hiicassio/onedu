@@ -45,8 +45,11 @@ const HistoricoEscolarLancamentos = () => {
                             </label>
 
                             <label className={styles.field}>
-                                <button className={styles.iconButton}>
-                                    <EducacaoEspecialIcon />
+                                <button
+                                    style={{ background: '#197DFF' }}
+                                    className={styles.iconButton}
+                                >
+                                    <EducacaoEspecialIcon style={{ fontSize: 20, color: '#fff' }} />
                                 </button>
 
                                 <div className={styles.inputGroup}>
@@ -148,7 +151,7 @@ const HistoricoEscolarLancamentos = () => {
                                     <input className={styles.input} type="tel" defaultValue="(11) 99563-5210" />
                                 </div>
                                 <button className={styles.iconButton}>
-                                    <WhatsappIcon />
+                                    <WhatsappIcon style={{ fontSize: 15, color: '#00397B' }} />
                                 </button>
                             </label>
                         </div>
