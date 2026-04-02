@@ -7,8 +7,8 @@ import user from './icones/user.png';
 import user2 from './icones/user2.png';
 import students from './students.json';
 import CrossCircleIcon from './icones/CrossCircleIcon';
-import CheckIcon from './icones/CheckIcon';
-import TimePastIcon from './icones/TimePastIcon';
+import CircleAIcon from './icones/CircleAIcon';
+import Circle1Icon from './icones/Circle1Icon';
 import InfoIcon from './icones/InfoIcon';
 import WhatsappIcon from './icones/WhatsappIcon';
 import Header from './Header';
@@ -17,6 +17,7 @@ import PriorityArrowsIcon from './icones/PriorityArrowsIcon';
 
 const ControleMatricula = () => {
     const [rowColapse, setRowColapse] = useState(0);
+    const [selectHead, setSelectHead] = useState(1);
 
     const handleRowColapse = (id) => {
         setRowColapse(prev => prev === id ? 0 : id);
@@ -35,7 +36,25 @@ const ControleMatricula = () => {
                         <div className={styles.th}>TURNO</div>
                         <div className={styles.th}>STATUS</div>
                         <div className={styles.th}>SITUAÇÕES</div>
-                        <div className={styles.th}></div>
+                        <div className={styles.th}>
+                            <div className={styles.headerActions}>
+                                <button
+                                    onClick={() => setSelectHead(1)}
+                                    className={`${styles.viewButton} ${selectHead === 1 ? styles.active : ''
+                                        }`}
+                                >
+                                    <CircleAIcon />
+                                </button>
+
+                                <button
+                                    onClick={() => setSelectHead(2)}
+                                    className={`${styles.viewButton} ${selectHead === 2 ? styles.active : ''
+                                        }`}
+                                >
+                                    <Circle1Icon />
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div className={styles.body}>

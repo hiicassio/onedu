@@ -42,6 +42,42 @@
                     &:nth-child(7),
                     &:last-child {
                         border-right: none;
+                        padding: 0px;
+                        justify-content: flex-end !important;
+                    }
+
+                    .headerActions {
+                        width: 56px;
+                        height: 25px;
+                        border: 1px solid #DBDBDB;
+                        background-color: #E2E2E2;
+                        border-radius: 5px;
+                        display: flex;
+                        overflow: hidden;
+
+                        .viewButton {
+                            flex-grow: 1;
+                            flex-basis: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: transparent;
+                            border-radius: 5px;
+
+                            svg {
+                                font-size: 12px;
+                                color: #A4A4A4;
+                            }
+                        }
+
+                        .active {
+                            background: #FFFFFF;
+
+                            svg {
+                                color: #00397B;
+                            }
+                        }
+
                     }
                 }
             }

@@ -26,9 +26,6 @@ const Navegar = () => {
             <button style={styles} onClick={() => navigation("/historico-escolar")}>Lista Histórico Escolar</button>
             <br />
             <br />
-            <button style={styles} onClick={() => navigation("/controle-matricula/simples")}>Lista Controle de Matriculas</button>
-            <br />
-            <br />
             <button style={styles} onClick={() => setOpenCloseDrawer(true)}>Open Drawer AnaliseCandidato</button>
             <br />
             <br />
