@@ -20,7 +20,7 @@
 
 body {
   margin: 0;
-  padding: 20px;
+  /* padding: 20px; */
   font-family: 'AlteHaasGroteskRegular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

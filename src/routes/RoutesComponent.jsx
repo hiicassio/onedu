@@ -4,7 +4,9 @@ import RotasPrivadas from "./RotasPrivadas.jsx";
 import HistoricoEscolar from "../pages/listagem/historico_escolar/HistoricoEscolar.jsx";
 import IntencaoVaga from "../pages/listagem/intencao_vaga/IntencaoVaga.jsx";
 import ControleMatricula from "../pages/listagem/controle_matricula/ControleMatricula.jsx";
+import Home from "../pages/home/Home.jsx";
 import Navegar from "./Navegar.jsx";
+import HistoricoEscolarLancamentos from "../pages/historico_escolar_lancamentos/HistoricoEscolarLancamentos.jsx";
 
 const router = createHashRouter([
     {
@@ -26,6 +28,14 @@ const router = createHashRouter([
             {
                 path: "historico-escolar",
                 element: <HistoricoEscolar />
+            },
+            {
+                path: "home",
+                element: <Home />
+            },
+            {
+                path: "historico-escolar-lancamentos",
+                element: <HistoricoEscolarLancamentos />
             },
             {
                 path: "controle-matricula",

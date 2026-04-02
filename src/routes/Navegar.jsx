@@ -20,10 +20,16 @@ const Navegar = () => {
         <div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cum enim maxime velit nam perspiciatis ratione, consectetur obcaecati cupiditate voluptatum nesciunt beatae, voluptate pariatur provident, repudiandae cumque ab ipsa dolor?</p>
             <br />
-            <button style={styles} onClick={() => navigation("/intencao-vaga")}>Lista Intenção de Vagas</button>
+            <button style={styles} onClick={() => navigation("/home")}>boas-vindas</button>
             <br />
             <br />
-            <button style={styles} onClick={() => navigation("/historico-escolar")}>Lista Histórico Escolar</button>
+            <button style={styles} onClick={() => navigation("/historico-escolar-lancamentos")}>historico-escolar-lancamentos</button>
+            <br />
+            <br />
+            <button style={styles} onClick={() => navigation("/controle-matricula")}>controle-matricula</button>
+            <br />
+            <br />
+            <button style={styles} onClick={() => navigation("/historico-escolar")}>historico-escolar</button>
             <br />
             <br />
             <button style={styles} onClick={() => setOpenCloseDrawer(true)}>Open Drawer AnaliseCandidato</button>
