@@ -11,6 +11,7 @@ import CheckIcon from '../listagem/controle_matricula_aberta/icones/CheckIcon';
 import TimePastIcon from '../listagem/controle_matricula_aberta/icones/TimePastIcon';
 import InfoIcon from '../listagem/controle_matricula_aberta/icones/InfoIcon';
 import WhatsappIcon from '../listagem/controle_matricula_aberta/icones/WhatsappIcon';
+import Header from './Header';
 
 const Teste = () => {
     const [rowColapse, setRowColapse] = useState(0);
@@ -21,6 +22,7 @@ const Teste = () => {
 
     return (
         <div className={styles.containerTeste}>
+            <Header />
             <div className={styles.tableArea}>
                 <div className={styles.table}>
                     <div className={styles.header}>
