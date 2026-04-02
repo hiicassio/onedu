@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import ArrowDownIcon from '../listagem/controle_matricula_aberta/icones/ArrowDownIcon';
-import ArrowUpIcon from '../listagem/controle_matricula_aberta/icones/ArrowUpIcon';
-import ArrowAngleBottomIcon from '../listagem/historico_escolar/icones/ArrowAngleBottomIcon';
+import ArrowDownIcon from './icones/ArrowDownIcon';
+import ArrowUpIcon from './icones/ArrowUpIcon';
+import ArrowAngleBottomIcon from './icones/ArrowAngleBottomIcon';
 import styles from './Teste.module.scss';
 import user from './icones/user.png';
 import user2 from './icones/user2.png';
@@ -12,6 +12,7 @@ import TimePastIcon from '../listagem/controle_matricula_aberta/icones/TimePastI
 import InfoIcon from '../listagem/controle_matricula_aberta/icones/InfoIcon';
 import WhatsappIcon from '../listagem/controle_matricula_aberta/icones/WhatsappIcon';
 import Header from './Header';
+import Filtro from './Filtro';
 
 const Teste = () => {
     const [rowColapse, setRowColapse] = useState(0);
@@ -23,6 +24,7 @@ const Teste = () => {
     return (
         <div className={styles.containerTeste}>
             <Header />
+            <Filtro />
             <div className={styles.tableArea}>
                 <div className={styles.table}>
                     <div className={styles.header}>
