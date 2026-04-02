@@ -2,19 +2,19 @@ import { useState } from 'react';
 import ArrowDownIcon from './icones/ArrowDownIcon';
 import ArrowUpIcon from './icones/ArrowUpIcon';
 import ArrowAngleBottomIcon from './icones/ArrowAngleBottomIcon';
-import styles from './Teste.module.scss';
+import styles from './IntencaoVaga.module.scss';
 import user from './icones/user.png';
 import user2 from './icones/user2.png';
 import students from './students.json';
-import CrossCircleIcon from '../listagem/controle_matricula_aberta/icones/CrossCircleIcon';
-import CheckIcon from '../listagem/controle_matricula_aberta/icones/CheckIcon';
-import TimePastIcon from '../listagem/controle_matricula_aberta/icones/TimePastIcon';
-import InfoIcon from '../listagem/controle_matricula_aberta/icones/InfoIcon';
-import WhatsappIcon from '../listagem/controle_matricula_aberta/icones/WhatsappIcon';
+import CrossCircleIcon from './icones/CrossCircleIcon';
+import CheckIcon from './icones/CheckIcon';
+import TimePastIcon from './icones/TimePastIcon';
+import InfoIcon from './icones/InfoIcon';
+import WhatsappIcon from './icones/WhatsappIcon';
 import Header from './Header';
 import Filtro from './Filtro';
 
-const Teste = () => {
+const IntencaoVaga = () => {
     const [rowColapse, setRowColapse] = useState(0);
 
     const handleRowColapse = (id) => {
@@ -22,7 +22,7 @@ const Teste = () => {
     }
 
     return (
-        <div className={styles.containerTeste}>
+        <div className={styles.containerIntencaoVaga}>
             <Header />
             <Filtro />
             <div className={styles.tableArea}>
@@ -103,4 +103,4 @@ const Teste = () => {
     )
 }
 
-export default Teste;
+export default IntencaoVaga;

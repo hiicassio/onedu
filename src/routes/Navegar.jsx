@@ -20,7 +20,7 @@ const Navegar = () => {
         <div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cum enim maxime velit nam perspiciatis ratione, consectetur obcaecati cupiditate voluptatum nesciunt beatae, voluptate pariatur provident, repudiandae cumque ab ipsa dolor?</p>
             <br />
-            <button style={styles} onClick={() => navigation("/teste")}>Lista Intenção de Vagas</button>
+            <button style={styles} onClick={() => navigation("/intencao-vaga")}>Lista Intenção de Vagas</button>
             <br />
             <br />
             <button style={styles} onClick={() => navigation("/historico-escolar")}>Lista Histórico Escolar</button>
@@ -33,7 +33,7 @@ const Navegar = () => {
             <br />
             <br />
             <button style={styles} onClick={() => setOpenCloseDrawerInfoIntegracaoGestaoPresente(true)}>Open Drawer InfoIntegracaoGestaoPresente</button>
-            
+
             <AnaliseCandidato
                 openCloseDrawer={openCloseDrawer}
                 setOpenCloseDrawer={setOpenCloseDrawer}

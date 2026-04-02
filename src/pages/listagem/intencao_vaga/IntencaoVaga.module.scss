@@ -1,4 +1,4 @@
-.containerTeste {
+.containerIntencaoVaga {
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
@@ -34,6 +34,8 @@
 
                     &:first-child {
                         justify-content: flex-start;
+                        padding: 0px;
+
                     }
 
                     &:nth-child(3) {

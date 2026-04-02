@@ -1,0 +1,211 @@
+.containerControleMatricula {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    .tableArea {
+        overflow: auto;
+
+        .table {
+            width: 942px;
+            min-width: 942px;
+
+            .header {
+                display: grid;
+                grid-template-columns: 4fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr;
+                background: #E9E9E9;
+                border-radius: 9px;
+                padding: 0px 20px;
+                align-items: center;
+                height: 46px;
+
+                .th {
+                    padding: 0px 10px;
+                    font-weight: 400;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #777777;
+                    border-right: 1px solid #CCCCCC;
+
+                    &:first-child {
+                        justify-content: flex-start;
+                        padding: 0px;
+
+                    }
+
+                    &:nth-child(7),
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+            }
+
+            .body {
+                margin-top: 10px;
+                background: white;
+                border: 1px solid #E8E8E8;
+                border-radius: 9px;
+                padding: 12px 8px;
+
+                .areaRow {
+                    padding: 0px 23px;
+                    background: #F5F8FB;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    .row {
+                        display: grid;
+                        grid-template-columns: 4fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr;
+                        transition: 0.2s;
+                        align-items: center;
+                        min-height: 44px;
+
+                        .td {
+                            font-weight: 400;
+                            font-size: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+
+                            .info {
+                                color: #FF1616;
+                                font-size: 16px;
+                            }
+
+                            &:first-child {
+                                justify-content: flex-start;
+
+                                span {
+                                    &:nth-child(2) {
+                                        font-weight: 700;
+                                        color: #00397B;
+                                    }
+                                }
+                            }
+
+                            &:nth-child(4) {
+                                padding: 0px 10px;
+                            }
+
+                            &:nth-child(3) {
+                                justify-content: center;
+                            }
+
+                            &:nth-child(2),
+                            &:nth-child(7) {
+                                justify-content: center;
+                                font-weight: 700;
+                            }
+
+                            &:last-child {
+                                justify-content: flex-end;
+                            }
+
+                            .userIcon {
+                                width: 25px;
+                                height: 25px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+
+                            button {
+                                height: 21px;
+                                border-radius: 11px;
+                                padding: 2px 9px 2px 2px;
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+
+                                .status {
+                                    width: 22px;
+                                    height: 17px;
+                                    border-radius: 11px;
+                                    font-weight: 700;
+                                    font-size: 10px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding: 0px;
+                                    color: #fff;
+                                }
+
+                                .data {
+                                    padding: 0px;
+                                    font-weight: 400;
+                                    font-size: 10px;
+                                    background-color: transparent;
+                                }
+                            }
+
+                            .arrowIcon {
+                                transition: 0.2s;
+                                font-size: 20px;
+                                color: #00397B;
+
+                                &:hover {
+                                    color: #3b82f6;
+                                }
+                            }
+                        }
+                    }
+
+                    &:nth-child(even) {
+                        background: transparent;
+                    }
+
+                    &:hover {
+                        opacity: .7;
+                    }
+
+
+                    .dropdown {
+                        padding: 11px 0px;
+                        border-top: 1px solid #ECEDEF;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        gap: 8px;
+
+                        svg {
+                            font-size: 15.5px;
+                            color: #00397B;
+                            cursor: pointer;
+
+                            &:nth-child(1) {
+                                color: #E34141;
+                            }
+                        }
+                    }
+                }
+
+                .areaRowSelected {
+                    border: 0.5px solid #197DFF;
+
+                    .row {
+                        .td {
+                            .arrowIcon {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                .areaRowAtencao {
+                    background-color: #FFDEDE;
+                    border-color: #FF1616;
+
+                    .dropdown {
+                        border-color: #FF1616;
+                    }
+                }
+            }
+        }
+    }
+}

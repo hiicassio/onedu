@@ -4,14 +4,15 @@ import GraduationCapIcon from './icones/GraduationCapIcon';
 import ArrowSmallLeftIcon from './icones/ArrowSmallLeftIcon';
 import BellSchoolIcon from './icones/BellSchoolIcon';
 import UserTrustIcon from './icones/UserTrustIcon';
-import MemberListIcon from './icones/MemberListIcon';
+import UserForbiddenAltIcon from './icones/UserForbiddenAltIcon';
 import ChartUserIcon from './icones/ChartUserIcon';
 import PriorityArrowsIcon from './icones/PriorityArrowsIcon';
 import HourglassEndIcon from './icones/HourglassEndIcon';
-import DeleteUserIcon from './icones/DeleteUserIcon';
 import CamadaIcon from './icones/CamadaIcon';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigation = useNavigate();
     return (
         <div className={styles.containerHeader}>
 
@@ -19,7 +20,7 @@ const Header = () => {
 
                 <div className={styles.titleArea}>
                     <span className={styles.title}>
-                        Intenção de Vagas
+                        Controle de Matrículas
                     </span>
                     <InfoIcon className={styles.infoIcon} />
                 </div>
@@ -64,12 +65,17 @@ const Header = () => {
                         </button>
 
                         <button className={styles.indicatorButton}>
-                            <MemberListIcon />
+                            <UserForbiddenAltIcon />
                             <span>32</span>
                         </button>
 
                         <button className={styles.indicatorButton}>
-                            <DeleteUserIcon />
+                            <ChartUserIcon />
+                            <span>32</span>
+                        </button>
+
+                        <button className={styles.indicatorButton}>
+                            <PriorityArrowsIcon />
                             <span>32</span>
                         </button>
                     </div>
@@ -108,7 +114,7 @@ const Header = () => {
                         <CamadaIcon />
                     </button>
 
-                    <button className={styles.iconButton}>
+                    <button className={styles.iconButton} onClick={() => navigation('/intencao-vaga')}>
                         <HourglassEndIcon />
                     </button>
                 </div>
