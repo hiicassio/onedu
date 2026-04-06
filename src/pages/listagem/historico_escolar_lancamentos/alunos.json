@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "ano": "2020",
+        "unidade_escolar": "E.M Geraldo Resende Filho",
+        "etapa": "Ensino Fundamental - Anos Iniciais",
+        "nivel": "1º ANO",
+        "situacao": 1,
+        "progresso": 100,
+        "carga_horaria_anual": 840,
+        "loading": true
+    },
+    {
+        "id": 2,
+        "ano": "2021",
+        "unidade_escolar": "E.M Geraldo Resende Filho",
+        "etapa": "Ensino Fundamental - Anos Iniciais",
+        "nivel": "2º ANO",
+        "situacao": 1,
+        "progresso": 100,
+        "carga_horaria_anual": 840,
+        "loading": false
+    },
+    {
+        "id": 3,
+        "ano": "2022",
+        "unidade_escolar": "E.M Geraldo Resende Filho",
+        "etapa": "Ensino Fundamental - Anos Iniciais",
+        "nivel": "3º ANO",
+        "situacao": 1,
+        "progresso": 20,
+        "carga_horaria_anual": 840,
+        "loading": false
+    },
+    {
+        "id": 4,
+        "ano": "2023",
+        "unidade_escolar": "E.M Marcos Antunes Kilbe",
+        "etapa": "Ensino Fundamental - Anos Iniciais",
+        "nivel": "4º ANO",
+        "situacao": 1,
+        "progresso": 30,
+        "carga_horaria_anual": 840,
+        "loading": true
+    },
+    {
+        "id": 5,
+        "ano": "2024",
+        "unidade_escolar": "E.M Marcos Antunes Kilbe",
+        "etapa": "Ensino Fundamental - Anos Iniciais",
+        "nivel": "5º ANO",
+        "situacao": 1,
+        "progresso": 70,
+        "carga_horaria_anual": 840,
+        "loading": false
+    },
+    {
+        "id": 6,
+        "ano": "2025",
+        "unidade_escolar": "E.M Marcos Antunes Kilbe",
+        "etapa": "Ensino Fundamental - Anos Finais",
+        "nivel": "6º ANO",
+        "situacao": 1,
+        "progresso": 10,
+        "carga_horaria_anual": 840,
+        "loading": false
+    },
+    {
+        "id": 7,
+        "ano": "2026",
+        "unidade_escolar": "E.M Rio Branco",
+        "etapa": "Ensino Fundamental - Anos Finais",
+        "nivel": "7º ANO",
+        "situacao": 0,
+        "progresso": 70,
+        "carga_horaria_anual": 840,
+        "loading": true
+    }
+]

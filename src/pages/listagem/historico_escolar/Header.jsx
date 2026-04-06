@@ -8,8 +8,10 @@ import UserForbiddenAltIcon from './icones/UserForbiddenAltIcon';
 import ChartUserIcon from './icones/ChartUserIcon';
 import PriorityArrowsIcon from './icones/PriorityArrowsIcon';
 import HardDiskScanIcon from './icones/HardDiskScanIcon';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigation = useNavigate();
     return (
         <div className={styles.containerHeader}>
 
@@ -24,7 +26,7 @@ const Header = () => {
 
                 <div className={styles.actions}>
 
-                    <button className={styles.iconButton}>
+                    <button className={styles.iconButton} onClick={() => navigation(-1)}>
                         <ArrowSmallLeftIcon />
                     </button>
 

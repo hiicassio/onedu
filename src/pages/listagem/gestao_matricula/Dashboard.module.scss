@@ -1,0 +1,245 @@
+.dashboard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .areaMenu {
+        width: 100%;
+        display: flex;
+        gap: 11px;
+        flex-wrap: wrap;
+
+        .menu {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+
+            .menuItem {
+                width: 152px;
+                height: 138px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                gap: 16px;
+                background-color: #fff;
+                border: solid 1px transparent;
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    box-shadow: 0px 4px 4px 0px #0000002B;
+                    border-color: #00397B;
+                }
+
+                svg {
+                    font-size: 42px;
+                    color: #00397B;
+                }
+
+                &:first-child {
+                    svg {
+                        font-size: 48px;
+                    }
+                }
+
+                &:nth-child(2) {
+                    svg {
+                        font-size: 37px;
+                    }
+                }
+
+                .menuText {
+                    font-weight: 400;
+                    font-size: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+
+                    strong {
+                        font-weight: 700;
+                    }
+                }
+
+                .menuAction {
+                    width: 21px;
+                    height: 21px;
+                    border-radius: 50%;
+                    background-color: #E0EBFA;
+                    color: #00397B;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    right: 8px;
+                    bottom: 8px;
+
+                    svg {
+                        font-size: 13px;
+                    }
+                }
+
+                .menuBadge {
+                    width: 21px;
+                    height: 21px;
+                    border-radius: 50%;
+                    background-color: #E0EBFA;
+                    color: #00397B;
+                    font-weight: 700;
+                    font-size: 12px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    right: 8px;
+                    bottom: 8px;
+                    color: #000;
+                }
+            }
+
+            .menuItemSelected {
+                box-shadow: 0px 4px 4px 0px #0000002B;
+                border-color: #00397B;
+            }
+
+        }
+
+        .statsCard {
+            flex-grow: 1;
+            height: 138px;
+            border-radius: 10px;
+            border: 1px dashed #197DFF;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            max-width: 294px;
+            min-width: 250px;
+
+            .statsHeader {
+                border-bottom: 1px solid #D5D5D5;
+                height: 35px;
+                display: flex;
+                align-items: center;
+                padding: 0px 39px;
+
+                span {
+                    font-weight: 400;
+                    font-size: 10px;
+                }
+            }
+
+            .statsContent {
+                display: flex;
+                flex-grow: 1;
+                gap: 30px;
+                justify-content: center;
+                align-items: center;
+
+                .statItem {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    span {
+                        font-weight: 400;
+                        font-size: 6px;
+
+                        &:first-child {
+                            max-width: 40px;
+                            text-align: left;
+                        }
+
+                        &:nth-child(2) {
+                            font-weight: 700;
+                            font-size: 30px;
+                            color: #197DFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .extraSection {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .extraTitle {
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        .extraDivider {
+            border-bottom: 1px solid #E1E1E1;
+        }
+
+        .extraGrid {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .extraCard {
+                flex-grow: 1;
+                background-color: #fff;
+                min-width: 225px;
+                height: 94px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                padding: 0px 25px;
+                gap: 10px;
+                border: solid 1px transparent;
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    box-shadow: 0px 4px 4px 0px #0000002B;
+                    border-color: #00397B;
+                }
+
+                .extraIcon {
+                    border: 1px solid #E9E9E9;
+                    height: 53px;
+                    min-width: 53px;
+                    border-radius: 50%;
+                    background-color: #FBF9F9;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        font-size: 19px;
+                        color: #00397B;
+                    }
+                }
+
+                .extraContent {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 3px;
+                    color: #040404;
+
+                    .extraSubtitle {
+                        font-weight: 400;
+                        font-size: 12px;
+                    }
+
+                    .extraHighlight {
+                        font-weight: 700;
+                    }
+
+                    .extraDescription {
+                        font-weight: 400;
+                        font-size: 8px;
+                        margin-top: 3px;
+                        color: #1E1E1E;
+                    }
+                }
+            }
+        }
+    }
+}

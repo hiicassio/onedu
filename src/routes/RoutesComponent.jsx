@@ -1,4 +1,4 @@
-import { createHashRouter, Outlet, RouterProvider } from "react-router-dom"
+import { createHashRouter, RouterProvider } from "react-router-dom"
 import RotasPublicas from "./RotasPublicas.jsx";
 import RotasPrivadas from "./RotasPrivadas.jsx";
 import HistoricoEscolar from "../pages/listagem/historico_escolar/HistoricoEscolar.jsx";
@@ -6,7 +6,10 @@ import IntencaoVaga from "../pages/listagem/intencao_vaga/IntencaoVaga.jsx";
 import ControleMatricula from "../pages/listagem/controle_matricula/ControleMatricula.jsx";
 import Home from "../pages/home/Home.jsx";
 import Navegar from "./Navegar.jsx";
-import HistoricoEscolarLancamentos from "../pages/historico_escolar_lancamentos/HistoricoEscolarLancamentos.jsx";
+import HistoricoEscolarLancamentos from "../pages/listagem/historico_escolar_lancamentos/HistoricoEscolarLancamentos.jsx";
+import BaseComponent from "../components/BaseComponent.jsx";
+import Login from "../pages/login/Login.jsx";
+import GestaoMatricula from "../pages/listagem/gestao_matricula/GestaoMatricula.jsx";
 
 const router = createHashRouter([
     {
@@ -18,38 +21,37 @@ const router = createHashRouter([
                 element: <Navegar />
             },
             {
-                path: "intencao-vaga",
-                element: <IntencaoVaga />
-            },
-            {
-                path: "controle-matricula",
-                element: <ControleMatricula />
-            },
-            {
-                path: "historico-escolar",
-                element: <HistoricoEscolar />
-            },
-            {
                 path: "home",
                 element: <Home />
             },
             {
-                path: "historico-escolar-lancamentos",
-                element: <HistoricoEscolarLancamentos />
-            },
-            {
-                path: "controle-matricula",
-                element: <div><Outlet /></div>,
+                path: "gestao-matricula",
+                element: <BaseComponent />,
                 children: [
-                    {
-                        path: "controle-matricula",
-                        index: true,
-                        element: <controle-matricula />
-                    },
                     {
                         path: "historico-escolar",
                         index: true,
                         element: <HistoricoEscolar />
+                    },
+                    {
+                        path: "historico-escolar-lancamentos",
+                        index: true,
+                        element: <HistoricoEscolarLancamentos />
+                    },
+                    {
+                        path: "intencao-vaga",
+                        index: true,
+                        element: <IntencaoVaga />
+                    },
+                    {
+                        path: "controle-matricula",
+                        index: true,
+                        element: <ControleMatricula />
+                    },
+                    {
+                        path: "gestao-matricula",
+                        index: true,
+                        element: <GestaoMatricula />
                     }
                 ]
             }
@@ -61,7 +63,7 @@ const router = createHashRouter([
         children: [
             {
                 index: true,
-                element: <div>Login</div>
+                element: <Login />
             }
         ]
     }

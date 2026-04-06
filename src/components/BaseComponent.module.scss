@@ -1,0 +1,14 @@
+.containerBaseComponent {
+    display: flex;
+    padding: 10px;
+    height: 100dvh;
+
+    .body {
+        flex-grow: 1;
+        padding: 48px 28px 0px 38px;
+        overflow: auto;
+        min-height: 0;
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -23,13 +23,13 @@ const Navegar = () => {
             <button style={styles} onClick={() => navigation("/home")}>boas-vindas</button>
             <br />
             <br />
-            <button style={styles} onClick={() => navigation("/historico-escolar-lancamentos")}>historico-escolar-lancamentos</button>
+            <button style={styles} onClick={() => navigation("/login")}>login</button>
             <br />
             <br />
-            <button style={styles} onClick={() => navigation("/controle-matricula")}>controle-matricula</button>
+            <button style={styles} onClick={() => navigation("/gestao-matricula/historico-escolar-lancamentos")}>gestao-matricula/historico-escolar-lancamentos</button>
             <br />
             <br />
-            <button style={styles} onClick={() => navigation("/historico-escolar")}>historico-escolar</button>
+            <button style={styles} onClick={() => navigation("/gestao-matricula/gestao-matricula")}>gestao-matricula/gestao-matricula</button>
             <br />
             <br />
             <button style={styles} onClick={() => setOpenCloseDrawer(true)}>Open Drawer AnaliseCandidato</button>

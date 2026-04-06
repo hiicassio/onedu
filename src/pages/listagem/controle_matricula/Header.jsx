@@ -27,7 +27,7 @@ const Header = () => {
 
                 <div className={styles.actions}>
 
-                    <button className={styles.iconButton}>
+                    <button className={styles.iconButton} onClick={() => navigation(-1)}>
                         <ArrowSmallLeftIcon />
                     </button>
 
@@ -114,7 +114,7 @@ const Header = () => {
                         <CamadaIcon />
                     </button>
 
-                    <button className={styles.iconButton} onClick={() => navigation('/intencao-vaga')}>
+                    <button className={styles.iconButton} onClick={() => navigation('/gestao-matricula/intencao-vaga')}>
                         <HourglassEndIcon />
                     </button>
                 </div>

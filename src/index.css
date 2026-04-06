@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: 'AlteHaasGroteskBold';
   src: url('./arquivos/fonts/AlteHaasGroteskBold.ttf') format('truetype');
   font-weight: bold;
@@ -10,7 +10,7 @@
   src: url('./arquivos/fonts/AlteHaasGroteskRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-} */
+}
 
 * {
   padding: 0px;
@@ -20,7 +20,7 @@
 
 body {
   margin: 0;
-  /* padding: 20px; */
+  /* padding: 10px; */
   font-family: 'AlteHaasGroteskRegular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -35,7 +35,7 @@ const IntencaoVaga = () => {
                         <div className={styles.th}>NÍVEL</div>
                         <div className={styles.th}>TURNO</div>
                         <div className={styles.th}>SITUAÇÃO</div>
-                        <div className={styles.th}></div>
+                        <div className={styles.th}>.</div>
                     </div>
 
                     <div className={styles.body}>

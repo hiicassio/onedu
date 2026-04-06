@@ -29,7 +29,7 @@ const Header = () => {
 
                 <div className={styles.actions}>
 
-                    <button className={styles.iconButton}>
+                    <button className={styles.iconButton} onClick={() => navigation(-1)}>
                         <ArrowSmallLeftIcon />
                     </button>
 
@@ -107,7 +107,7 @@ const Header = () => {
                 </div>
 
                 <div className={styles.extra}>
-                    <button className={styles.iconButton} onClick={() => navigation('/controle-matricula')}>
+                    <button className={styles.iconButton} onClick={() => navigation(-1)}>
                         <CamadaIcon />
                     </button>
 
