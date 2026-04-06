@@ -9,9 +9,11 @@ import { useState } from 'react';
 import alunos from './alunos.json';
 import Filtro from './Filtro';
 import Header from './Header';
+import { useNavigate } from 'react-router-dom';
 
 const HistoricoEscolar = () => {
     const [selectHead, setSelectHead] = useState(1);
+    const navigation = useNavigate();
     return (
         <div className={styles.historicoEscolarContainer}>
             <Header />
@@ -47,7 +49,7 @@ const HistoricoEscolar = () => {
 
                     <div className={styles.body}>
                         {alunos?.map((aluno, index) => (
-                            <div className={styles.row} key={index}>
+                            <div onClick={() => navigation('/gestao-matricula/historico-escolar-lancamentos')} className={styles.row} key={index}>
                                 <div className={styles.td}>
                                     <img src={index % 2 === 0 ? user : user2} className={styles.userIcon} />
                                     {aluno.nome}
