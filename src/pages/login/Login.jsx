@@ -6,40 +6,37 @@ import CircleUserIcon from './icones/CircleUserIcon';
 import VectorIcon from './icones/VectorIcon';
 import EyeIcon from './icones/EyeIcon';
 import ArrowCircleUpIcon from './icones/ArrowCircleUpIcon';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import AlertComponents from '../../components/AlertComponents';
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loading';
 
+const dados = [
+    {
+        title: "Novo portal municipal de educação do Rio de Janeiro",
+        text: "Conheça a nova plataforma integrada com inteligência artificial e gestão escolar completa.",
+    },
+    {
+        title: "Tudo em um só lugar\npara sua escola",
+        text: "Centralize tarefas, materiais, avisos e relatórios. Menos retrabalho e mais visibilidade do que está acontecendo em cada turma.",
+    },
+    {
+        title: "Planejamento e\nacompanhamento",
+        text: "Organize o semestre, compartilhe conteúdos, monitore progresso e mantenha comunicação fluida com alunos e responsáveis.",
+    },
+];
+
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [selected, setSelected] = useState(0);
-    const [direction, setDirection] = useState("rigth");
+    const [direction, setDirection] = useState("right");
     const [alertOpenClose, setAlertOpenClose] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigation = useNavigate();
 
     const handlePasswordVisible = () => {
-        setPasswordVisible(prevent => !prevent);
+        setPasswordVisible(prev => !prev);
     };
-
-    const dados = useMemo(() => [
-        {
-            title: "Novo portal municipal de educação do Rio de Janeiro",
-            text:
-                "Conheça a nova plataforma integrada com inteligência artificial e gestão escolar completa.",
-        },
-        {
-            title: "Tudo em um só lugar\npara sua escola",
-            text:
-                "Centralize tarefas, materiais, avisos e relatórios. Menos retrabalho e mais visibilidade do que está acontecendo em cada turma.",
-        },
-        {
-            title: "Planejamento e\nacompanhamento",
-            text:
-                "Organize o semestre, compartilhe conteúdos, monitore progresso e mantenha comunicação fluida com alunos e responsáveis.",
-        },
-    ], []);
 
     const handleSelect = (opcao) => {
         setDirection(opcao > selected ? "right" : "left");
@@ -94,9 +91,8 @@ const Login = () => {
                     type="error"
                 />
             )}
-            {/* LADO ESQUERDO */}
-            <div className={styles.left}>
 
+            <div className={styles.left}>
                 <button className={styles.backButton}>
                     <AngleSmallLeftIcon />
                     <span>
@@ -105,20 +101,22 @@ const Login = () => {
                 </button>
 
                 <div className={styles.hero}>
-                    {dados?.map((item, index) => (
-                        <div key={index} className={styles.textContent}
+                    {dados.map((item, index) => (
+                        <div
+                            key={index}
+                            className={styles.textContent}
                             style={{
                                 transform: direction === "right" ? 'translateX(100%)' : 'translateX(-100%)',
-                                display: index == selected ? 'flex' : 'none'
+                                display: index === selected ? 'flex' : 'none'
                             }}
                         >
                             <span className={styles.title}>{item.title}</span>
-
                             <span className={styles.subtitle}>{item.text}</span>
                         </div>
                     ))}
+
                     <div className={styles.dots}>
-                        {dados?.map((item, index) => (
+                        {dados.map((_, index) => (
                             <button
                                 onClick={() => handleSelect(index)}
                                 key={index}
@@ -129,18 +127,13 @@ const Login = () => {
                 </div>
             </div>
 
-            {/* LADO DIREITO */}
             <div className={styles.right}>
-                {loading ?
-                    <Loading />
-                    :
+                {loading ? <Loading /> : (
                     <>
                         <form onSubmit={handleSubmit} className={styles.form}>
-
                             <img className={styles.logo} src={logo} alt="Logo" />
 
                             <div className={styles.inputs}>
-
                                 <label className={styles.inputGroup}>
                                     <span className={styles.icon}>
                                         <CircleUserIcon />
@@ -157,7 +150,6 @@ const Login = () => {
                                         <EyeIcon />
                                     </button>
                                 </label>
-
                             </div>
 
                             <div className={styles.helpLogin}>
@@ -180,17 +172,16 @@ const Login = () => {
                             <button type='button' className={styles.govButton}>
                                 <img src={gov} alt="gov.br" />
                             </button>
-
-
                         </form>
+
                         <span className={styles.footer}>
                             © 2026 – Todos os direitos reservados.
                         </span>
                     </>
-                }
+                )}
             </div>
-        </div >
+        </div>
     )
 }
 
-export default Login;   
+export default Login;

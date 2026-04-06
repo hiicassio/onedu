@@ -1,0 +1,11 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <path fill="white" d="
+    M0,0 
+    H900 
+    Q1000,0 1000,140 
+    V560 
+    Q1000,700 850,700 
+    H0 
+    Z
+  "/>
+</svg>
