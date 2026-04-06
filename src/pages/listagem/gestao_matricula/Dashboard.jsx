@@ -50,7 +50,7 @@ const MENU = [
 
 const SUBMENUS = {
     3: [
-        { id: 1, title: "Controle de", subtitle: "Documentos", description: "Visão Geral de Lançamentos", icon: DocumentIcon },
+        { id: 1, title: "Controle de", subtitle: "Documentos", description: "Visão Geral de Lançamentos", icon: DocumentIcon, rota: "/gestao-matricula/documentos-express" },
         { id: 2, title: "Monitoramento de", subtitle: "Ocorrências", description: "Visão Geral de Lançamentos", icon: AlertaSensorIcon },
         { id: 3, title: "Gestão de", subtitle: "Transferências", description: "Visão Geral de Lançamentos", icon: PriorityArrowsIcon },
         { id: 4, title: "Central do", subtitle: "Estudante", description: "Visão Geral de Lançamentos", icon: DiagramSankeyIcon }

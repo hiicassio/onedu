@@ -10,6 +10,7 @@ import HistoricoEscolarLancamentos from "../pages/listagem/historico_escolar_lan
 import BaseComponent from "../components/BaseComponent.jsx";
 import Login from "../pages/login/Login.jsx";
 import GestaoMatricula from "../pages/listagem/gestao_matricula/GestaoMatricula.jsx";
+import DocumentosExpress from "../pages/listagem/dosumentos_express/DocumentosExpress.jsx";
 
 const router = createHashRouter([
     {
@@ -56,7 +57,12 @@ const router = createHashRouter([
                         path: "gestao-matricula",
                         index: true,
                         element: <GestaoMatricula />
-                    }
+                    },
+                    {
+                        path: "documentos-express",
+                        index: true,
+                        element: <DocumentosExpress />
+                    },
                 ]
             }
         ]
