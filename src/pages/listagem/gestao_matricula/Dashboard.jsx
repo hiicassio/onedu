@@ -30,7 +30,8 @@ const MENU = [
         icon: RefreshIcon,
         title: "Controle de",
         subtitle: "Rematrícula",
-        action: { type: "icon", content: AddCircleOutlineIcon }
+        action: { type: "icon", content: AddCircleOutlineIcon },
+        rota: "/gestao-matricula/controle-rematricula"
     },
     {
         id: 3,

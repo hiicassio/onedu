@@ -1,0 +1,225 @@
+.container {
+    display: flex;
+    gap: 5px;
+
+    .btnCaminho {
+        width: 45px;
+        height: 83px;
+        border-radius: 9px;
+        background: #E9E9E9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            font-size: 20px;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 4px;
+
+        .topBar {
+            display: flex;
+            gap: 4px;
+            flex-grow: 1;
+
+            .btnAno {
+                background: #197DFF;
+                width: 120px;
+                height: 39px;
+                border-radius: 7px;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                padding: 0px 10px 0px 16px;
+
+                span {
+                    font-weight: 700;
+                    font-size: 20px;
+                }
+
+                svg {
+                    font-size: 20px;
+                }
+
+                &:nth-child(2) {
+                    background-color: #E9E9E9;
+                    border: 1px solid #E8E8E8;
+                    color: #000;
+
+                    svg {
+                        color: #197DFF;
+                    }
+                }
+            }
+
+            .filtroGrupo {
+                display: flex;
+                background-color: #fff;
+                flex-grow: 1;
+                border-radius: 7px;
+                border: 1px solid #E8E8E8;
+                padding: 0px 4px;
+                align-items: center;
+                gap: 4px;
+
+                .filtroHeader {
+                    width: 29px;
+                    height: 29px;
+                    border-radius: 5px;
+                    background-color: #F3F4F1;
+                    border: 1px solid #E8E8E8;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        font-size: 12px;
+                        color: #00397B;
+                    }
+                }
+
+                .filtroTags {
+                    flex-grow: 1;
+                    display: flex;
+                    gap: 4px;
+
+                    .tag {
+                        height: 29px;
+                        border-radius: 5px;
+                        background: #F3F4F1;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 0px 10px;
+
+                        span {
+                            font-weight: 400;
+                            font-size: 10px;
+                            color: #00397B;
+                        }
+
+                        svg {
+                            font-size: 6px;
+                            color: #FB0404;
+                        }
+                    }
+                }
+
+                .btnFiltrar {
+                    width: 75px;
+                    height: 29px;
+                    border-radius: 5px;
+                    background: #197DFF;
+                    font-weight: 700;
+                    font-size: 12px;
+                    color: #fff;
+                }
+            }
+        }
+
+        .bottomBar {
+            display: flex;
+            gap: 4px;
+
+            .searchBox {
+                height: 39px;
+                border-radius: 7px;
+                border: 1px solid #E8E8E8;
+                background-color: #fff;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                padding: 0px 4px;
+                gap: 12px;
+
+                .searchIcon {
+                    height: 29px;
+                    width: 29px;
+                    border-radius: 5px;
+                    border: 1px solid #E8E8E8;
+                    background-color: #F3F4F1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        color: #00397B;
+                        font-size: 11px;
+                    }
+                }
+
+                .input {
+                    flex-grow: 1;
+                    height: 100%;
+                    font-weight: 400;
+                    font-size: 12px;
+                    outline: none;
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+
+            .select {
+                background-color: #fff;
+                width: 180px;
+                height: 39px;
+                border-radius: 7px;
+                border: 1px solid #E8E8E8;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                padding: 0px 20px 0px 4px;
+
+                .selectIcon {
+                    width: 32px;
+                    height: 32px;
+                    background-color: #F3F4F1;
+                    border: 1px solid #E8E8E8;
+                    display: flex;
+                    border-radius: 5px;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        font-size: 20px;
+                        color: #00397B;
+                    }
+                }
+
+                &:last-child {
+                    svg {
+                        font-size: 13px;
+                    }
+                }
+
+                .selectInfo {
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
+
+                    .label {
+                        font-weight: 400;
+                        font-size: 10px;
+                        color: #929291;
+                    }
+
+                    .value {
+                        font-weight: 700;
+                        font-size: 12px;
+                    }
+                }
+
+                svg {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

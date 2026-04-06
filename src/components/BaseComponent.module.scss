@@ -1,7 +1,7 @@
 .containerBaseComponent {
     display: flex;
     padding: 10px;
-    height: 100dvh;
+    height: calc(100dvh - 20px);
 
     .body {
         flex-grow: 1;

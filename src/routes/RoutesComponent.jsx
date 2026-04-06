@@ -11,6 +11,7 @@ import BaseComponent from "../components/BaseComponent.jsx";
 import Login from "../pages/login/Login.jsx";
 import GestaoMatricula from "../pages/listagem/gestao_matricula/GestaoMatricula.jsx";
 import DocumentosExpress from "../pages/listagem/dosumentos_express/DocumentosExpress.jsx";
+import ControleRematricula from "../pages/listagem/controle_rematricula/ControleRematricula.jsx";
 
 const router = createHashRouter([
     {
@@ -62,6 +63,11 @@ const router = createHashRouter([
                         path: "documentos-express",
                         index: true,
                         element: <DocumentosExpress />
+                    },
+                    {
+                        path: "controle-rematricula",
+                        index: true,
+                        element: <ControleRematricula />
                     },
                 ]
             }

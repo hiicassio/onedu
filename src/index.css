@@ -18,6 +18,11 @@
   box-sizing: border-box;
 }
 
+html {
+  padding: 10px;
+  background-color: #E2E2E2;
+}
+
 body {
   margin: 0;
   /* padding: 10px; */
@@ -29,7 +34,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
+  border-radius: 10px;
 }
 
 code {
