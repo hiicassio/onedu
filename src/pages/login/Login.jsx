@@ -75,7 +75,7 @@ const Login = () => {
         }
 
         const timer = setTimeout(() => {
-            navigation('/');
+            navigation('/gestao-matricula/gestao-matricula');
         }, 3000);
 
         return () => clearTimeout(timer);
