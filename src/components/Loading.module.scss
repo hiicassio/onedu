@@ -1,0 +1,33 @@
+.containerLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/fundo.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100dvh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+
+    .loader {
+        min-width: 70px;
+        min-height: 70px;
+        border: solid 10px #4cc9f0;
+        border-left-color: #2d0fbf;
+        border-radius: 50%;
+        animation-name: loader;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes loader {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
