@@ -275,6 +275,7 @@
                 padding: 0px 14px 0px 16px;
                 background-color: transparent;
                 gap: 6px;
+                width: 100%;
 
                 .menuItemContent {
                   color: #707070;
@@ -295,10 +296,14 @@
                 svg {
                   font-size: 12px;
                   color: #707070;
+                  transition: .2s ease-in-out;
+                }
+
+                .iconeExpaned {
+                  rotate: 180deg;
                 }
               }
 
-              /* 🔥 SUBMENU CORRIGIDO */
               .menuItemSubmenu {
                 max-height: 0;
                 overflow: hidden;

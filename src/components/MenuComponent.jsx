@@ -156,7 +156,7 @@ const MenuComponent = () => {
                                                     <span>{matricula.descricao}</span>
                                                 </div>
 
-                                                {matricula.submenu.length > 0 && <CaretDownIcon />}
+                                                {matricula.submenu.length > 0 && <CaretDownIcon className={menuSelected === matricula.id ? styles.iconeExpaned : ''}/>}
                                             </button>
 
                                             {matricula.submenu.length > 0 && menuSelected === matricula.id &&
