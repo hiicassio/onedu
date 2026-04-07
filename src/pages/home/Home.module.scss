@@ -86,7 +86,6 @@
         overflow-y: hidden;
 
         -ms-overflow-style: none;
-        // perspective: 1000px;
 
         &::-webkit-scrollbar {
             display: none !important;
@@ -96,6 +95,7 @@
         scroll-behavior: smooth;
 
         padding-inline: calc((100vw - 215px) / 2);
+        scrollbar-width: none;
     }
 
     .menuItem {
