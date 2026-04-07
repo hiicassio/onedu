@@ -12,7 +12,6 @@ const DrawerComponent = ({
 }) => {
 
     const handleClose = () => setOpenCloseDrawer(false);
-    console.log("CHEGOU:", btnsFooterModal);
 
     return (
         <div
@@ -41,10 +40,11 @@ const DrawerComponent = ({
                 <div className={styles.analiseCandidato_footer}>
                     {btnsFooterModal?.map((item) => (
                         <button
+                            onClick={item.func || null}
                             style={{ justifyContent: item?.icone ? "space-between" : 'center' }}
                             key={item?.id}
                             className={`${styles[item.class]}`}>
-                            <span>{item?.descricao}</span>
+                            {item?.descricao && <span>{item?.descricao}</span>}
                             {item?.icone}
                         </button>
                     ))}
@@ -55,4 +55,9 @@ const DrawerComponent = ({
     );
 };
 
+// btnsFooterModal
+// [
+//     { id: 1, class: 'primary', descricao: 'descricao', icone: <AngleSmallLeftIcon />, func: () => alert("Função") },
+//     { id: 2, class: 'secondary', descricao: 'descricao', icone: <AngleSmallLeftIcon />, func: () => alert("Função") }
+// ]
 export default DrawerComponent;

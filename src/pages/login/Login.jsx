@@ -72,7 +72,7 @@ const Login = () => {
         }
 
         const timer = setTimeout(() => {
-            navigation('/gestao-matricula/gestao-matricula');
+            navigation('/home');
         }, 3000);
 
         return () => clearTimeout(timer);

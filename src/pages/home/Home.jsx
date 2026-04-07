@@ -21,16 +21,22 @@ import QuestionIcon from "./icones/QuestionIcon";
 import InfoIcon from "./icones/InfoIcon";
 import { useEffect, useMemo, useRef, useState } from 'react';
 import InfoHome from './components/InfoHome';
+import GeracaoAutomaticaDrawer from './GeracaoAutomaticaDrawer';
 
 const Home = () => {
     const [selectedOption, setSelectedOption] = useState(1);
     const [openDrawer, setOpenDrawer] = useState(false);
+    const [openDrawerGeracaoAutomatica, setOpenDrawerGeracaoAutomatica] = useState(false);
+
+    const handleDrawerGeracaoAutomatica = () => {
+        setOpenDrawerGeracaoAutomatica(true);
+    }
 
     const containerRef = useRef(null);
     const itemRefs = useRef({});
 
     const handleOptionClick = (optionId) => {
-        if (optionId === selectedOption) return;
+        if (optionId === selectedOption) return handleDrawerGeracaoAutomatica();
 
         const step = optionId > selectedOption ? 1 : -1;
         let current = selectedOption;
@@ -70,6 +76,11 @@ const Home = () => {
     return (
         <div className={styles.homeContainer}>
             <InfoHome openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+
+            <GeracaoAutomaticaDrawer
+                openCloseDrawer={openDrawerGeracaoAutomatica}
+                setOpenCloseDrawer={setOpenDrawerGeracaoAutomatica}
+            />
 
             <button className={styles.helpButton}>
                 <QuestionIcon />

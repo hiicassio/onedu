@@ -33,7 +33,7 @@ const matriculas = [
 
 const MenuComponent = () => {
     const [thema, setThema] = useState(true);
-    const [menuOpenClose, setMenuOpenClose] = useState(false);
+    const [menuOpenClose, setMenuOpenClose] = useState(true);
 
     return (
         <div className={styles.containerMenuComponent}>

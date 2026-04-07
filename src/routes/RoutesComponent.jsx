@@ -12,6 +12,7 @@ import Login from "../pages/login/Login.jsx";
 import GestaoMatricula from "../pages/listagem/gestao_matricula/GestaoMatricula.jsx";
 import DocumentosExpress from "../pages/listagem/dosumentos_express/DocumentosExpress.jsx";
 import ControleRematricula from "../pages/listagem/controle_rematricula/ControleRematricula.jsx";
+import DashboardHome from "../pages/dashboard_home/DashboardHome.jsx";
 
 const router = createHashRouter([
     {
@@ -29,6 +30,10 @@ const router = createHashRouter([
             {
                 path: "home",
                 element: <Home />
+            },
+            {
+                path: "dashboard-home",
+                element: <DashboardHome />
             },
             {
                 path: "gestao-matricula",

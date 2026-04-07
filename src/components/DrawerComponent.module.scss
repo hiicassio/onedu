@@ -21,11 +21,12 @@
         visibility 0s linear .8s;
 
     .areaDrawer {
-        height: calc(100vh - 18px);
+        height: calc(100vh - 20px);
         display: flex;
         flex-direction: column;
         gap: 20px;
-
+        width: 100%;
+        max-width: 513px;
         position: relative;
         transform: translateX(100%);
         transition: transform .4s ease-in-out;
@@ -36,7 +37,9 @@
 
         .analiseCandidato_header {
             padding: 30px 48px;
+            height: 66px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
             border-bottom: solid 1px #EEEEF0;
 
@@ -56,12 +59,12 @@
         .body {
             flex-grow: 1;
             overflow: auto;
+            padding: 13px 48px 50px 48px;
         }
 
         .analiseCandidato_footer {
             height: 66px;
-            padding: 17px 48px;
-
+            padding: 0px 48px;
             display: flex;
             gap: 6px;
             align-items: center;
@@ -70,16 +73,17 @@
             background-color: #EEEEF0;
 
             button {
-                width: 123px;
-                height: 31px;
+                min-height: 31px;
                 display: flex;
                 align-items: center;
-                padding: 0px 17px;
+                padding: 0px 15px;
                 border-radius: 10px;
+                gap: 15px;
 
                 span {
                     font-weight: 700;
                     font-size: 15px;
+                    text-transform: capitalize;
                 }
 
                 svg {
