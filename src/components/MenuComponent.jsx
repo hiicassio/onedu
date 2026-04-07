@@ -22,18 +22,42 @@ import CaretDownIcon from './icones/CaretDownIcon';
 import RefreshIcon from './icones/RefreshIcon';
 import LessonIcon from './icones/LessonIcon';
 import CalendarIcon from './icones/CalendarIcon';
+import AngleSmallRightIcon from './icones/AngleSmallRightIcon';
 import { useState } from 'react';
 
 const matriculas = [
     { id: 1, descricao: "Controle de Matrícula", icone: <GraduationCapIcon />, submenu: [] },
     { id: 2, descricao: "Rematrícula", icone: <RefreshIcon />, submenu: [] },
-    { id: 3, descricao: "Ações na Matrícula", icone: <LessonIcon />, submenu: [{ id: 1 }] },
-    { id: 4, descricao: "Rotina Escolar", icone: <CalendarIcon />, submenu: [{ id: 2 }] },
+    {
+        id: 3, descricao: "Ações na Matrícula", icone: <LessonIcon />, submenu: [
+            { id: 1, descricao: "Controle de Doc." },
+            { id: 2, descricao: "Monit. de Ocorrências" },
+            { id: 3, descricao: "Gestão de Transf." },
+            { id: 4, descricao: "Central do Estud." },
+        ]
+    },
+    {
+        id: 4, descricao: "Rotina Escolar", icone: <CalendarIcon />, submenu: [
+            { id: 1, descricao: "Hist. Escolar" },
+            { id: 2, descricao: "Radar de Reg." },
+            { id: 3, descricao: "Reg. de Sala de Aula" },
+            { id: 4, descricao: "Manut. de Turma" },
+        ]
+    },
 ];
 
 const MenuComponent = () => {
     const [thema, setThema] = useState(true);
     const [menuOpenClose, setMenuOpenClose] = useState(true);
+    const [menuSelected, setMenuSelected] = useState();
+
+    const handleMenu = (id) => {
+        if (id === menuSelected) {
+            setMenuSelected();
+            return
+        }
+        setMenuSelected(id);
+    }
 
     return (
         <div className={styles.containerMenuComponent}>
@@ -134,13 +158,32 @@ const MenuComponent = () => {
 
                                 <div className={styles.menuList}>
                                     {matriculas.map((matricula) => (
-                                        <button className={styles.menuItem}>
-                                            <div className={styles.menuItemContent}>
-                                                {matricula.icone}
-                                                <span>{matricula.descricao}</span>
-                                            </div>
-                                            {matricula.submenu.length > 0 && <CaretDownIcon />}
-                                        </button>
+                                        <>
+                                            <button onClick={() => handleMenu(matricula.id)} className={styles.menuItem}>
+                                                <div className={styles.menuItemContent}>
+                                                    {matricula.icone}
+                                                    <span>{matricula.descricao}</span>
+                                                </div>
+                                                {matricula.submenu.length > 0 && <CaretDownIcon />}
+                                            </button>
+                                            {matricula.submenu.length > 0 &&
+                                                matricula.submenu.map((matriculaSubmenu) => (
+                                                    <button
+                                                        className={`
+                                                                    ${styles.menuItem}
+                                                                    ${styles.menuItemSubmenu}
+                                                                    ${matricula.id === menuSelected ? styles.menuItemSelected : ''}
+                                                                `}
+                                                        key={matriculaSubmenu.id}
+                                                    >
+                                                        <div className={styles.menuItemContent}>
+                                                            <AngleSmallRightIcon />
+                                                            <span>{matriculaSubmenu.descricao}</span>
+                                                        </div>
+                                                    </button>
+                                                ))
+                                            }
+                                        </>
                                     ))}
                                 </div>
                             </div>

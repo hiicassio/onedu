@@ -305,6 +305,28 @@
                   color: #707070;
                 }
               }
+
+              .menuItemSubmenu {
+                max-height: 0px !important;
+                min-height: 0px;
+                overflow: hidden;
+              }
+
+              .menuItemSelected {
+                animation-name: menuItemSelected;
+                animation-duration: .1s;
+                animation-fill-mode: forwards;
+              }
+
+              @keyframes menuItemSelected {
+                0% {
+                  min-height: 10px;
+                }
+
+                100% {
+                  min-height: 28px;
+                }
+              }
             }
           }
 
