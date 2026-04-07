@@ -17,7 +17,7 @@ const GeracaoAutomaticaDrawer = ({ openCloseDrawer, setOpenCloseDrawer }) => {
 
     const btnsFooterModal = [
         { id: 1, class: 'primary', descricao: '', icone: <AngleSmallLeftIcon />, func: () => setOpenCloseDrawer(false) },
-        { id: 2, class: 'secondary', descricao: 'Iniciar', icone: <AngleSmallRightIcon />, func: () => navigation('/dashboard-home') }
+        { id: 2, class: 'secondary', descricao: 'Iniciar', icone: <AngleSmallRightIcon />, func: () => navigation('/dashboard/home') }
     ];
 
 

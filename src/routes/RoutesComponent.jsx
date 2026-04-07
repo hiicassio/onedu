@@ -32,48 +32,58 @@ const router = createHashRouter([
                 element: <Home />
             },
             {
-                path: "dashboard-home",
-                element: <DashboardHome />
-            },
-            {
-                path: "gestao-matricula",
+                path: "",
                 element: <BaseComponent />,
                 children: [
                     {
-                        path: "historico-escolar",
-                        index: true,
-                        element: <HistoricoEscolar />
+                        path: 'gestao-matricula',
+                        children: [
+                            {
+                                path: "",
+                                index: true,
+                                element: <GestaoMatricula />
+                            },
+                            {
+                                path: "historico-escolar",
+                                index: true,
+                                element: <HistoricoEscolar />
+                            },
+                            {
+                                path: "historico-escolar-lancamentos",
+                                index: true,
+                                element: <HistoricoEscolarLancamentos />
+                            },
+                            {
+                                path: "intencao-vaga",
+                                index: true,
+                                element: <IntencaoVaga />
+                            },
+                            {
+                                path: "controle-matricula",
+                                index: true,
+                                element: <ControleMatricula />
+                            },
+                            {
+                                path: "documentos-express",
+                                index: true,
+                                element: <DocumentosExpress />
+                            },
+                            {
+                                path: "controle-rematricula",
+                                index: true,
+                                element: <ControleRematricula />
+                            },
+                        ]
                     },
                     {
-                        path: "historico-escolar-lancamentos",
-                        index: true,
-                        element: <HistoricoEscolarLancamentos />
-                    },
-                    {
-                        path: "intencao-vaga",
-                        index: true,
-                        element: <IntencaoVaga />
-                    },
-                    {
-                        path: "controle-matricula",
-                        index: true,
-                        element: <ControleMatricula />
-                    },
-                    {
-                        path: "gestao-matricula",
-                        index: true,
-                        element: <GestaoMatricula />
-                    },
-                    {
-                        path: "documentos-express",
-                        index: true,
-                        element: <DocumentosExpress />
-                    },
-                    {
-                        path: "controle-rematricula",
-                        index: true,
-                        element: <ControleRematricula />
-                    },
+                        path: "dashboard",
+                        children: [
+                            {
+                                path: "home",
+                                element: <DashboardHome />
+                            },
+                        ]
+                    }
                 ]
             }
         ]

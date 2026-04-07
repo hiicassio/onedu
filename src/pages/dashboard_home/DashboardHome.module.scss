@@ -1,31 +1,7 @@
 .containerDashboardHome {
-    height: calc(100dvh - 20px);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-
     span {
         font-size: 20px;
         color: #00397B;
     }
 
-    button {
-        background-color: #00397B;
-        height: 30px;
-        padding: 0px 10px 0px 20px;
-        border-radius: 5px;
-        font-size: 12px;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        font-weight: 700;
-
-        svg {
-            font-size: 17px;
-        }
-    }
 }

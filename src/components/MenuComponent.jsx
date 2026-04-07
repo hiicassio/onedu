@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
 import { useState } from 'react';
 import styles from './MenuComponent.module.scss';
 
@@ -28,6 +28,17 @@ import LessonIcon from './icones/LessonIcon';
 import CalendarIcon from './icones/CalendarIcon';
 import AngleSmallRightIcon from './icones/AngleSmallRightIcon';
 
+const menu = [
+    { id: 1, rota: "/dashboard/home", icone: <EyeIcon /> },
+    { id: 2, rota: "/gestao-matricula", icone: <BellSchoolIcon /> },
+    { id: 3, rota: "", icone: <AppsAddIcon /> },
+    { id: 4, rota: "", icone: <GraduationCapIcon /> },
+    { id: 5, rota: "", icone: <PenSquareIcon /> },
+    { id: 6, rota: "", icone: <DiscoverIcon /> },
+    { id: 7, rota: "", icone: <OneproIcon /> },
+    { id: 8, rota: "", icone: <ChatbotSpeechBubbleIcon /> },
+];
+
 const matriculas = [
     { id: 1, descricao: "Controle de Matrícula", rota: "/gestao-matricula/controle-matricula", icone: <GraduationCapIcon />, submenu: [] },
     { id: 2, descricao: "Rematrícula", rota: "/gestao-matricula/controle-rematricula", icone: <RefreshIcon />, submenu: [] },
@@ -53,7 +64,7 @@ const MenuComponent = () => {
     const [thema, setThema] = useState(true);
     const [menuOpenClose, setMenuOpenClose] = useState(true);
     const [menuSelected, setMenuSelected] = useState(null);
-
+    const location = useLocation();
     const navigate = useNavigate();
 
     const handleMenu = (id) => {
@@ -81,14 +92,23 @@ const MenuComponent = () => {
 
                 <div className={styles.menuArea}>
                     <div className={styles.menuTop}>
-                        <button className={styles.menuButton}><EyeIcon /></button>
-                        <button className={styles.menuButton}><BellSchoolIcon /></button>
-                        <button className={styles.menuButton}><AppsAddIcon /></button>
-                        <button className={styles.menuButton}><GraduationCapIcon /></button>
-                        <button className={styles.menuButton}><PenSquareIcon /></button>
-                        <button className={styles.menuButton}><DiscoverIcon /></button>
-                        <button className={styles.menuButton}><OneproIcon /></button>
-                        <button className={styles.menuButton}><ChatbotSpeechBubbleIcon /></button>
+
+                        {menu.map((item) => {
+                            const rotaBase = String(location.pathname).split('/')[1];
+
+                            const rotaItem = String(item.rota).split('/')[1]
+                            return (
+                                <button
+                                    onClick={() => navigate(item.rota)}
+                                    className={`
+                                        ${styles.menuButton}
+                                        ${rotaBase === rotaItem ? styles.menuButtonSelect : ''}
+                                    `}
+                                >
+                                    {item.icone}
+                                </button>
+                            )
+                        })}
                     </div>
                 </div>
 
@@ -156,7 +176,7 @@ const MenuComponent = () => {
                                                     <span>{matricula.descricao}</span>
                                                 </div>
 
-                                                {matricula.submenu.length > 0 && <CaretDownIcon className={menuSelected === matricula.id ? styles.iconeExpaned : ''}/>}
+                                                {matricula.submenu.length > 0 && <CaretDownIcon className={menuSelected === matricula.id ? styles.iconeExpaned : ''} />}
                                             </button>
 
                                             {matricula.submenu.length > 0 && menuSelected === matricula.id &&
