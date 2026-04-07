@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'AlteHaasGroteskBold';
-  src: url('./arquivos/fonts/AlteHaasGroteskBold.ttf') format('truetype');
-  font-weight: bold;
+  font-family: 'AlteHaasGrotesk';
+  src: url('./assets/fonts/AlteHaasGroteskRegular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'AlteHaasGroteskRegular';
-  src: url('./arquivos/fonts/AlteHaasGroteskRegular.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'AlteHaasGrotesk';
+  src: url('./assets/fonts/AlteHaasGroteskBold.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
 }
 
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -25,8 +25,7 @@ html {
 
 body {
   margin: 0;
-  /* padding: 10px; */
-  font-family: 'AlteHaasGroteskRegular', sans-serif;
+  font-family: 'AlteHaasGrotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/fundo.png);
@@ -38,7 +37,7 @@ body {
 }
 
 code {
-  font-family: 'AlteHaasGroteskRegular', sans-serif;
+  font-family: 'AlteHaasGrotesk', sans-serif;
 }
 
 button {
@@ -62,8 +61,8 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -72,11 +71,13 @@ button {
 
 ::-webkit-scrollbar-thumb {
   background: #D7E8FF;
-  border-radius: 0px;
+  border-radius: 0;
 }
 
-/* --- Firefox --- */
-/* * {
-    scrollbar-width: thin;
-    scrollbar-color: #f2f2f2 transparent;
-} */
+/* Firefox */
+/*
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f2f2f2 transparent;
+}
+*/
