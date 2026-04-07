@@ -1,6 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import styles from './MenuComponent.module.scss';
+
 import user from './icones/user.png';
 import logo from './icones/logo.png';
+
 import EyeIcon from './icones/EyeIcon';
 import BrightnessIcon from './icones/BrightnessIcon';
 import MoonIcon from './icones/MoonIcon';
@@ -23,8 +27,6 @@ import RefreshIcon from './icones/RefreshIcon';
 import LessonIcon from './icones/LessonIcon';
 import CalendarIcon from './icones/CalendarIcon';
 import AngleSmallRightIcon from './icones/AngleSmallRightIcon';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const matriculas = [
     { id: 1, descricao: "Controle de Matrícula", rota: "/gestao-matricula/controle-matricula", icone: <GraduationCapIcon />, submenu: [] },
@@ -50,37 +52,34 @@ const matriculas = [
 const MenuComponent = () => {
     const [thema, setThema] = useState(true);
     const [menuOpenClose, setMenuOpenClose] = useState(true);
-    const [menuSelected, setMenuSelected] = useState();
-    const navigation = useNavigate();
+    const [menuSelected, setMenuSelected] = useState(null);
+
+    const navigate = useNavigate();
 
     const handleMenu = (id) => {
-        if (id === menuSelected) {
-            setMenuSelected();
-            return
-        }
-        setMenuSelected(id);
-    }
+        setMenuSelected(prev => (prev === id ? null : id));
+    };
+
+    const handleNavigate = (rota) => {
+        if (!rota) return;
+        navigate(rota);
+    };
 
     return (
         <div className={styles.containerMenuComponent}>
             <div className={styles.menuWrapper}>
 
                 <button
-                    className={`
-                        ${styles.menuButton}
-                        ${menuOpenClose ? styles.menuButtonNone : ''}
-                    `}
+                    className={`${styles.menuButton} ${menuOpenClose ? styles.menuButtonNone : ''}`}
                     disabled={menuOpenClose}
-                    onClick={() => setMenuOpenClose(true)}>
+                    onClick={() => setMenuOpenClose(true)}
+                >
                     <FeatherMenuIcon />
                 </button>
 
-                <div className={`
-                                ${styles.dividir}
-                                ${menuOpenClose ? styles.dividirNone : ''}
-                            `} />
-                <div className={styles.menuArea}>
+                <div className={`${styles.dividir} ${menuOpenClose ? styles.dividirNone : ''}`} />
 
+                <div className={styles.menuArea}>
                     <div className={styles.menuTop}>
                         <button className={styles.menuButton}><EyeIcon /></button>
                         <button className={styles.menuButton}><BellSchoolIcon /></button>
@@ -91,18 +90,12 @@ const MenuComponent = () => {
                         <button className={styles.menuButton}><OneproIcon /></button>
                         <button className={styles.menuButton}><ChatbotSpeechBubbleIcon /></button>
                     </div>
-
-
                 </div>
-                <div className={`
-                                ${styles.dividir}
-                                ${menuOpenClose ? styles.dividirNone : ''}
-                            `} />
+
+                <div className={`${styles.dividir} ${menuOpenClose ? styles.dividirNone : ''}`} />
+
                 <div className={styles.menuBottom}>
-                    <div className={`
-                            ${styles.areaBtns}
-                            ${menuOpenClose ? styles.areaBtnsNone : ''}
-                        `}>
+                    <div className={`${styles.areaBtns} ${menuOpenClose ? styles.areaBtnsNone : ''}`}>
                         <button className={styles.menuButton} disabled={menuOpenClose}><NotificationIcon /></button>
                         <button className={styles.menuButton} disabled={menuOpenClose}><MessagesIcon /></button>
                         <button className={styles.menuButton} disabled={menuOpenClose}><ControlesDeslizantesIcon /></button>
@@ -111,30 +104,21 @@ const MenuComponent = () => {
                             <img className={styles.userImage} src={user} alt="" />
                         </button>
                     </div>
+
                     <button
                         onClick={() => setThema(prev => !prev)}
-                        className={`
-                        ${styles.themeToggle}
-                        ${thema ? styles.light : styles.dark}
-                    `}
+                        className={`${styles.themeToggle} ${thema ? styles.light : styles.dark}`}
                     >
                         {thema ? (
-                            <span className={styles.themeIconLight}>
-                                <BrightnessIcon />
-                            </span>
+                            <span className={styles.themeIconLight}><BrightnessIcon /></span>
                         ) : (
-                            <span className={styles.themeIconDark}>
-                                <MoonIcon />
-                            </span>
+                            <span className={styles.themeIconDark}><MoonIcon /></span>
                         )}
                     </button>
                 </div>
             </div>
 
-            <div className={`
-                    ${styles.bodyMenu}
-                    ${menuOpenClose ? '' : styles.bodyMenuClose}
-                `}>
+            <div className={`${styles.bodyMenu} ${menuOpenClose ? '' : styles.bodyMenuClose}`}>
                 <div className={styles.topoMenu}>
                     <img className={styles.logo} src={logo} alt="" />
 
@@ -146,57 +130,57 @@ const MenuComponent = () => {
                 <div className={styles.areaMenu}>
                     <div className={styles.menuContent}>
                         <div className={styles.areaSearch}>
-                            <label htmlFor="">
+                            <label>
                                 <FeatherSearchIcon />
-                                <input type="text" name="" id="" placeholder='Buscar' />
+                                <input type="text" placeholder='Buscar' />
                             </label>
                         </div>
-                        {/* vou fazer o meu aqui */}
 
                         <div className={styles.menu}>
-
                             <div className={styles.menuOpcoes}>
                                 <span className={styles.menuTitle}>MATRÍCULAS</span>
 
                                 <div className={styles.menuList}>
                                     {matriculas.map((matricula) => (
-                                        <>
-                                            <button onClick={() => matricula.rota ? navigation(matricula.rota) : handleMenu(matricula.id)} className={styles.menuItem}>
+                                        <div key={matricula.id}>
+                                            <button
+                                                onClick={() =>
+                                                    matricula.rota
+                                                        ? handleNavigate(matricula.rota)
+                                                        : handleMenu(matricula.id)
+                                                }
+                                                className={styles.menuItem}
+                                            >
                                                 <div className={styles.menuItemContent}>
                                                     {matricula.icone}
                                                     <span>{matricula.descricao}</span>
                                                 </div>
+
                                                 {matricula.submenu.length > 0 && <CaretDownIcon />}
                                             </button>
-                                            {matricula.submenu.length > 0 &&
-                                                matricula.submenu.map((matriculaSubmenu) => (
+
+                                            {matricula.submenu.length > 0 && menuSelected === matricula.id &&
+                                                matricula.submenu.map((sub) => (
                                                     <button
-                                                        onClick={() => navigation(matriculaSubmenu.rota)}
-                                                        className={`
-                                                                    ${styles.menuItem}
-                                                                    ${styles.menuItemSubmenu}
-                                                                    ${matricula.id === menuSelected ? styles.menuItemSelected : ''}
-                                                                `}
-                                                        key={matriculaSubmenu.id}
+                                                        key={`${matricula.id}-${sub.id}`}
+                                                        onClick={() => handleNavigate(sub.rota)}
+                                                        className={`${styles.menuItem} ${styles.menuItemSubmenu}`}
                                                     >
                                                         <div className={styles.menuItemContent}>
                                                             <AngleSmallRightIcon />
-                                                            <span>{matriculaSubmenu.descricao}</span>
+                                                            <span>{sub.descricao}</span>
                                                         </div>
                                                     </button>
                                                 ))
                                             }
-                                        </>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
 
                             <div className={styles.dividir} />
 
-                            <div className={`
-                                    ${styles.menuOpcoes}
-                                    ${styles.menuOpcoesConta}
-                                `}>
+                            <div className={`${styles.menuOpcoes} ${styles.menuOpcoesConta}`}>
                                 <span className={styles.menuTitle}>CONTA</span>
 
                                 <div className={styles.menuList}>
@@ -226,7 +210,6 @@ const MenuComponent = () => {
                     </div>
 
                     <div className={styles.menuFooter}>
-
                         <div className={styles.schoolInfo}>
                             <span className={styles.schoolName}>
                                 E.M Rio Branco Suo
@@ -235,28 +218,22 @@ const MenuComponent = () => {
                         </div>
 
                         <div className={styles.userContent}>
-
                             <div className={styles.userAvatar}>
                                 <img className={styles.userImage} src={user} alt="" />
                             </div>
 
                             <div className={styles.userText}>
-                                <span className={styles.userName}>
-                                    Sueli Cardoso Silva
-                                </span>
-                                <span className={styles.userRole}>
-                                    Professor(a)
-                                </span>
+                                <span className={styles.userName}>Sueli Cardoso Silva</span>
+                                <span className={styles.userRole}>Professor(a)</span>
                             </div>
 
                             <FeatherMoreVerticalIcon className={styles.moreIcon} />
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default MenuComponent;

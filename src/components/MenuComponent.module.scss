@@ -9,7 +9,6 @@
     height: 100%;
     padding: 12px;
 
-    /* efeito glassmorphism */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -175,7 +174,6 @@
     transform: translateX(0);
     opacity: 1;
     transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out, width 0.1s ease-in-out;
-    will-change: transform, opacity;
 
     .topoMenu {
       height: 64px;
@@ -194,9 +192,6 @@
         background-color: transparent;
         height: 20px;
         width: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
         svg {
           font-size: 15px;
@@ -243,7 +238,6 @@
               background-color: transparent;
               outline: none;
               border: none;
-              font-weight: 400;
               font-size: 10px;
             }
           }
@@ -264,7 +258,6 @@
             padding: 0px 13px;
 
             .menuTitle {
-              font-weight: 400;
               font-size: 8px;
               color: #616161;
               padding-left: 15px;
@@ -295,7 +288,6 @@
                   }
 
                   span {
-                    font-weight: 400;
                     font-size: 12px;
                   }
                 }
@@ -306,26 +298,15 @@
                 }
               }
 
+              /* 🔥 SUBMENU CORRIGIDO */
               .menuItemSubmenu {
-                max-height: 0px !important;
-                min-height: 0px;
+                max-height: 0;
                 overflow: hidden;
+                transition: max-height 0.2s ease;
               }
 
-              .menuItemSelected {
-                animation-name: menuItemSelected;
-                animation-duration: .1s;
-                animation-fill-mode: forwards;
-              }
-
-              @keyframes menuItemSelected {
-                0% {
-                  min-height: 10px;
-                }
-
-                100% {
-                  min-height: 28px;
-                }
+              .menuItemSubmenuOpen {
+                max-height: 40px;
               }
             }
           }
@@ -353,7 +334,6 @@
           padding: 0 13px 0 25px;
 
           .schoolName {
-            font-weight: 400;
             font-size: 12px;
           }
 
@@ -369,7 +349,6 @@
           display: flex;
           padding: 11px 17px 13px 12px;
           gap: 11px;
-          min-width: 200px;
 
           .userAvatar {
             border: 2px solid #fff;
@@ -392,12 +371,11 @@
             justify-content: center;
 
             .userName {
-              font-weight: 700;
               font-size: 10px;
+              font-weight: 700;
             }
 
             .userRole {
-              font-weight: 400;
               font-size: 10px;
             }
           }
@@ -411,7 +389,6 @@
     }
   }
 
-  /* estado fechado do menu */
   .bodyMenuClose {
     width: 0;
     transform: translateX(-15px);
