@@ -1,6 +1,7 @@
 .container {
     width: 100%;
-    max-width: 942px;
+    // max-width: 942px;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -73,14 +74,15 @@
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
+                flex-grow: 1;
 
                 .row {
                     display: grid;
-                    grid-template-columns: 123px 421px 135px;
+                    grid-template-columns: 1fr 4fr 1fr;
                     gap: 3px;
 
                     &:last-child {
-                        grid-template-columns: 447px 236px;
+                        grid-template-columns: 4fr 2fr;
                     }
 
                     .field {

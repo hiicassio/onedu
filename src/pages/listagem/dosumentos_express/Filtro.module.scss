@@ -2,7 +2,6 @@
     display: flex;
     gap: 7px;
     width: 100%;
-    max-width: 942px;
 
     .dash {
         width: 45px;
@@ -20,7 +19,7 @@
 
     .filtroInput {
         flex-grow: 1;
-        min-width: 406px;
+        // min-width: 406px;
         height: 39px;
         border-radius: 7px;
         background-color: #fff;
@@ -56,12 +55,13 @@
 
     .tags {
         flex-grow: 1;
+        flex-basis: 0;
         background-color: #fff;
         display: flex;
         gap: 3px;
         padding: 4px;
         border-radius: 7px;
-        max-width: 323px;
+        // max-width: 323px;
 
         .tagsIcon {
             min-width: 29px;

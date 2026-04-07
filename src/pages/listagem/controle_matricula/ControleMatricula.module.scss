@@ -1,6 +1,7 @@
 .containerControleMatricula {
     width: 100%;
-    max-width: 942px;
+    // max-width: 942px;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -9,7 +10,8 @@
         // overflow-x: auto;
 
         .table {
-            width: 942px;
+            // width: 942px;
+            width: 100%;
             min-width: 942px;
 
             .header,

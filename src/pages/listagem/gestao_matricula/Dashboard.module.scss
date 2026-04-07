@@ -14,9 +14,11 @@
             display: flex;
             gap: 9px;
             flex-wrap: wrap;
+            flex-grow: 1;
 
             .menuItem {
-                width: 152px;
+                flex-grow: 1;
+                min-width: 152px;
                 height: 138px;
                 border-radius: 10px;
                 display: flex;
@@ -114,7 +116,7 @@
             background-color: #fff;
             display: flex;
             flex-direction: column;
-            max-width: 294px;
+            // max-width: 294px;
             min-width: 250px;
 
             .statsHeader {
@@ -133,18 +135,21 @@
             .statsContent {
                 display: flex;
                 flex-grow: 1;
-                gap: 30px;
+                // gap: 30px;
                 justify-content: center;
                 align-items: center;
 
                 .statItem {
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                     gap: 5px;
+                    flex-grow: 1;
 
                     span {
                         font-weight: 400;
-                        font-size: 6px;
+                        font-size: 7px;
 
                         &:first-child {
                             max-width: 40px;
