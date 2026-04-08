@@ -10,10 +10,12 @@ import HistoricoEscolarLancamentos from "../pages/listagem/historico_escolar_lan
 import BaseComponent from "../components/BaseComponent.jsx";
 import Login from "../pages/login/Login.jsx";
 import GestaoMatricula from "../pages/listagem/gestao_matricula/GestaoMatricula.jsx";
-import DocumentosExpress from "../pages/listagem/dosumentos_express/DocumentosExpress.jsx";
+import DocumentosExpress from "../pages/listagem/documentos_express/DocumentosExpress.jsx";
 import ControleRematricula from "../pages/listagem/controle_rematricula/ControleRematricula.jsx";
 import ControleRematriculaValidacoes from "../pages/listagem/controle_rematricula_validacoes/ControleRematriculaValidacoes.jsx";
 import DashboardHome from "../pages/dashboard_home/DashboardHome.jsx";
+import ControleOcorrencias from "../pages/listagem/controle_ocorrencias/ControleOcorrencias.jsx";
+import ControleTransferencias from "../pages/listagem/controle_transferencias/ControleTransferencias.jsx";
 
 const router = createHashRouter([
     {
@@ -78,6 +80,16 @@ const router = createHashRouter([
                                 path: "controle-rematricula-validacoes",
                                 index: true,
                                 element: <ControleRematriculaValidacoes />
+                            },
+                            {
+                                path: "controle-ocorrencias",
+                                index: true,
+                                element: <ControleOcorrencias />
+                            },
+                            {
+                                path: "controle-transferencias",
+                                index: true,
+                                element: <ControleTransferencias />
                             },
                         ]
                     },
