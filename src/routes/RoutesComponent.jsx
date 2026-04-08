@@ -12,6 +12,7 @@ import Login from "../pages/login/Login.jsx";
 import GestaoMatricula from "../pages/listagem/gestao_matricula/GestaoMatricula.jsx";
 import DocumentosExpress from "../pages/listagem/dosumentos_express/DocumentosExpress.jsx";
 import ControleRematricula from "../pages/listagem/controle_rematricula/ControleRematricula.jsx";
+import ControleRematriculaValidacoes from "../pages/listagem/controle_rematricula_validacoes/ControleRematriculaValidacoes.jsx";
 import DashboardHome from "../pages/dashboard_home/DashboardHome.jsx";
 
 const router = createHashRouter([
@@ -72,6 +73,11 @@ const router = createHashRouter([
                                 path: "controle-rematricula",
                                 index: true,
                                 element: <ControleRematricula />
+                            },
+                            {
+                                path: "controle-rematricula-validacoes",
+                                index: true,
+                                element: <ControleRematriculaValidacoes />
                             },
                         ]
                     },

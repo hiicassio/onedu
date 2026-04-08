@@ -83,11 +83,11 @@ const Header = () => {
                 </div>
 
                 <div className={styles.extra}>
-                    <button className={styles.iconButton}>
+                    <button className={styles.iconButton} onClick={() => navigation(-1)}>
                         <RefreshIcon />
                     </button>
 
-                    <button className={styles.iconButton} onClick={() => navigation('/gestao-matricula/controle-rematricula-validacoes')}>
+                    <button className={styles.iconButton} onClick={() => navigation('/gestao-matricula/intencao-vaga')}>
                         <CheckCircleIcon />
                     </button>
 
