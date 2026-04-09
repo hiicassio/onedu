@@ -163,23 +163,27 @@ const Home = () => {
                 })}
             </div>
 
-            <div className={styles.navigationButtons}>
-                <button
-                    disabled={selectedOption === 1}
-                    onClick={() => setSelectedOption((v) => v - 1)}
-                    className={`${styles.navButton} ${selectedOption === 1 ? styles.disabled : ''}`}
-                >
-                    <ArrowLeftIcon />
-                </button>
+            <div className={styles.footer}>
+                <div className={styles.navigationButtons}>
+                    <button
+                        disabled={selectedOption === 1}
+                        onClick={() => setSelectedOption((v) => v - 1)}
+                        className={`${styles.navButton} ${selectedOption === 1 ? styles.disabled : ''}`}
+                    >
+                        <ArrowLeftIcon />
+                    </button>
 
-                <button
-                    disabled={selectedOption === dados.length}
-                    onClick={() => setSelectedOption((v) => v + 1)}
-                    className={`${styles.navButton} ${selectedOption === dados.length ? styles.disabled : ''}`}
-                >
-                    <ArrowRightIcon />
-                </button>
+                    <button
+                        disabled={selectedOption === dados.length}
+                        onClick={() => setSelectedOption((v) => v + 1)}
+                        className={`${styles.navButton} ${selectedOption === dados.length ? styles.disabled : ''}`}
+                    >
+                        <ArrowRightIcon />
+                    </button>
+                </div>
+                <button className={styles.logout}>Sair</button>
             </div>
+
         </div>
     );
 };

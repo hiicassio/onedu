@@ -2,10 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     max-width: 100vw;
     min-height: calc(100dvh - 20px);
     overflow: hidden;
-    gap: 30px;
+    gap: 56px;
     padding: 20px;
     background-image: url(./img/fundo.png);
     background-position: center;
@@ -80,8 +81,8 @@
         gap: 19px;
         width: 100%;
         align-items: center;
-        margin-top: 20px;
-
+        padding-bottom: 8px;
+        margin-bottom: -8px;
         overflow-x: auto;
         overflow-y: hidden;
 
@@ -142,6 +143,7 @@
 
         background: #2e68b3;
         background: radial-gradient(circle, rgba(46, 104, 179, 1) 0%, rgba(15, 50, 95, 1) 66%);
+        box-shadow: 0px 4px 4px 0px #0000002B;
 
         .buttonAbsolute {
             display: flex;
@@ -238,28 +240,42 @@
         }
     }
 
-    .navigationButtons {
+    .footer {
         display: flex;
-        gap: 10px;
+        flex-direction: column;
+        gap: 46px;
+        margin-top: -33px;
 
-        .navButton {
-            height: 24px;
-            width: 24px;
-            border-radius: 50%;
-            background: #0F325F;
+        .navigationButtons {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 10px;
 
-            svg {
-                font-size: 8px;
-                color: #fff;
+            .navButton {
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                background: #0F325F;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    font-size: 8px;
+                    color: #fff;
+                }
+            }
+
+            .disabled {
+                cursor: text;
+                background: #B4B4B4;
             }
         }
 
-        .disabled {
-            cursor: text;
-            background: #B4B4B4;
+        .logout {
+            font-weight: 700;
+            font-size: 18px;
+            color: #646464;
+            background-color: transparent;
         }
     }
 }

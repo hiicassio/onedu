@@ -45,8 +45,8 @@ const matriculas = [
     {
         id: 3, descricao: "Ações na Matrícula", icone: <LessonIcon />, submenu: [
             { id: 1, descricao: "Controle de Doc.", rota: "/gestao-matricula/documentos-express" },
-            { id: 2, descricao: "Monit. de Ocorrências", rota: "" },
-            { id: 3, descricao: "Gestão de Transf.", rota: "" },
+            { id: 2, descricao: "Monit. de Ocorrências", rota: "/gestao-matricula/controle-ocorrencias" },
+            { id: 3, descricao: "Gestão de Transf.", rota: "/gestao-matricula/controle-transferencias" },
             { id: 4, descricao: "Central do Estud.", rota: "" },
         ]
     },
