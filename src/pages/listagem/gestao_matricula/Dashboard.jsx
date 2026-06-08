@@ -13,7 +13,7 @@ import RadarIcon from './icones/RadarIcon';
 import EditIcon from './icones/EditIcon';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import DocumentosExpressDrawer from '../../documentos_express/DocumentosExpressDrawer';
 
 const MENU = [
     {
@@ -21,9 +21,8 @@ const MENU = [
         icon: GraduationCapIcon,
         title: "Controle de",
         subtitle: "Matrícula",
-        action: { type: "icon", content: AddCircleOutlineIcon, },
+        action: { type: "icon", content: AddCircleOutlineIcon },
         rota: "/gestao-matricula/controle-matricula"
-
     },
     {
         id: 2,
@@ -48,22 +47,6 @@ const MENU = [
         action: { type: "badge", content: 4 }
     }
 ];
-
-const SUBMENUS = {
-    3: [
-        { id: 1, title: "Controle de", subtitle: "Documentos", description: "Visão Geral de Lançamentos", icon: DocumentIcon, rota: "/gestao-matricula/documentos-express" },
-        { id: 2, title: "Monitoramento de", subtitle: "Ocorrências", description: "Visão Geral de Lançamentos", icon: AlertaSensorIcon, rota: "/gestao-matricula/controle-ocorrencias" },
-        { id: 3, title: "Gestão de", subtitle: "Transferências", description: "Visão Geral de Lançamentos", icon: PriorityArrowsIcon, rota: "/gestao-matricula/controle-transferencias" },
-        { id: 4, title: "Central do", subtitle: "Estudante", description: "Visão Geral de Lançamentos", icon: DiagramSankeyIcon },
-        { id: 5, title: "Desligamento", subtitle: "Express", description: "Encerramento ágil de matrícula", icon: AlertaSensorIcon, rota: "/gestao-matricula/desligamento-express" },
-    ],
-    4: [
-        { id: 1, title: "Histórico", subtitle: "Escolar", description: "Controle de Registros", icon: ConvertDocumentIcon, rota: "/gestao-matricula/historico-escolar" },
-        { id: 2, title: "Radar de", subtitle: "Registros", description: "Ferramenta Administrativa", icon: RadarIcon },
-        { id: 3, title: "Registros de", subtitle: "Sala de Aula", description: "Visão Geral de Lançamentos", icon: EditIcon },
-        { id: 4, title: "Manutenções de", subtitle: "Turma", description: "Visão Geral de Lançamentos", icon: DocumentIcon }
-    ]
-};
 
 
 const MenuItem = ({ item, isActive, onClick }) => {
@@ -116,70 +99,101 @@ const ExtraCard = ({ item, func }) => {
 
 const Dashboard = () => {
     const [menuSelected, setMenuSelected] = useState(null);
+    const [openDocumentosExpress, setOpenDocumentosExpress] = useState(false);
     const navigation = useNavigate();
+
+    const SUBMENUS = {
+        3: [
+            { id: 1, title: "Controle de",    subtitle: "Documentos",    description: "Visão Geral de Lançamentos",      icon: DocumentIcon,      rota: "/gestao-matricula/documentos-express" },
+            { id: 2, title: "Monitoramento de", subtitle: "Ocorrências", description: "Visão Geral de Lançamentos",      icon: AlertaSensorIcon,  rota: "/gestao-matricula/controle-ocorrencias" },
+            { id: 3, title: "Gestão de",       subtitle: "Transferências", description: "Visão Geral de Lançamentos",    icon: PriorityArrowsIcon, rota: "/gestao-matricula/controle-transferencias" },
+            { id: 4, title: "Central do",      subtitle: "Estudante",     description: "Perfil completo do aluno",       icon: DiagramSankeyIcon, rota: "/gestao-matricula/central-estudante" },
+            { id: 5, title: "Desligamento",    subtitle: "Express",       description: "Encerramento ágil de matrícula", icon: AlertaSensorIcon,  rota: "/gestao-matricula/desligamento-express" },
+            { id: 6, title: "Central de",      subtitle: "Documentos",    description: "Documentos Express e emissões",  icon: DocumentIcon,      onClick: () => setOpenDocumentosExpress(true) },
+        ],
+        4: [
+            { id: 1, title: "Histórico",       subtitle: "Escolar",       description: "Controle de Registros",          icon: ConvertDocumentIcon, rota: "/gestao-matricula/historico-escolar" },
+            { id: 2, title: "Radar de",        subtitle: "Registros",     description: "Ferramenta Administrativa",      icon: RadarIcon },
+            { id: 3, title: "Registros de",    subtitle: "Sala de Aula",  description: "Visão Geral de Lançamentos",     icon: EditIcon },
+            { id: 4, title: "Manutenções de",  subtitle: "Turma",         description: "Visão Geral de Lançamentos",     icon: DocumentIcon }
+        ]
+    };
+
     const submenu = SUBMENUS[menuSelected] || [];
 
     const handleMenuClick = (id) => {
         setMenuSelected(prev => (prev === id ? null : id));
     };
 
+    const handleExtraCardClick = (item) => {
+        if (item.onClick) return item.onClick();
+        if (item.rota)    return navigation(item.rota);
+    };
+
     return (
-        <div className={styles.dashboard}>
-            <div className={styles.areaMenu}>
+        <>
+            <div className={styles.dashboard}>
+                <div className={styles.areaMenu}>
 
-                <div className={styles.menu}>
-                    {MENU.map(item => (
-                        <MenuItem
-                            key={item.id}
-                            item={item}
-                            isActive={menuSelected === item.id}
-                            onClick={() => item.rota ? navigation(item.rota) : handleMenuClick(item.id)}
-                        />
-                    ))}
-                </div>
-
-                <div className={styles.statsCard}>
-                    <div className={styles.statsHeader}>
-                        <span>Dados das Matrículas</span>
-                    </div>
-
-                    <div className={styles.statsContent}>
-                        <div className={styles.statItem}>
-                            <span>Total de Matrículados</span>
-                            <span>448</span>
-                        </div>
-
-                        <div className={styles.statItem}>
-                            <span>Total de Desligados</span>
-                            <span>21</span>
-                        </div>
-
-                        <div className={styles.statItem}>
-                            <span>Total de Transferidos</span>
-                            <span>382</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {submenu.length > 0 && (
-                <div className={styles.extraSection}>
-                    <span className={styles.extraTitle}>Funções Adicionais:</span>
-
-                    <div className={styles.extraDivider} />
-
-                    <div className={styles.extraGrid}>
-                        {submenu.map(item => (
-                            <ExtraCard
+                    <div className={styles.menu}>
+                        {MENU.map(item => (
+                            <MenuItem
                                 key={item.id}
                                 item={item}
-                                func={() => item.rota ? navigation(item.rota) : null}
+                                isActive={menuSelected === item.id}
+                                onClick={() => item.rota ? navigation(item.rota) : handleMenuClick(item.id)}
                             />
                         ))}
                     </div>
+
+                    <div className={styles.statsCard}>
+                        <div className={styles.statsHeader}>
+                            <span>Dados das Matrículas</span>
+                        </div>
+
+                        <div className={styles.statsContent}>
+                            <div className={styles.statItem}>
+                                <span>Total de Matrículados</span>
+                                <span>448</span>
+                            </div>
+
+                            <div className={styles.statItem}>
+                                <span>Total de Desligados</span>
+                                <span>21</span>
+                            </div>
+
+                            <div className={styles.statItem}>
+                                <span>Total de Transferidos</span>
+                                <span>382</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            )}
-        </div>
+
+                {submenu.length > 0 && (
+                    <div className={styles.extraSection}>
+                        <span className={styles.extraTitle}>Funções Adicionais:</span>
+
+                        <div className={styles.extraDivider} />
+
+                        <div className={styles.extraGrid}>
+                            {submenu.map(item => (
+                                <ExtraCard
+                                    key={item.id}
+                                    item={item}
+                                    func={() => handleExtraCardClick(item)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <DocumentosExpressDrawer
+                openCloseDrawer={openDocumentosExpress}
+                setOpenCloseDrawer={setOpenDocumentosExpress}
+            />
+        </>
     );
 };
 

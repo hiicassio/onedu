@@ -1,0 +1,361 @@
+/* ─── Layout helpers ─── */
+.tabGrid {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.colRight {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    min-width: 220px;
+}
+
+.colStack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ─── Card ─── */
+.card {
+    background: #fff;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    padding: 16px 18px;
+    flex: 1;
+    min-width: 240px;
+
+    .cardTitle {
+        display: block;
+        font-size: 11px;
+        font-weight: 400;
+        color: #777;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+}
+
+/* ─── Info rows ─── */
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #F3F4F6;
+
+    &:last-child { border-bottom: none; }
+
+    .infoLabel {
+        font-size: 11px;
+        color: #888;
+    }
+
+    .infoValue {
+        font-size: 12px;
+        font-weight: 600;
+        color: #00397B;
+        text-align: right;
+        max-width: 55%;
+    }
+}
+
+.separator {
+    height: 1px;
+    background: #F0F0F0;
+    margin: 12px 0;
+}
+
+/* ─── Small stat cards inside a card ─── */
+.statCards {
+    display: flex;
+    gap: 10px;
+
+    .statCard {
+        flex: 1;
+        background: #F8FAFC;
+        border-radius: 8px;
+        padding: 10px 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+
+        .statNum {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .statLbl {
+            font-size: 9px;
+            color: #999;
+            text-align: center;
+        }
+    }
+}
+
+/* ─── Chart wrap ─── */
+.chartWrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ─── Alert box ─── */
+.alertBox {
+    background: #FEF3C7;
+    border-left: 4px solid #F79009;
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #92400E;
+
+    .alertTitle {
+        display: block;
+        font-weight: 700;
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    p {
+        font-size: 12px;
+        margin: 0;
+        line-height: 1.5;
+    }
+}
+
+/* ─── Info box (blue) ─── */
+.infoBox {
+    background: #E0EBFA;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #00397B;
+}
+
+/* ─── Occurrences ─── */
+.occList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.occRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px;
+    background: #FAFAFA;
+    border-radius: 8px;
+    border: 1px solid #EFEFEF;
+
+    .occDate {
+        font-size: 11px;
+        color: #888;
+        white-space: nowrap;
+        padding-top: 2px;
+        min-width: 78px;
+    }
+
+    .occBody {
+        flex: 1;
+
+        .occType {
+            font-size: 12px;
+            font-weight: 700;
+            color: #00397B;
+        }
+
+        .occDesc {
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
+        }
+    }
+
+    .occBadge {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+    }
+}
+
+/* ─── Grade table ─── */
+.gradeTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+
+    thead tr th {
+        background: #F3F4F6;
+        padding: 8px 10px;
+        text-align: center;
+        font-size: 10px;
+        font-weight: 600;
+        color: #555;
+        border-bottom: 1px solid #E8E8E8;
+
+        &:first-child { text-align: left; }
+    }
+
+    tbody tr:nth-child(even) td { background: #FAFAFA; }
+
+    .gradeSubject {
+        padding: 8px 10px;
+        font-weight: 500;
+        color: #333;
+        white-space: nowrap;
+        border-bottom: 1px solid #F0F0F0;
+    }
+
+    .gradeCell {
+        padding: 7px 10px;
+        text-align: center;
+        font-size: 12px;
+        border-bottom: 1px solid #F0F0F0;
+        border-radius: 4px;
+    }
+}
+
+.chipGreen  { background: #D1FAE5; color: #065F46; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+.chipYellow { background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+.chipRed    { background: #FEE2E2; color: #991B1B; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+.chipNeutral{ background: #F3F4F6; color: #888;    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+
+.legendRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    font-size: 10px;
+    color: #666;
+
+    .legendDot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+}
+
+/* ─── Frequência tab ─── */
+.statRow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .statBig {
+        background: #fff;
+        border: 1px solid #E8E8E8;
+        border-radius: 10px;
+        padding: 14px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        flex: 1;
+        min-width: 100px;
+
+        .statBigNum {
+            font-weight: 700;
+            font-size: 26px;
+        }
+
+        .statBigLabel {
+            font-size: 10px;
+            color: #999;
+            text-align: center;
+        }
+    }
+
+    .freqBadge {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 6px 14px;
+        border-radius: 20px;
+    }
+
+    .freqOk    { background: #D1FAE5; color: #065F46; }
+    .freqAlert { background: #FEE2E2; color: #991B1B; }
+}
+
+.freqTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 8px;
+
+    thead tr th {
+        background: #F3F4F6;
+        padding: 7px 12px;
+        text-align: center;
+        font-size: 10px;
+        color: #555;
+        border-bottom: 1px solid #E8E8E8;
+    }
+
+    tbody tr td {
+        padding: 7px 12px;
+        text-align: center;
+        border-bottom: 1px solid #F0F0F0;
+        color: #333;
+    }
+
+    .freqPill {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 10px;
+        border-radius: 20px;
+    }
+}
+
+/* ─── Resumo tab ─── */
+.metricsRow {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    .metricCard {
+        flex: 1;
+        min-width: 100px;
+        background: #fff;
+        border: 1px solid #E8E8E8;
+        border-radius: 10px;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+
+        .metricValue {
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .metricLabel {
+            font-size: 10px;
+            color: #999;
+            text-align: center;
+        }
+    }
+}
+
+.chartCentered {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.trendLabels {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 9px;
+    color: #AAA;
+}
