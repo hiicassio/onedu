@@ -17,11 +17,13 @@ import ShareIcon from './icones/ShareIcon';
 import Header from './Header';
 import Filtro from './Filtro';
 import Loading from '../../../components/Loading';
+import AnaliseCandidato from '../../analise_candidato/AnaliseCandidato';
 
 const ControleTransferencias = () => {
     const [selectHead, setSelectHead] = useState(1);
     const [rowColapse, setRowColapse] = useState(0);
     const [loading, setLoading] = useState(true);
+    const [openTransferencia, setOpenTransferencia] = useState(false);
 
     const handleRowColapse = (id) => {
         setRowColapse(prev => prev === id ? 0 : id);
@@ -42,7 +44,7 @@ const ControleTransferencias = () => {
                 :
                 <>
                     <Header />
-                    <Filtro />
+                    <Filtro onOpenTransfer={() => setOpenTransferencia(true)} />
                     <div className={styles.tableArea}>
                         <div className={styles.table}>
                             <div className={styles.header}>
@@ -124,6 +126,10 @@ const ControleTransferencias = () => {
                     </div>
                 </>
             }
+            <AnaliseCandidato
+                openCloseDrawer={openTransferencia}
+                setOpenCloseDrawer={setOpenTransferencia}
+            />
         </div>
     )
 }

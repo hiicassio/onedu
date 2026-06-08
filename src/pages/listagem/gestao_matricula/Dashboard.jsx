@@ -54,7 +54,8 @@ const SUBMENUS = {
         { id: 1, title: "Controle de", subtitle: "Documentos", description: "Visão Geral de Lançamentos", icon: DocumentIcon, rota: "/gestao-matricula/documentos-express" },
         { id: 2, title: "Monitoramento de", subtitle: "Ocorrências", description: "Visão Geral de Lançamentos", icon: AlertaSensorIcon, rota: "/gestao-matricula/controle-ocorrencias" },
         { id: 3, title: "Gestão de", subtitle: "Transferências", description: "Visão Geral de Lançamentos", icon: PriorityArrowsIcon, rota: "/gestao-matricula/controle-transferencias" },
-        { id: 4, title: "Central do", subtitle: "Estudante", description: "Visão Geral de Lançamentos", icon: DiagramSankeyIcon }
+        { id: 4, title: "Central do", subtitle: "Estudante", description: "Visão Geral de Lançamentos", icon: DiagramSankeyIcon },
+        { id: 5, title: "Desligamento", subtitle: "Express", description: "Encerramento ágil de matrícula", icon: AlertaSensorIcon, rota: "/gestao-matricula/desligamento-express" },
     ],
     4: [
         { id: 1, title: "Histórico", subtitle: "Escolar", description: "Controle de Registros", icon: ConvertDocumentIcon, rota: "/gestao-matricula/historico-escolar" },
@@ -169,7 +170,11 @@ const Dashboard = () => {
 
                     <div className={styles.extraGrid}>
                         {submenu.map(item => (
-                            <ExtraCard key={item.id} item={item} func={() => navigation(item.rota)} />
+                            <ExtraCard
+                                key={item.id}
+                                item={item}
+                                func={() => item.rota ? navigation(item.rota) : null}
+                            />
                         ))}
                     </div>
                 </div>

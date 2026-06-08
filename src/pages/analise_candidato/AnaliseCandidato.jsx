@@ -14,10 +14,10 @@ import EyeIcon from './icones/EyeIcon';
 import user from './img/user.png';
 import { useState } from 'react';
 import DrawerComponent from '../../components/DrawerComponent';
+import CheckCircleIcon from '../home/icones/CheckCircleIcon';
+import SuccessScreen from '../../components/form/SuccessScreen';
 
-const btnsFooterModal = [
-    { id: 1, descricao: "Avançar", icone: <AngleSmallLeftIcon />, class: "secondary" }
-];
+const TOTAL_STEPS = 4;
 
 const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
     const [etapa, setEtapa] = useState(1);
@@ -29,36 +29,80 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
         { id: 4, icon: <FeatherPrinterIcon />, label: 'Conclusão' },
     ];
 
+    const isFirst     = etapa === 1;
+    const isFinal     = etapa === TOTAL_STEPS;
+    const isConclusao = etapa > TOTAL_STEPS;
+
+    const avancar = () => setEtapa(prev => prev + 1);
+    const voltar  = () => setEtapa(prev => prev - 1);
+
+    const handleClose = () => {
+        setOpenCloseDrawer(false);
+        setTimeout(() => setEtapa(1), 400);
+    };
+
+    const btnsFooterModal = isConclusao
+        ? [
+            {
+                id: 1,
+                descricao: 'Fechar',
+                class: 'secondary',
+                func: handleClose,
+            },
+        ]
+        : [
+            ...(!isFirst ? [{
+                id: 0,
+                descricao: 'Voltar',
+                class: 'primary',
+                func: voltar,
+            }] : []),
+            {
+                id: 1,
+                descricao: isFinal ? 'Confirmar Transferência' : 'Avançar',
+                icone: isFinal ? null : <AngleSmallLeftIcon />,
+                class: 'secondary',
+                func: avancar,
+            },
+        ];
+
     return (
         <DrawerComponent
             bgColor="#fff"
             openCloseDrawer={openCloseDrawer}
-            setOpenCloseDrawer={setOpenCloseDrawer}
+            setOpenCloseDrawer={handleClose}
             btnsFooterModal={btnsFooterModal}
             titulo="Transferência do Aluno"
         >
             <div className={styles.analiseCandidato}>
                 <div className={styles.analiseCandidato_content}>
-                    {/* STEPS */}
-                    <div className={styles.analiseCandidato_steps}>
-                        <div className={styles.analiseCandidato_steps_area}>
-                            {steps.map(step => (
-                                <button
-                                    key={step.id}
-                                    onClick={() => setEtapa(step.id)}
-                                    className={`${styles.analiseCandidato_step} ${etapa === step.id ? styles.analiseCandidato_step_select : ''}`}
-                                >
-                                    {step.icon}
-                                    <span>{step.label}</span>
-                                </button>
-                            ))}
+
+                    {/* STEPS BAR */}
+                    {!isConclusao && (
+                        <div className={styles.analiseCandidato_steps}>
+                            <div className={styles.analiseCandidato_steps_area}>
+                                {steps.map(step => (
+                                    <button
+                                        key={step.id}
+                                        type="button"
+                                        onClick={() => setEtapa(step.id)}
+                                        className={`${styles.analiseCandidato_step} ${etapa === step.id ? styles.analiseCandidato_step_select : ''}`}
+                                    >
+                                        {step.icon}
+                                        <span>{step.label}</span>
+                                    </button>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     {/* FORM */}
-                    <form className={styles.analiseCandidato_form}>
+                    <form
+                        className={styles.analiseCandidato_form}
+                        onSubmit={e => e.preventDefault()}
+                    >
 
-                        {/* IDENTIFICAÇÃO */}
+                        {/* ETAPA 1 — DADOS */}
                         {etapa === 1 && (
                             <>
                                 <div className={styles.analiseCandidato_section}>
@@ -77,7 +121,7 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
 
                                             <div className={styles.analiseCandidato_fieldGroup}>
                                                 <span>Aluno</span>
-                                                <input type="text" name="nome" />
+                                                <input type="text" name="nome" placeholder="Nome do aluno" />
                                             </div>
 
                                             <div className={styles.analiseCandidato_fieldAction}>
@@ -89,23 +133,22 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>IDSGP</span>
-                                                    <input type="text" name="idsgp" />
+                                                    <input type="text" name="idsgp" placeholder="000000" />
                                                 </div>
                                             </label>
 
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>PCD</span>
-                                                    <input type="text" name="pcd" />
+                                                    <input type="text" name="pcd" placeholder="Não informado" />
                                                 </div>
                                             </label>
 
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Contato</span>
-                                                    <input type="text" name="contato" />
+                                                    <input type="text" name="contato" placeholder="(00) 00000-0000" />
                                                 </div>
-
                                                 <div className={styles.analiseCandidato_fieldAction}>
                                                     <WALogoIcon />
                                                 </div>
@@ -123,9 +166,8 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Responsável</span>
-                                                    <input type="text" name="responsavel" />
+                                                    <input type="text" name="responsavel" placeholder="Nome do responsável" />
                                                 </div>
-
                                                 <div className={styles.analiseCandidato_fieldAction}>
                                                     <WALogoIcon />
                                                 </div>
@@ -136,7 +178,6 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
 
                                 <div className={styles.analiseCandidato_dividir} />
 
-                                {/* MATRÍCULA */}
                                 <div className={styles.analiseCandidato_section}>
                                     <span className={styles.analiseCandidato_sectionTitle}>
                                         Informações de Matrícula
@@ -151,10 +192,9 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                             <div className={styles.analiseCandidato_fieldIcon}>
                                                 <CalendarClockIcon />
                                             </div>
-
                                             <div className={styles.analiseCandidato_fieldGroup}>
                                                 <span>Unidade Escolar</span>
-                                                <input type="text" name="unidade_escolar" />
+                                                <input type="text" name="unidade_escolar" placeholder="Selecione a unidade" />
                                             </div>
                                         </label>
 
@@ -162,29 +202,28 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Nível</span>
-                                                    <input type="text" name="nivel" />
+                                                    <input type="text" name="nivel" placeholder="Ex: Fundamental" />
                                                 </div>
                                             </label>
 
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Turma</span>
-                                                    <input type="text" name="turma" />
+                                                    <input type="text" name="turma" placeholder="Ex: A" />
                                                 </div>
-
                                                 <div
                                                     style={{ maxWidth: 36, maxHeight: 33, backgroundColor: '#fff', borderRadius: 5, padding: 5 }}
                                                     className={styles.analiseCandidato_fieldGroup}
                                                 >
                                                     <span>Nº</span>
-                                                    <input type="text" name="numero" />
+                                                    <input type="text" name="numero" placeholder="0" />
                                                 </div>
                                             </label>
 
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Regime Atual</span>
-                                                    <input type="text" name="regime_atual" />
+                                                    <input type="text" name="regime_atual" placeholder="Ex: Regular" />
                                                 </div>
                                             </label>
                                         </div>
@@ -193,6 +232,7 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                             </>
                         )}
 
+                        {/* ETAPA 2 — TRANSFERÊNCIA */}
                         {etapa === 2 && (
                             <>
                                 <div className={styles.analiseCandidato_section}>
@@ -208,13 +248,13 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                         >
                                             <div
                                                 style={{ backgroundColor: '#F3F4F1' }}
-                                                className={styles.analiseCandidato_fieldIcon}>
+                                                className={styles.analiseCandidato_fieldIcon}
+                                            >
                                                 <DocumentIcon />
                                             </div>
-
                                             <div className={styles.analiseCandidato_fieldGroup}>
-                                                <span>Modalidade de Transferênciar</span>
-                                                <select name="" id="">
+                                                <span>Modalidade de Transferência</span>
+                                                <select name="modalidade">
                                                     <option value="">Selecione...</option>
                                                     <option value="externa">Escolas Externas (Fora da Rede)</option>
                                                     <option value="municipal">Escolas Municipais</option>
@@ -237,22 +277,24 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                         <div className={styles.analiseCandidato_grid}>
                                             <label
                                                 style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
+                                                className={styles.analiseCandidato_field}
+                                            >
                                                 <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Data da Tranferência</span>
-                                                    <input type="date" name="Data da Tranferência" />
+                                                    <span>Data da Transferência</span>
+                                                    <input type="date" name="data_transferencia" />
                                                 </div>
                                                 <div
                                                     style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <CalendarClockIcon style={{ fontSize: 15 }} />
+                                                    className={styles.analiseCandidato_fieldAction}
+                                                >
+                                                    <CalendarClockIcon />
                                                 </div>
                                             </label>
 
                                             <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Data do Registro</span>
-                                                    <input type="date" name="Data do Registro" />
+                                                    <input type="date" name="data_registro" />
                                                 </div>
                                             </label>
                                         </div>
@@ -270,10 +312,11 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                         <div className={styles.analiseCandidato_grid}>
                                             <label
                                                 style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
+                                                className={styles.analiseCandidato_field}
+                                            >
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Estado</span>
-                                                    <select name="" id="">
+                                                    <select name="estado">
                                                         <option value="">Rio de Janeiro</option>
                                                     </select>
                                                 </div>
@@ -281,35 +324,38 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
 
                                             <label
                                                 style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
+                                                className={styles.analiseCandidato_field}
+                                            >
                                                 <div className={styles.analiseCandidato_fieldGroup}>
                                                     <span>Município</span>
-                                                    <select name="" id="">
+                                                    <select name="municipio">
                                                         <option value="">Niterói</option>
                                                     </select>
                                                 </div>
                                                 <div
                                                     style={{ backgroundColor: '#197DFF' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
+                                                    className={styles.analiseCandidato_fieldAction}
+                                                >
                                                     <ShareIcon style={{ fontSize: 15, color: '#fff' }} />
                                                 </div>
                                             </label>
                                         </div>
+
                                         <label
                                             style={{ backgroundColor: '#fff', paddingLeft: 3 }}
                                             className={styles.analiseCandidato_field}
                                         >
                                             <div
                                                 style={{ backgroundColor: '#F3F4F1' }}
-                                                className={styles.analiseCandidato_fieldIcon}>
-                                                <CalendarClockIcon style={{ fontSize: 15 }} />
+                                                className={styles.analiseCandidato_fieldIcon}
+                                            >
+                                                <CalendarClockIcon />
                                             </div>
-
                                             <div className={styles.analiseCandidato_fieldGroup}>
-                                                <span>Unidade Escolar</span>
-                                                <select name="" id="">
+                                                <span>Unidade Escolar de Destino</span>
+                                                <select name="unidade_destino">
                                                     <option value="">Selecione...</option>
-                                                    <option value="externa">521110 - Escola Municipal Angelo Gaivoto</option>
+                                                    <option value="521110">521110 - Escola Municipal Angelo Gaivoto</option>
                                                 </select>
                                             </div>
                                         </label>
@@ -320,10 +366,10 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                         </div>
                                     </div>
                                 </div>
-
                             </>
                         )}
 
+                        {/* ETAPA 3 — CONFIGURAÇÕES */}
                         {etapa === 3 && (
                             <>
                                 <div className={styles.analiseCandidato_section}>
@@ -332,202 +378,45 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                     </span>
 
                                     <div className={styles.analiseCandidato_sectionContent}>
-                                        <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Notas e Desempenho" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
-                                                </div>
-                                            </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
-                                                </div>
-                                            </label>
-
-                                        </div>
-                                        <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Avaliações Descritivas" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
-                                                </div>
-                                            </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
-                                                </div>
-                                            </label>
-
-                                        </div>
-                                        <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Avaliações Diagnósticas" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
-                                                </div>
-                                            </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
-                                                </div>
-                                            </label>
-
-                                        </div>
-                                        <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Frequência Escolar" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
-                                                </div>
-                                            </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
-                                                </div>
-                                            </label>
-
-                                        </div>
-                                        <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Conteúdos Curriculares" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
-                                                </div>
-                                            </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
-                                                </div>
-                                            </label>
-
-                                        </div>
-                                        <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Históricos anteriores" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
-                                                </div>
-                                            </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
-                                                </div>
-                                            </label>
-
-                                        </div>
-                                        <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Dados de Educação Especial" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
-                                                </div>
-                                            </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
-                                                <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
-                                                </div>
-                                            </label>
-
-                                        </div>
+                                        {[
+                                            'Notas e Desempenho',
+                                            'Avaliações Descritivas',
+                                            'Avaliações Diagnósticas',
+                                            'Frequência Escolar',
+                                            'Conteúdos Curriculares',
+                                            'Históricos Anteriores',
+                                            'Dados de Educação Especial',
+                                        ].map((item) => (
+                                            <div key={item} className={styles.analiseCandidato_grid}>
+                                                <label
+                                                    style={{ backgroundColor: '#fff' }}
+                                                    className={styles.analiseCandidato_field}
+                                                >
+                                                    <div className={styles.analiseCandidato_fieldGroup}>
+                                                        <span>Item Compartilhado</span>
+                                                        <input type="text" readOnly value={item} />
+                                                    </div>
+                                                    <div
+                                                        style={{ backgroundColor: '#F3F4F1' }}
+                                                        className={styles.analiseCandidato_fieldAction}
+                                                    >
+                                                        <EyeIcon />
+                                                    </div>
+                                                </label>
+                                                <label
+                                                    style={{ backgroundColor: '#fff' }}
+                                                    className={styles.analiseCandidato_field}
+                                                >
+                                                    <div className={styles.analiseCandidato_fieldGroup}>
+                                                        <span>Compartilhar?</span>
+                                                        <select name={`compartilhar_${item}`}>
+                                                            <option value="sim">Sim</option>
+                                                            <option value="nao">Não</option>
+                                                        </select>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
 
@@ -540,66 +429,114 @@ const AnaliseCandidato = ({ openCloseDrawer, setOpenCloseDrawer }) => {
                                     </span>
 
                                     <div className={styles.analiseCandidato_sectionContent}>
+                                        {[
+                                            'Notas e Desempenho',
+                                            'Frequência Escolar',
+                                        ].map((item) => (
+                                            <div key={item} className={styles.analiseCandidato_grid}>
+                                                <label
+                                                    style={{ backgroundColor: '#fff' }}
+                                                    className={styles.analiseCandidato_field}
+                                                >
+                                                    <div className={styles.analiseCandidato_fieldGroup}>
+                                                        <span>Item</span>
+                                                        <input type="text" readOnly value={item} />
+                                                    </div>
+                                                    <div
+                                                        style={{ backgroundColor: '#F3F4F1' }}
+                                                        className={styles.analiseCandidato_fieldAction}
+                                                    >
+                                                        <EyeIcon />
+                                                    </div>
+                                                </label>
+                                                <label
+                                                    style={{ backgroundColor: '#fff' }}
+                                                    className={styles.analiseCandidato_field}
+                                                >
+                                                    <div className={styles.analiseCandidato_fieldGroup}>
+                                                        <span>Compatibilizar?</span>
+                                                        <select name={`compat_${item}`}>
+                                                            <option value="sim">Sim</option>
+                                                            <option value="nao">Não</option>
+                                                        </select>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </>
+                        )}
+
+                        {/* ETAPA 4 — REVISÃO */}
+                        {etapa === 4 && (
+                            <>
+                                <div className={styles.analiseCandidato_section}>
+                                    <span className={styles.analiseCandidato_sectionTitle}>
+                                        Revisão da Transferência:
+                                    </span>
+
+                                    <div className={styles.analiseCandidato_sectionContent}>
+
+                                        <label
+                                            style={{ backgroundColor: '#F3F4F1', paddingLeft: 3 }}
+                                            className={styles.analiseCandidato_field}
+                                        >
+                                            <img className={styles.analiseCandidato_avatar} src={user} alt="" />
+                                            <div className={styles.analiseCandidato_fieldGroup}>
+                                                <span>Aluno</span>
+                                                <input type="text" readOnly placeholder="Nome do aluno selecionado" />
+                                            </div>
+                                        </label>
+
                                         <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
+                                            <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Notas e Desempenho" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
+                                                    <span>Unidade de Origem</span>
+                                                    <input type="text" readOnly placeholder="Unidade selecionada" />
                                                 </div>
                                             </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
+                                            <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
+                                                    <span>Unidade de Destino</span>
+                                                    <input type="text" readOnly placeholder="Unidade selecionada" />
                                                 </div>
                                             </label>
-
                                         </div>
+
                                         <div className={styles.analiseCandidato_grid}>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
+                                            <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Item Compartilhado</span>
-                                                    <input type="text" name="responsavel" value="Notas e Desempenho" />
-                                                </div>
-
-                                                <div
-                                                    style={{ backgroundColor: '#F3F4F1' }}
-                                                    className={styles.analiseCandidato_fieldAction}>
-                                                    <EyeIcon style={{ fontSize: 15 }} />
+                                                    <span>Modalidade</span>
+                                                    <input type="text" readOnly placeholder="Modalidade selecionada" />
                                                 </div>
                                             </label>
-                                            <label
-                                                style={{ backgroundColor: '#fff' }}
-                                                className={styles.analiseCandidato_field}>
+                                            <label className={styles.analiseCandidato_field}>
                                                 <div className={styles.analiseCandidato_fieldGroup}>
-                                                    <span>Compartilhar?</span>
-                                                    <select name="" id="">
-                                                        <option value="">Sim</option>
-                                                        <option value="">Não</option>
-                                                    </select>
+                                                    <span>Data da Transferência</span>
+                                                    <input type="text" readOnly placeholder="DD/MM/AAAA" />
                                                 </div>
                                             </label>
+                                        </div>
 
+                                        <div className={styles.atencao}>
+                                            <span>Confirme os dados antes de finalizar</span>
+                                            <p>Ao confirmar a transferência, o aluno será vinculado à unidade de destino e um documento oficial será gerado. Esta ação não poderá ser desfeita sem autorização administrativa.</p>
                                         </div>
                                     </div>
                                 </div>
                             </>
                         )}
+
+                        {/* ETAPA 5 — CONCLUSÃO */}
+                        {etapa === 5 && (
+                            <SuccessScreen
+                                icon={<CheckCircleIcon />}
+                                title="Transferência realizada com sucesso!"
+                                description="O aluno foi transferido para a unidade de destino. O documento oficial foi gerado e está disponível para impressão no histórico de transferências."
+                            />
+                        )}
+
                     </form>
                 </div>
             </div>

@@ -1,0 +1,23 @@
+[
+    { "id": 1,  "name": "Ana Maria Carvalho",           "matricula": "520001", "data": "03/01/2026", "nivel": "7º ANO 'B'", "motivo": "Transferência p/ outra rede",  "responsavel": "Simone Tabet Filha" },
+    { "id": 2,  "name": "Amanda Soares Tonardo Filha",  "matricula": "520002", "data": "05/01/2026", "nivel": "5º ANO 'A'", "motivo": "Mudança de endereço",           "responsavel": "Simone Tabet Filha" },
+    { "id": 3,  "name": "Amanda Evellyn Silva Cardoso", "matricula": "520003", "data": "07/01/2026", "nivel": "3º ANO 'C'", "motivo": "Motivos pessoais",              "responsavel": "Carlos Andrade" },
+    { "id": 4,  "name": "Bruna da Silva Pereira Souza", "matricula": "520004", "data": "10/01/2026", "nivel": "1º ANO 'A'", "motivo": "Motivos financeiros",          "responsavel": "Simone Tabet Filha" },
+    { "id": 5,  "name": "Bruna Sampaio de Oliveira",    "matricula": "520005", "data": "12/01/2026", "nivel": "8º ANO 'B'", "motivo": "Transferência p/ outra rede",  "responsavel": "Carlos Andrade",    "alert": true },
+    { "id": 6,  "name": "Carlos Henrique Mattours Heink","matricula": "520006","data": "14/01/2026", "nivel": "2º ANO 'A'", "motivo": "Mudança de endereço",           "responsavel": "Simone Tabet Filha" },
+    { "id": 7,  "name": "Daniella Kemp Monterrey",      "matricula": "520007", "data": "15/01/2026", "nivel": "6º ANO 'C'", "motivo": "Motivos pessoais",              "responsavel": "Ana Souza" },
+    { "id": 8,  "name": "Daniela Mercury Silva Santos", "matricula": "520008", "data": "18/01/2026", "nivel": "4º ANO 'B'", "motivo": "Transferência p/ outra rede",  "responsavel": "Simone Tabet Filha" },
+    { "id": 9,  "name": "Daiane Coachello Silva Noak",  "matricula": "520009", "data": "20/01/2026", "nivel": "9º ANO 'A'", "motivo": "Outro",                        "responsavel": "Carlos Andrade",    "inactive": true },
+    { "id": 10, "name": "Danilo de Carvalho Pinheiro",  "matricula": "520010", "data": "22/01/2026", "nivel": "7º ANO 'A'", "motivo": "Motivos financeiros",          "responsavel": "Ana Souza" },
+    { "id": 11, "name": "Danilo Monari Rompatto",        "matricula": "520011", "data": "25/01/2026", "nivel": "5º ANO 'B'", "motivo": "Mudança de endereço",           "responsavel": "Simone Tabet Filha" },
+    { "id": 12, "name": "Eliane Macedo Silva Pereira",  "matricula": "520012", "data": "28/01/2026", "nivel": "3º ANO 'A'", "motivo": "Motivos pessoais",              "responsavel": "Carlos Andrade",    "inactive": true },
+    { "id": 13, "name": "Fernanda Lima Rodrigues",       "matricula": "520013", "data": "30/01/2026", "nivel": "8º ANO 'A'", "motivo": "Transferência p/ outra rede",  "responsavel": "Ana Souza" },
+    { "id": 14, "name": "Gabriel Torres Siqueira",       "matricula": "520014", "data": "02/02/2026", "nivel": "1º ANO 'C'", "motivo": "Motivos financeiros",          "responsavel": "Simone Tabet Filha" },
+    { "id": 15, "name": "Giovana Passos Freitas",        "matricula": "520015", "data": "04/02/2026", "nivel": "6º ANO 'B'", "motivo": "Outro",                        "responsavel": "Carlos Andrade" },
+    { "id": 16, "name": "Helena Castro Meireles",        "matricula": "520016", "data": "06/02/2026", "nivel": "4º ANO 'A'", "motivo": "Mudança de endereço",           "responsavel": "Ana Souza" },
+    { "id": 17, "name": "Igor Nascimento Queiroz",       "matricula": "520017", "data": "08/02/2026", "nivel": "2º ANO 'B'", "motivo": "Transferência p/ outra rede",  "responsavel": "Simone Tabet Filha" },
+    { "id": 18, "name": "Isabela Moura Cavalcanti",      "matricula": "520018", "data": "10/02/2026", "nivel": "9º ANO 'B'", "motivo": "Motivos pessoais",              "responsavel": "Carlos Andrade" },
+    { "id": 19, "name": "João Victor Peres Almeida",     "matricula": "520019", "data": "12/02/2026", "nivel": "7º ANO 'C'", "motivo": "Motivos financeiros",          "responsavel": "Ana Souza",         "alert": true },
+    { "id": 20, "name": "Julia Andrade Barbosa",         "matricula": "520020", "data": "14/02/2026", "nivel": "3º ANO 'B'", "motivo": "Outro",                        "responsavel": "Simone Tabet Filha" },
+    { "id": 21, "name": "Karen Ferreira dos Santos",     "matricula": "520021", "data": "16/02/2026", "nivel": "5º ANO 'C'", "motivo": "Transferência p/ outra rede",  "responsavel": "Carlos Andrade" }
+]

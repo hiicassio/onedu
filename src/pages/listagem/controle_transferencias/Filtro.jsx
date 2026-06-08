@@ -6,7 +6,7 @@ import DropdownSelectIcon from './icones/DropdownSelectIcon';
 import ArrowAngleBottomIcon from './icones/ArrowAngleBottomIcon';
 import AddIcon from './icones/AddIcon';
 
-const Filtro = () => {
+const Filtro = ({ onOpenTransfer }) => {
     return (
         <div className={styles.filtro}>
 
@@ -57,7 +57,7 @@ const Filtro = () => {
                 </div>
                 <ArrowAngleBottomIcon />
             </div>
-            <button className={styles.btnAdd}>
+            <button className={styles.btnAdd} onClick={onOpenTransfer}>
                 <AddIcon />
             </button>
         </div>

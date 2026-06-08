@@ -16,6 +16,7 @@ import ControleRematriculaValidacoes from "../pages/listagem/controle_rematricul
 import DashboardHome from "../pages/dashboard_home/DashboardHome.jsx";
 import ControleOcorrencias from "../pages/listagem/controle_ocorrencias/ControleOcorrencias.jsx";
 import ControleTransferencias from "../pages/listagem/controle_transferencias/ControleTransferencias.jsx";
+import ControleDesligamento from "../pages/listagem/controle_desligamento/ControleDesligamento.jsx";
 
 const router = createHashRouter([
     {
@@ -90,6 +91,11 @@ const router = createHashRouter([
                                 path: "controle-transferencias",
                                 index: true,
                                 element: <ControleTransferencias />
+                            },
+                            {
+                                path: "desligamento-express",
+                                index: true,
+                                element: <ControleDesligamento />
                             },
                         ]
                     },

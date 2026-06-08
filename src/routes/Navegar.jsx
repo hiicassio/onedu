@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import AnaliseCandidato from '../pages/analise_candidato/AnaliseCandidato';
+import DesligamentoExpress from '../pages/desligamento_express/DesligamentoExpress';
+import NovaMatricula from '../pages/nova_matricula/NovaMatricula';
 import InfoIntegracaoGestaoPresente from '../pages/gestao_matricula/InfoIntegracaoGestaoPresente';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,6 +15,8 @@ const styles = {
 
 const Navegar = () => {
     const [openCloseDrawer, setOpenCloseDrawer] = useState(false);
+    const [openDesligamentoExpress, setOpenDesligamentoExpress] = useState(false);
+    const [openNovaMatricula, setOpenNovaMatricula] = useState(false);
     const navigation = useNavigate();
     const [openCloseDrawerInfoIntegracaoGestaoPresente, setOpenCloseDrawerInfoIntegracaoGestaoPresente] = useState(false);
 
@@ -35,11 +39,27 @@ const Navegar = () => {
             <button style={styles} onClick={() => setOpenCloseDrawer(true)}>Open Drawer AnaliseCandidato</button>
             <br />
             <br />
+            <button style={styles} onClick={() => setOpenDesligamentoExpress(true)}>Open Drawer Desligamento Express</button>
+            <br />
+            <br />
+            <button style={styles} onClick={() => setOpenNovaMatricula(true)}>Open Drawer Nova Matrícula</button>
+            <br />
+            <br />
             <button style={styles} onClick={() => setOpenCloseDrawerInfoIntegracaoGestaoPresente(true)}>Open Drawer InfoIntegracaoGestaoPresente</button>
 
             <AnaliseCandidato
                 openCloseDrawer={openCloseDrawer}
                 setOpenCloseDrawer={setOpenCloseDrawer}
+            />
+
+            <DesligamentoExpress
+                openCloseDrawer={openDesligamentoExpress}
+                setOpenCloseDrawer={setOpenDesligamentoExpress}
+            />
+
+            <NovaMatricula
+                openCloseDrawer={openNovaMatricula}
+                setOpenCloseDrawer={setOpenNovaMatricula}
             />
 
             <InfoIntegracaoGestaoPresente
