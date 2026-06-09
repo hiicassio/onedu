@@ -10,6 +10,8 @@ const FormField = ({
     avatar,
     bg = false,
     defaultValue,
+    value,
+    onChange,
 }) => (
     <label className={`${styles.formField} ${bg ? styles.formFieldBg : ''}`}>
         {avatar && (
@@ -24,8 +26,10 @@ const FormField = ({
                 type={type}
                 name={name}
                 placeholder={placeholder}
-                defaultValue={defaultValue}
-                readOnly={defaultValue !== undefined}
+                value={value !== undefined ? value : undefined}
+                defaultValue={value === undefined ? defaultValue : undefined}
+                onChange={onChange}
+                readOnly={value === undefined && defaultValue !== undefined}
             />
         </div>
         {action && (

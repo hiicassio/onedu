@@ -25,19 +25,44 @@ const SearchIcon = () => (
         <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
     </svg>
 );
+const CameraIcon = () => (
+    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+        <path
+            d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <circle cx="12" cy="13" r="4" stroke="currentColor" strokeWidth="2" />
+    </svg>
+);
 
-const StudentHeader = () => (
+const StudentHeader = ({ student = STUDENT, enablePhotoEdit = false, onPhotoClick }) => (
     <div className={styles.header}>
         <div className={styles.profile}>
-            <img className={styles.avatar} src={user} alt="Foto do aluno" />
+            <div className={styles.avatarWrapper}>
+                <img className={styles.avatar} src={student.avatar || user} alt="Foto do aluno" />
+
+                {enablePhotoEdit && (
+                    <button
+                        type="button"
+                        className={styles.cameraButton}
+                        onClick={onPhotoClick}
+                        title="Alterar foto do aluno"
+                    >
+                        <CameraIcon />
+                    </button>
+                )}
+            </div>
 
             <div className={styles.info}>
                 <div className={styles.nameRow}>
-                    <span className={styles.name}>{STUDENT.name}</span>
-                    <span className={`${styles.badge} ${styles.badgeActive}`}>{STUDENT.status}</span>
+                    <span className={styles.name}>{student.name}</span>
+                    <span className={`${styles.badge} ${styles.badgeActive}`}>{student.status}</span>
                 </div>
-                <span className={styles.sub}>{STUDENT.id} · {STUDENT.turma} · {STUDENT.nivel} · {STUDENT.turno}</span>
-                <span className={styles.sub}>{STUDENT.unidade}</span>
+                <span className={styles.sub}>{student.id} · {student.turma} · {student.nivel} · {student.turno}</span>
+                <span className={styles.sub}>{student.unidade}</span>
             </div>
         </div>
 

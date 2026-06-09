@@ -7,6 +7,8 @@ const FormSelect = ({
     options = [],
     icon,
     bg = false,
+    value,
+    onChange,
 }) => (
     <label className={`${styles.formField} ${bg ? styles.formFieldBg : ''}`}>
         {icon && (
@@ -14,7 +16,12 @@ const FormSelect = ({
         )}
         <div className={styles.formFieldGroup}>
             <span>{label}</span>
-            <select name={name} defaultValue="">
+            <select
+                name={name}
+                value={onChange ? (value ?? '') : undefined}
+                defaultValue={onChange ? undefined : ''}
+                onChange={onChange}
+            >
                 <option value="" disabled>{placeholder}</option>
                 {options.map((option) => (
                     <option key={option.value} value={option.value}>

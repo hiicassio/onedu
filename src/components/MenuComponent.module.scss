@@ -1,13 +1,38 @@
 .containerMenuComponent {
-  height: calc(100dvh - 40px);
-  max-height: 722px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  flex-shrink: 0;
+  height: calc(100vh - 20px);
+  max-height: calc(100vh - 20px);
   display: flex;
   gap: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 
   .menuWrapper {
     width: 73px;
     height: 100%;
+    min-height: calc(100vh - 20px);
     padding: 12px;
+    flex-shrink: 0;
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -69,17 +94,29 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
       flex-grow: 1;
+      min-height: 0;
 
       &::-webkit-scrollbar {
-        display: none !important;
+        width: 3px;
       }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.28);
+        border-radius: 3px;
+      }
+
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
 
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-
-      scrollbar-width: none;
 
       .menuTop {
         .menuButton {
@@ -176,6 +213,8 @@
   .bodyMenu {
     background-color: #fff;
     width: 211px;
+    height: 100%;
+    max-height: calc(100vh - 20px);
     border-radius: 10px;
     border: 1px solid #F0F0F0;
     box-shadow: 0px 4px 5.9px 0px #00000040;
@@ -183,6 +222,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    flex-shrink: 0;
 
     transform: translateX(0);
     opacity: 1;
@@ -261,7 +301,25 @@
           display: flex;
           flex-direction: column;
           gap: 30px;
-          overflow: auto;
+          overflow-y: auto;
+          overflow-x: hidden;
+          min-height: 0;
+
+          &::-webkit-scrollbar {
+            width: 4px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #D7E8FF;
+            border-radius: 4px;
+          }
+
+          scrollbar-width: thin;
+          scrollbar-color: #D7E8FF transparent;
 
           .menuOpcoes {
             display: flex;

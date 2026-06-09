@@ -24,6 +24,9 @@ const Navegar = () => {
         <div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cum enim maxime velit nam perspiciatis ratione, consectetur obcaecati cupiditate voluptatum nesciunt beatae, voluptate pariatur provident, repudiandae cumque ab ipsa dolor?</p>
             <br />
+            <button style={styles} onClick={() => navigation("/minha-escola")}>minha-escola</button>
+            <br />
+            <br />
             <button style={styles} onClick={() => navigation("/home")}>boas-vindas</button>
             <br />
             <br />

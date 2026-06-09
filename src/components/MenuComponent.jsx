@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './MenuComponent.module.scss';
 
 import user from './icones/user.png';
@@ -32,7 +32,7 @@ const menu = [
     { id: 1, rota: "/dashboard/home", icone: <EyeIcon /> },
     { id: 2, rota: "/gestao-matricula", icone: <BellSchoolIcon /> },
     { id: 3, rota: "", icone: <AppsAddIcon /> },
-    { id: 4, rota: "", icone: <GraduationCapIcon /> },
+    { id: 4, rota: "/minha-escola", icone: <GraduationCapIcon /> },
     { id: 5, rota: "", icone: <PenSquareIcon /> },
     { id: 6, rota: "", icone: <DiscoverIcon /> },
     { id: 7, rota: "", icone: <OneproIcon /> },
@@ -73,8 +73,26 @@ const MenuComponent = () => {
 
     const handleNavigate = (rota) => {
         if (!rota) return;
+
+        if (rota === '/minha-escola') {
+            navigate(rota, { state: { resetAt: Date.now() } });
+            return;
+        }
+
         navigate(rota);
     };
+
+    const MENU_WIDTH_EXPANDED = 286;
+    const MENU_WIDTH_COLLAPSED = 75;
+
+    useEffect(() => {
+        const menuWidth = menuOpenClose ? MENU_WIDTH_EXPANDED : MENU_WIDTH_COLLAPSED;
+        document.documentElement.style.setProperty('--layout-menu-width', `${menuWidth}px`);
+        document.documentElement.style.setProperty(
+            '--layout-content-offset',
+            `calc(${menuWidth}px + 20px)`
+        );
+    }, [menuOpenClose]);
 
     return (
         <div className={styles.containerMenuComponent}>
@@ -99,7 +117,7 @@ const MenuComponent = () => {
                             const rotaItem = String(item.rota).split('/')[1]
                             return (
                                 <button
-                                    onClick={() => navigate(item.rota)}
+                                    onClick={() => item.rota ? handleNavigate(item.rota) : undefined}
                                     className={`
                                         ${styles.menuButton}
                                         ${rotaBase === rotaItem ? styles.menuButtonSelect : ''}
