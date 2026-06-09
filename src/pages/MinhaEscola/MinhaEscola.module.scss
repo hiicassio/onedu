@@ -8,59 +8,35 @@
     min-width: 0;
 }
 
-.page-header-executive {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent;
-    padding: 0;
+.page-header-standard {
+    background-color: #002d4d;
+    padding: 32px 40px;
+    border-radius: 8px;
     margin-bottom: 24px;
 
-    .page-header-title {
+    h1 {
+        color: #ffffff;
+        font-size: 24px;
         font-weight: 700;
-        color: #00397B;
-        font-size: 1.75rem;
-        margin: 0;
+        margin: 0 0 8px;
     }
 
-    .page-header-primary-btn {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        height: 40px;
-        padding: 0 20px;
-        border: none;
-        border-radius: 8px;
-        background-color: #00397B;
-        color: #fff;
-        font-weight: 700;
-        font-size: 0.875rem;
-        cursor: pointer;
-        transition: opacity 0.2s ease;
-        white-space: nowrap;
-
-        svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-        }
-
-        &:hover {
-            opacity: 0.85;
-        }
+    p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        margin: 0;
+        line-height: 1.5;
     }
 
     @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        padding: 24px 28px;
 
-        .page-header-title {
-            font-size: 1.5rem;
+        h1 {
+            font-size: 20px;
         }
 
-        .page-header-primary-btn {
-            align-self: flex-end;
+        p {
+            font-size: 14px;
         }
     }
 }

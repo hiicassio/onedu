@@ -2,7 +2,6 @@ import { useState } from 'react';
 import StudentHeader from '../listagem/central_estudante/components/StudentHeader';
 import EnrollmentStepper from '../../components/MinhaEscola/Forms/EnrollmentStepper';
 import PhotoCaptureDrawer from '../../components/MinhaEscola/PhotoCaptureDrawer';
-import GraduationCapIcon from '../../components/icones/GraduationCapIcon';
 import aluno from '../listagem/historico_escolar_lancamentos/icones/aluno.png';
 import styles from './MinhaEscola.module.scss';
 
@@ -32,13 +31,11 @@ const MinhaEscola = () => {
 
     return (
         <div className={styles.container}>
-            <header className={styles['page-header-executive']}>
-                <h1 className={styles['page-header-title']}>Matrícula do Aluno</h1>
-
-                <button type="button" className={styles['page-header-primary-btn']}>
-                    <GraduationCapIcon />
-                    <span>Minha Escola</span>
-                </button>
+            <header className={styles['page-header-standard']}>
+                <h1>Matrícula do Aluno</h1>
+                <p>
+                    Gerencie os dados, endereço, documentação e histórico escolar do aluno de forma centralizada.
+                </p>
             </header>
 
             <StudentHeader
