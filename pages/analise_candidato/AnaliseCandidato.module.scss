@@ -1,0 +1,12 @@
+.analiseCandidato {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    .analiseCandidato_form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

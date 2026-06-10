@@ -1,0 +1,95 @@
+.drawerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .alertSection {
+        background: #F3F4F1;
+        border-radius: 5px;
+        padding: 24px 29px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+
+        .alertTitle {
+            font-weight: 700;
+            font-size: 12px;
+
+        }
+
+        .alertText {
+            font-weight: 400;
+            font-size: 12px;
+            color: #707070;
+        }
+    }
+
+    .sectionTitle {
+        font-weight: 400;
+        font-size: 10px;
+        padding-left: 29px;
+    }
+
+    .unidadesList {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+
+        .unidadeItem {
+            height: 54px;
+            border-radius: 6px;
+            background-color: #F3F4F1;
+            border: 1px solid #E9E9E9;
+            display: flex;
+            align-items: center;
+            padding: 0px 13px;
+            gap: 20px;
+
+            .unidadeNumber {
+                width: 70px;
+                height: 29px;
+                border-radius: 5px;
+                font-weight: 700;
+                font-size: 14px;
+                background: #E5E5E5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .unidadeInfo {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .unidadeLabel {
+                    font-weight: 400;
+                    font-size: 10px;
+                    color: #707070;
+                }
+
+                .unidadeName {
+                    font-weight: 700;
+                    font-size: 12px;
+                }
+            }
+
+            .unidadeCheckIcon {
+                font-size: 23px;
+                color: #CBCBCB;
+            }
+
+
+        }
+
+        .unidadeItemSelected {
+            background-color: #e8ffe8;
+            border-color: #e8ffe8;
+
+            .unidadeCheckIcon {
+                color: #0bb466;
+            }
+        }
+    }
+}

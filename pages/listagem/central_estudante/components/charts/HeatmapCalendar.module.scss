@@ -1,0 +1,59 @@
+.heatmap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .dayLabels {
+        display: flex;
+        gap: 4px;
+        padding-left: 2px;
+
+        span {
+            width: 20px;
+            text-align: center;
+            font-size: 9px;
+            color: #999;
+        }
+    }
+
+    .grid {
+        display: flex;
+        gap: 4px;
+
+        .week {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .cell {
+                width: 20px;
+                height: 20px;
+                border-radius: 3px;
+                cursor: default;
+                transition: opacity .15s;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+        }
+    }
+
+    .legend {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 4px;
+
+        span {
+            font-size: 9px;
+            color: #999;
+        }
+
+        .legendCell {
+            width: 14px;
+            height: 14px;
+            border-radius: 2px;
+        }
+    }
+}

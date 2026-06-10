@@ -1,0 +1,215 @@
+.containerDocumentosExpress {
+    width: 100%;
+    // max-width: 942px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .tableArea {
+        // overflow-x: auto;
+
+        .table {
+            width: 100%;
+            min-width: 942px;
+
+            .header,
+            .row {
+                display: grid;
+                grid-template-columns: 4fr 1.5fr 1.5fr 2.5fr 5.5fr;
+                align-items: center;
+            }
+
+            .header {
+                background: #E9E9E9;
+                border-radius: 9px;
+                padding: 0 8px;
+                height: 46px;
+
+                .th {
+                    font-weight: 400;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #777;
+                    border-right: 1px solid #CCC;
+
+                    &:first-child {
+                        justify-content: flex-start;
+                        padding-left: 23px;
+                    }
+
+                    &:nth-child(4) {
+                        justify-content: flex-start;
+                        padding-left: 12px;
+                    }
+
+                    &:last-child {
+                        justify-content: space-between;
+                        padding-left: 12px;
+                        align-items: center;
+                        border-right: none;
+                    }
+
+                    .headerActions {
+                        width: 56px;
+                        height: 25px;
+                        border: 1px solid #DBDBDB;
+                        background-color: #E2E2E2;
+                        border-radius: 5px;
+                        display: flex;
+                        overflow: hidden;
+
+                        .viewButton {
+                            flex-grow: 1;
+                            flex-basis: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: transparent;
+                            border-radius: 5px;
+
+                            svg {
+                                font-size: 12px;
+                                color: #A4A4A4;
+                            }
+                        }
+
+                        .active {
+                            background: #FFFFFF;
+
+                            svg {
+                                color: #00397B;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .body {
+                margin-top: 10px;
+                background: #fff;
+                border: 1px solid #E8E8E8;
+                border-radius: 9px;
+                padding: 12px 8px;
+
+                .areaRow {
+                    background: #F5F8FB;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &:nth-child(even) {
+                        background: transparent;
+                    }
+
+                    &:hover {
+                        opacity: .7;
+                    }
+
+                    .row {
+                        min-height: 44px;
+                        transition: 0.2s;
+
+                        .td {
+                            font-weight: 400;
+                            font-size: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 16px;
+
+                            &:first-child {
+                                padding-left: 23px;
+                                justify-content: flex-start;
+                            }
+
+                            &:nth-child(2) {
+                                font-weight: 700;
+                            }
+
+                            &:nth-child(4) {
+                                padding-left: 12px;
+                                justify-content: flex-start;
+                            }
+
+                            &:last-child {
+                                padding-right: 28px;
+                                justify-content: space-between;
+                                padding-left: 12px;
+                                gap: 20px;
+                            }
+
+                            .userIcon {
+                                width: 25px;
+                                height: 25px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+
+                            .arrowIcon {
+                                transition: 0.2s;
+                                font-size: 20px;
+                                color: #00397B;
+
+                                &:hover {
+                                    color: #3b82f6;
+                                }
+                            }
+                        }
+                    }
+
+                    .dropdown {
+                        border-top: 1px solid #BFE6C7;
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: 2fr 4fr 1fr;
+                        align-items: center;
+                        padding: 11px 29px 11px 112px;
+
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+
+                            span {
+                                font-size: 10px;
+                                font-weight: 400;
+
+                                &:nth-child(2) {
+                                    font-weight: 700;
+                                }
+                            }
+
+                            &:last-child {
+                                flex-direction: row;
+                                justify-content: flex-end;
+                                align-items: center;
+                                gap: 8px;
+
+                                svg {
+                                    font-size: 15px;
+                                    color: #00397B;
+                                    cursor: pointer;
+
+                                    &:first-child {
+                                        color: #E34141;
+                                        font-size: 18px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .areaRowSelected {
+                    border: 0.5px solid #089A25;
+
+                    .row .td .arrowIcon {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,148 @@
+.filtro {
+    display: flex;
+    gap: 7px;
+    width: 100%;
+
+    .dash {
+        width: 45px;
+        height: 39px;
+        border-radius: 9px;
+        background: #E9E9E9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            font-size: 20px;
+        }
+    }
+
+    .filtroInput {
+        flex-grow: 1;
+        min-width: 406px;
+        height: 39px;
+        border-radius: 7px;
+        background-color: #fff;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .searchButton {
+            width: 29px;
+            height: 29px;
+            border-radius: 5px;
+            background: #F3F4F1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                font-size: 11px;
+                color: #00397B;
+            }
+        }
+
+        .input {
+            height: 100%;
+            outline: none;
+            border: none;
+            flex-grow: 1;
+            font-weight: 400;
+            font-size: 12px;
+        }
+    }
+
+    .tags {
+        flex-grow: 1;
+        flex-basis: 0;
+        background-color: #fff;
+        display: flex;
+        gap: 3px;
+        padding: 4px;
+        border-radius: 7px;
+        min-width: 323px;
+        // max-width: 323px;
+
+        .tagsIcon {
+            min-width: 29px;
+            min-height: 29px;
+            border-radius: 5px;
+            background: #F3F4F1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+            svg {
+                font-size: 11px;
+                color: #00397B;
+            }
+        }
+
+        .tagsList {
+            display: flex;
+            border-radius: 5px;
+            gap: 3px;
+            overflow: auto;
+            min-height: 29px;
+
+            .tagItem {
+                white-space: nowrap;
+                height: 100%;
+                border-radius: 5px;
+                background: #F3F4F1;
+                padding: 0px 11px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .tagText {
+                    font-weight: 400;
+                    font-size: 10px;
+                    color: #00397B;
+                }
+
+                .tagRemove {
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        color: #FB0404;
+                        font-size: 7px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .btnAcao {
+        background-color: #fff;
+        flex-grow: 1;
+        max-width: 145px;
+        height: 39px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        padding: 0px 10px;
+        gap: 7px;
+
+        svg {
+            font-size: 15px;
+        }
+
+        .dividir {
+            width: 1px;
+            height: 16px;
+            background-color: #E9E9E9;
+        }
+
+        .btnText {
+            font-weight: 700;
+            font-size: 12px;
+        }
+    }
+}

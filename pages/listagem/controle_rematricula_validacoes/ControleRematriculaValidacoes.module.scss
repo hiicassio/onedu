@@ -1,0 +1,146 @@
+.containerControleRematriculaValidacoes {
+    width: 100%;
+    // max-width: 942px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .tableArea {
+        .table {
+            width: 100%;
+            min-width: 942px;
+
+            .header,
+            .row {
+                display: grid;
+                grid-template-columns: 4fr 1.5fr 1.5fr 1.5fr 1fr 1fr 1fr 2fr;
+                align-items: center;
+            }
+
+            .header {
+                background: #E9E9E9;
+                border-radius: 9px;
+                height: 46px;
+                padding: 0 8px;
+
+                .th {
+                    font-weight: 400;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #777;
+                    border-right: 1px solid #CCC;
+
+                    &:first-child {
+                        justify-content: flex-start;
+                        padding-left: 23px;
+                    }
+
+                    &:last-child {
+                        border-right: none;
+                        justify-content: flex-end;
+                    }
+
+                    &:nth-child(5),
+                    &:nth-child(6),
+                    &:nth-child(7) {
+                        border-right: none;
+                    }
+
+                    button {
+                        width: 75px;
+                        height: 29px;
+                        border-radius: 5px;
+                        background: #197DFF;
+                        padding: 0px 10px;
+                        color: #fff;
+                        font-weight: 700;
+                        font-size: 12px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .body {
+                margin-top: 10px;
+                background: #fff;
+                border: 1px solid #E8E8E8;
+                border-radius: 9px;
+                padding: 12px 8px;
+
+                .areaRow {
+                    background: #F5F8FB;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &:nth-child(even) {
+                        background: transparent;
+                    }
+
+                    &:hover {
+                        opacity: .7;
+                    }
+
+                    .row {
+                        min-height: 44px;
+                        transition: 0.2s;
+
+                        .td {
+                            font-weight: 400;
+                            font-size: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+
+                            .iconeCheck {
+                                font-size: 12px;
+                            }
+
+                            .iconeCheckOK {
+                                color: #089A25;
+                            }
+
+                            &:first-child {
+                                justify-content: flex-start;
+                                padding-left: 23px;
+
+                                span:nth-child(2) {
+                                    font-weight: 700;
+                                    color: #00397B;
+                                }
+                            }
+
+                            &:nth-child(2),
+                            &:nth-child(4) {
+                                font-weight: 700;
+                            }
+
+                            &:last-child {
+                                justify-content: flex-end;
+                                padding-right: 29px;
+                            }
+
+                            .userIcon {
+                                width: 25px;
+                                height: 25px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+
+                            .arrowIcon {
+                                transition: 0.2s ease-in-out;
+                                font-size: 20px;
+                                color: #E9E9E9;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

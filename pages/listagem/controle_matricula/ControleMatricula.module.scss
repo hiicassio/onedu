@@ -1,0 +1,226 @@
+.containerControleMatricula {
+    width: 100%;
+    // max-width: 942px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .tableArea {
+        // overflow-x: auto;
+
+        .table {
+            // width: 942px;
+            width: 100%;
+            min-width: 942px;
+
+            .header,
+            .row {
+                display: grid;
+                grid-template-columns: 4fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr;
+                align-items: center;
+            }
+
+            .header {
+                background: #E9E9E9;
+                border-radius: 9px;
+                height: 46px;
+                padding: 0 8px;
+
+                .th {
+                    font-weight: 400;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #777;
+                    border-right: 1px solid #CCC;
+
+                    &:first-child {
+                        justify-content: flex-start;
+                        padding-left: 23px;
+                    }
+
+                    &:last-child {
+                        border-right: none;
+                        justify-content: flex-end;
+                    }
+
+                    .headerActions {
+                        width: 56px;
+                        height: 25px;
+                        border: 1px solid #DBDBDB;
+                        background: #E2E2E2;
+                        border-radius: 5px;
+                        display: flex;
+                        overflow: hidden;
+
+                        .viewButton {
+                            flex: 1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: transparent;
+                            border-radius: 5px;
+
+                            svg {
+                                font-size: 12px;
+                                color: #A4A4A4;
+                            }
+                        }
+
+                        .active {
+                            background: #fff;
+
+                            svg {
+                                color: #00397B;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .body {
+                margin-top: 10px;
+                background: #fff;
+                border: 1px solid #E8E8E8;
+                border-radius: 9px;
+                padding: 12px 8px;
+
+                .areaRow {
+                    background: #F5F8FB;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &:nth-child(even) {
+                        background: transparent;
+                    }
+
+                    &:hover {
+                        opacity: .7;
+                    }
+
+                    .row {
+                        min-height: 44px;
+                        transition: 0.2s;
+
+                        .td {
+                            font-weight: 400;
+                            font-size: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+
+                            .info {
+                                color: #FF1616;
+                                font-size: 16px;
+                            }
+
+                            &:first-child {
+                                justify-content: flex-start;
+                                padding-left: 23px;
+
+                                span:nth-child(2) {
+                                    font-weight: 700;
+                                    color: #00397B;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                font-weight: 700;
+                            }
+
+                            &:last-child {
+                                justify-content: flex-end;
+                                padding-right: 29px;
+                            }
+
+                            .userIcon {
+                                width: 25px;
+                                height: 25px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+
+                            button {
+                                height: 21px;
+                                border-radius: 11px;
+                                padding: 2px 9px 2px 2px;
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+
+                                .status {
+                                    width: 22px;
+                                    height: 17px;
+                                    border-radius: 11px;
+                                    font-weight: 700;
+                                    font-size: 10px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    color: #fff;
+                                    padding: 0px;
+                                }
+
+                                .data {
+                                    font-weight: 400;
+                                    font-size: 10px;
+                                    background: transparent;
+                                    padding: 0px;
+                                }
+                            }
+
+                            .arrowIcon {
+                                transition: 0.2s;
+                                font-size: 20px;
+                                color: #00397B;
+
+                                &:hover {
+                                    color: #3b82f6;
+                                }
+                            }
+                        }
+                    }
+
+                    .dropdown {
+                        border-top: 1px solid #ECEDEF;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        gap: 8px;
+                        padding: 11px 29px 11px 0;
+
+                        svg {
+                            font-size: 15.5px;
+                            color: #00397B;
+                            cursor: pointer;
+
+                            &:first-child {
+                                color: #E34141;
+                            }
+                        }
+                    }
+                }
+
+                .areaRowSelected {
+                    border: 0.5px solid #197DFF;
+
+                    .row .td .arrowIcon {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                .areaRowAtencao {
+                    background: #FFDEDE;
+                    border-color: #FF1616;
+
+                    .dropdown {
+                        border-color: #FF1616;
+                    }
+                }
+            }
+        }
+    }
+}
