@@ -18,8 +18,17 @@ import ControleOcorrencias from "../pages/listagem/controle_ocorrencias/Controle
 import ControleTransferencias from "../pages/listagem/controle_transferencias/ControleTransferencias.jsx";
 import ControleDesligamento from "../pages/listagem/controle_desligamento/ControleDesligamento.jsx";
 import CentralEstudante from "../pages/listagem/central_estudante/CentralEstudante.jsx";
-import MinhaEscola from "../pages/MinhaEscola/index.jsx";
-import DadosEscolares from "../pages/dados_escolares/DadosEscolares.jsx";
+import GestaoInstitucionalLayout from "../pages/gestao_institucional/GestaoInstitucionalLayout.jsx";
+import GestaoInstitucional from "../pages/gestao_institucional/GestaoInstitucional.jsx";
+import SecaoInstitucional from "../pages/gestao_institucional/views/SecaoInstitucional.jsx";
+import ListaGestaoPessoas from "../pages/gestao_institucional/gestao_cadastral/gestao_pessoas/ListaGestaoPessoas.jsx";
+import CadastroPessoas from "../pages/gestao_institucional/gestao_cadastral/gestao_pessoas/CadastroPessoas.jsx";
+import ListaGestaoProfissionais from "../pages/gestao_institucional/gestao_cadastral/gestao_profissionais/ListaGestaoProfissionais.jsx";
+import ListaGestaoFamilias from "../pages/gestao_institucional/gestao_cadastral/gestao_familias/ListaGestaoFamilias.jsx";
+import ListaGestaoEmpresas from "../pages/gestao_institucional/gestao_cadastral/gestao_empresas/ListaGestaoEmpresas.jsx";
+import ControleAplicacoesLayout from "../pages/controle_aplicacoes/ControleAplicacoesLayout.jsx";
+import ControleAplicacoes from "../pages/controle_aplicacoes/ControleAplicacoes.jsx";
+import SecaoAplicacoes from "../pages/controle_aplicacoes/views/SecaoAplicacoes.jsx";
 
 const router = createHashRouter([
     {
@@ -117,12 +126,52 @@ const router = createHashRouter([
                         ]
                     },
                     {
-                        path: "minha-escola",
-                        element: <MinhaEscola />
+                        path: "gestao-institucional",
+                        element: <GestaoInstitucionalLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <GestaoInstitucional />,
+                            },
+                            {
+                                path: "gestao-cadastral/gestao-pessoas",
+                                element: <ListaGestaoPessoas />,
+                            },
+                            {
+                                path: "gestao-cadastral/gestao-pessoas/cadastro/:pessoaId",
+                                element: <CadastroPessoas />,
+                            },
+                            {
+                                path: "gestao-cadastral/gestao-profissionais",
+                                element: <ListaGestaoProfissionais />,
+                            },
+                            {
+                                path: "gestao-cadastral/gestao-familias",
+                                element: <ListaGestaoFamilias />,
+                            },
+                            {
+                                path: "gestao-cadastral/gestao-empresas",
+                                element: <ListaGestaoEmpresas />,
+                            },
+                            {
+                                path: ":section/:page",
+                                element: <SecaoInstitucional />,
+                            },
+                        ],
                     },
                     {
-                        path: "dados-escolares",
-                        element: <DadosEscolares />
+                        path: "controle-aplicacoes",
+                        element: <ControleAplicacoesLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <ControleAplicacoes />,
+                            },
+                            {
+                                path: ":page",
+                                element: <SecaoAplicacoes />,
+                            },
+                        ],
                     }
                 ]
             }

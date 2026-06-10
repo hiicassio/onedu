@@ -40,7 +40,7 @@ const EnrollmentStepper = () => {
     const isLast = activeStep === TOTAL_STEPS;
 
     useEffect(() => {
-        if (location.pathname.includes('minha-escola')) {
+        if (location.pathname.includes('gestao-pessoas/cadastro')) {
             setActiveStep(1);
             setFormData(getInitialFormData());
         }
