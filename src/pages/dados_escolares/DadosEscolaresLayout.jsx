@@ -1,17 +1,17 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import InstitucionalHeader from './components/InstitucionalHeader';
+import DadosEscolaresHeader from './components/DadosEscolaresHeader';
 import layoutStyles from '../../components/ModulePageLayout/ModulePageLayout.module.scss';
 
-const GestaoInstitucionalLayout = () => {
+const DadosEscolaresLayout = () => {
     const location = useLocation();
-    const isCadastroPessoas = location.pathname.includes('/gestao-pessoas/cadastro');
+    const isWizard = location.pathname.includes('/gerador');
 
     return (
         <section className={layoutStyles.container}>
-            {!isCadastroPessoas && <InstitucionalHeader />}
+            {!isWizard && <DadosEscolaresHeader />}
             <Outlet />
         </section>
     );
 };
 
-export default GestaoInstitucionalLayout;
+export default DadosEscolaresLayout;

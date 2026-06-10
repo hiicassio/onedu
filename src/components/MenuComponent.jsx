@@ -3,9 +3,12 @@ import { useMemo, useState, useEffect } from 'react';
 import styles from './MenuComponent.module.scss';
 import { GESTAO_INSTITUCIONAL_MENU, isInstitucionalRouteActive } from '../pages/gestao_institucional/data/menuItems';
 import { CONTROLE_APLICACOES_MENU, isAplicacaoRouteActive } from '../pages/controle_aplicacoes/data/menuItems';
+import { DADOS_ESCOLARES_MENU, isDadosEscolaresRouteActive } from '../pages/dados_escolares/data/menuItems';
 import CalendarClockIcon from '../pages/analise_candidato/icones/CalendarClockIcon';
 import FinanceiroIcon from '../pages/home/icones/FinanceiroIcon';
 import EstoqueIcon from '../pages/home/icones/EstoqueIcon';
+import RadarIcon from '../pages/listagem/gestao_matricula/icones/RadarIcon';
+import DiagramSankeyIcon from '../pages/listagem/gestao_matricula/icones/DiagramSankeyIcon';
 import DocumentIcon from '../pages/listagem/gestao_matricula/icones/DocumentIcon';
 import ConvertDocumentIcon from '../pages/listagem/gestao_matricula/icones/ConvertDocumentIcon';
 
@@ -18,7 +21,6 @@ import MoonIcon from './icones/MoonIcon';
 import BellSchoolIcon from './icones/BellSchoolIcon';
 import AppsAddIcon from './icones/AppsAddIcon';
 import GraduationCapIcon from './icones/GraduationCapIcon';
-import PenSquareIcon from './icones/PenSquareIcon';
 import DiscoverIcon from './icones/DiscoverIcon';
 import OneproIcon from './icones/OneproIcon';
 import ChatbotSpeechBubbleIcon from './icones/ChatbotSpeechBubbleIcon';
@@ -40,8 +42,7 @@ const menu = [
     { id: 2, rota: "/gestao-matricula", icone: <BellSchoolIcon /> },
     { id: 3, rota: "/controle-aplicacoes", icone: <AppsAddIcon /> },
     { id: 4, rota: "/gestao-institucional", icone: <GraduationCapIcon /> },
-    { id: 5, rota: "", icone: <DiscoverIcon /> },
-    { id: 6, rota: "", icone: <PenSquareIcon /> },
+    { id: 5, rota: "/dados-escolares", icone: <DiscoverIcon /> },
     { id: 7, rota: "", icone: <OneproIcon /> },
     { id: 8, rota: "", icone: <ChatbotSpeechBubbleIcon /> },
 ];
@@ -58,6 +59,13 @@ const APLICACOES_ICONS = {
     'calendario-escolar': CalendarIcon,
     'controle-financeiro': FinanceiroIcon,
     'controle-entregas': EstoqueIcon,
+};
+
+const DADOS_ESCOLARES_ICONS = {
+    'relatorios-prontos': DocumentIcon,
+    onreport: ConvertDocumentIcon,
+    'onreport-graficos': DiagramSankeyIcon,
+    'sala-situacao': RadarIcon,
 };
 
 const matriculas = [
@@ -93,9 +101,33 @@ const MenuComponent = () => {
     const pathParts = String(location.pathname).split('/').filter(Boolean);
     const isGestaoInstitucional = rotaBase === 'gestao-institucional';
     const isControleAplicacoes = rotaBase === 'controle-aplicacoes';
+    const isDadosEscolares = rotaBase === 'dados-escolares';
     const activeSection = isGestaoInstitucional ? (pathParts[1] ?? '') : '';
     const activePage = isGestaoInstitucional ? (pathParts[2] ?? '') : '';
     const activeAplicacaoPage = isControleAplicacoes ? (pathParts[1] ?? '') : '';
+    const activeDadosSection = isDadosEscolares ? (pathParts[1] ?? '') : '';
+    const activeDadosPage = isDadosEscolares ? (pathParts[2] ?? '') : '';
+
+    const dadosEscolaresMenu = useMemo(() => {
+        const term = menuSearch.trim().toLowerCase();
+        if (!term) return DADOS_ESCOLARES_MENU;
+
+        return DADOS_ESCOLARES_MENU.map((item) => {
+            const parentMatch = item.label.toLowerCase().includes(term);
+            const filteredSubmenu = item.submenu.filter((sub) =>
+                sub.label.toLowerCase().includes(term)
+            );
+
+            if (parentMatch || filteredSubmenu.length > 0) {
+                return {
+                    ...item,
+                    submenu: parentMatch ? item.submenu : filteredSubmenu,
+                };
+            }
+
+            return null;
+        }).filter(Boolean);
+    }, [menuSearch]);
 
     const controleAplicacoesMenu = useMemo(() => {
         const term = menuSearch.trim().toLowerCase();
@@ -158,10 +190,10 @@ const MenuComponent = () => {
     }, [menuOpenClose]);
 
     useEffect(() => {
-        if (!isGestaoInstitucional && !isControleAplicacoes) {
+        if (!isGestaoInstitucional && !isControleAplicacoes && !isDadosEscolares) {
             setMenuSearch('');
         }
-    }, [isGestaoInstitucional, isControleAplicacoes]);
+    }, [isGestaoInstitucional, isControleAplicacoes, isDadosEscolares]);
 
     return (
         <div className={styles.containerMenuComponent}>
@@ -253,10 +285,79 @@ const MenuComponent = () => {
 
                         <div className={styles.menu}>
                             <div className={styles.menuOpcoes}>
-                                <span className={styles.menuTitle}>MATRÍCULAS</span>
+                                <span className={styles.menuTitle}>Matrículas</span>
 
                                 <div className={styles.menuList}>
-                                    {isControleAplicacoes ? (
+                                    {isDadosEscolares ? (
+                                        dadosEscolaresMenu.map((item) => {
+                                            const Icon = DADOS_ESCOLARES_ICONS[item.id] ?? DocumentIcon;
+                                            const hasSubmenu = item.submenu.length > 0;
+                                            const isExpanded =
+                                                menuSelected === item.id ||
+                                                isDadosEscolaresRouteActive(
+                                                    item.id,
+                                                    activeDadosSection,
+                                                    activeDadosPage
+                                                );
+
+                                            return (
+                                                <div key={item.id}>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() =>
+                                                            item.rota && !hasSubmenu
+                                                                ? handleNavigate(item.rota)
+                                                                : handleMenu(item.id)
+                                                        }
+                                                        className={`${styles.menuItem} ${
+                                                            isDadosEscolaresRouteActive(
+                                                                item.id,
+                                                                activeDadosSection,
+                                                                activeDadosPage
+                                                            )
+                                                                ? styles.menuItemActive
+                                                                : ''
+                                                        }`}
+                                                    >
+                                                        <div className={styles.menuItemContent}>
+                                                            <Icon />
+                                                            <span>{item.label}</span>
+                                                        </div>
+
+                                                        {hasSubmenu && (
+                                                            <CaretDownIcon
+                                                                className={
+                                                                    isExpanded ? styles.iconeExpaned : ''
+                                                                }
+                                                            />
+                                                        )}
+                                                    </button>
+
+                                                    {hasSubmenu && isExpanded &&
+                                                        item.submenu.map((sub) => (
+                                                            <button
+                                                                key={`${item.id}-${sub.id}`}
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    handleNavigate(sub.rota)
+                                                                }
+                                                                className={`${styles.menuItem} ${styles.menuItemSubmenu} ${
+                                                                    activeDadosSection === item.id &&
+                                                                    activeDadosPage === sub.id
+                                                                        ? styles.menuItemActive
+                                                                        : ''
+                                                                }`}
+                                                            >
+                                                                <div className={styles.menuItemContent}>
+                                                                    <AngleSmallRightIcon />
+                                                                    <span>{sub.label}</span>
+                                                                </div>
+                                                            </button>
+                                                        ))}
+                                                </div>
+                                            );
+                                        })
+                                    ) : isControleAplicacoes ? (
                                         controleAplicacoesMenu.map((item) => {
                                             const Icon = APLICACOES_ICONS[item.id] ?? CalendarIcon;
 
@@ -384,10 +485,10 @@ const MenuComponent = () => {
                             <div className={styles.dividir} />
 
                             <div className={`${styles.menuOpcoes} ${styles.menuOpcoesConta}`}>
-                                <span className={styles.menuTitle}>CONTA</span>
+                                <span className={styles.menuTitle}>Conta</span>
 
                                 <div className={styles.menuList}>
-                                    {isGestaoInstitucional || isControleAplicacoes ? (
+                                    {isGestaoInstitucional || isControleAplicacoes || isDadosEscolares ? (
                                         <>
                                             <button type="button" className={styles.menuItem}>
                                                 <div className={styles.menuItemContent}>

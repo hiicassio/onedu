@@ -7,11 +7,11 @@ import { PROFISSIONAIS_MOCK, PROFISSIONAIS_STATS } from './data/profissionaisMoc
 import styles from './ListaGestaoProfissionais.module.scss';
 
 const PROFISSIONAIS_COLUMNS = [
-    { key: 'nome', label: 'NOME PESSOA', width: '3fr', align: 'start' },
+    { key: 'nome', label: 'Nome', width: '3fr', align: 'start' },
     { key: 'id', label: 'ID', width: '0.8fr' },
     { key: 'cpf', label: 'CPF', width: '1.3fr' },
-    { key: 'dataNasc', label: 'DN', width: '1fr' },
-    { key: 'ocupacoes', label: 'OCUPAÇÕES', width: '1.8fr' },
+    { key: 'dataNasc', label: 'Data de nascimento', width: '1fr' },
+    { key: 'ocupacoes', label: 'Ocupações', width: '1.8fr' },
 ];
 
 const ListaGestaoProfissionais = () => {
@@ -45,9 +45,9 @@ const ListaGestaoProfissionais = () => {
             />
 
             <CadastralListFiltro
-                searchPlaceholder="Pesquisar por Nome, ID, CPF ou Data de Nascimento"
+                searchPlaceholder="Pesquisar por nome, ID, CPF ou data de nascimento"
                 secondaryPlaceholder="Ocupações"
-                addLabel="Novo Profissional"
+                addLabel="Novo profissional"
             />
 
             <CadastralListTable

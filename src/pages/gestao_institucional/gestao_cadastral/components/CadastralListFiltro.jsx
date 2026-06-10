@@ -6,7 +6,7 @@ import styles from '../../../listagem/controle_matricula/Filtro.module.scss';
 const CadastralListFiltro = ({
     searchPlaceholder = 'Pesquisar',
     secondaryPlaceholder,
-    addLabel = 'Novo Cadastro',
+    addLabel = 'Novo cadastro',
     showAddButton = true,
 }) => (
     <div className={styles.filtro}>

@@ -1,8 +1,8 @@
 export const APLICACOES_STATS = [
-    { label: 'Total de Turmas', value: '101' },
-    { label: 'Total de Professores', value: '85' },
-    { label: 'Total de Professores S.C', value: '10' },
-    { label: 'Total de Salas de Aula', value: '25' },
+    { label: 'Total de turmas', value: '101' },
+    { label: 'Total de professores', value: '85' },
+    { label: 'Total de professores S. C.', value: '10' },
+    { label: 'Total de salas de aula', value: '25' },
 ];
 
 export const MAIN_CARDS = [

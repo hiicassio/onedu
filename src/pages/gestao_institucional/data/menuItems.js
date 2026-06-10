@@ -3,10 +3,10 @@ import { EXTRA_FUNCTIONS } from './institutionalData';
 const buildMenuFromExtras = () =>
     Object.entries(EXTRA_FUNCTIONS).map(([sectionId, items]) => {
         const labels = {
-            'estrutura-pedagogica': 'Estr. Pedagógica',
-            'estrutura-escola': 'Estrutura da Escola',
-            'gestao-cadastral': 'Gestão Cadastral',
-            'gestao-apoio': 'Gestão de Apoio',
+            'estrutura-pedagogica': 'Estrutura pedagógica',
+            'estrutura-escola': 'Estrutura da escola',
+            'gestao-cadastral': 'Gestão cadastral',
+            'gestao-apoio': 'Gestão de apoio',
         };
 
         return {

@@ -12,6 +12,8 @@
   font-style: normal;
 }
 
+@import './styles/typography.scss';
+
 * {
   padding: 0;
   margin: 0;
@@ -25,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'AlteHaasGrotesk', sans-serif;
+  font-family: var(--font-family-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/fundo.png);
@@ -37,7 +39,7 @@ body {
 }
 
 code {
-  font-family: 'AlteHaasGrotesk', sans-serif;
+  font-family: var(--font-family-base);
 }
 
 button {

@@ -42,9 +42,9 @@ export const PROFISSIONAIS_MOCK = [
 ];
 
 export const PROFISSIONAIS_STATS = [
-    { label: 'Profissionais Totais', value: '563' },
-    { label: 'Profissionais Ativos', value: '500' },
-    { label: 'Profissionais Desligados', value: '63' },
+    { label: 'Profissionais totais', value: '563' },
+    { label: 'Profissionais ativos', value: '500' },
+    { label: 'Profissionais desligados', value: '63' },
 ];
 
 export const findProfissionalById = (profissionalId) =>

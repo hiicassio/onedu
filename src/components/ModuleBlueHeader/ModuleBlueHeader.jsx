@@ -6,16 +6,23 @@ const ModuleBlueHeader = ({
     title,
     description,
     headerIcon: HeaderIcon = AppsAddIcon,
+    descriptionMaxWidth = 487,
+    textPadding = '20px 58px',
 }) => (
     <div className={styles.content}>
-        <div className={styles.text}>
+        <div className={styles.text} style={{ padding: textPadding }}>
             <span className={styles.title}>{title}</span>
-            <p className={styles.description}>{description}</p>
+            <p
+                className={styles.description}
+                style={{ maxWidth: descriptionMaxWidth }}
+            >
+                {description}
+            </p>
         </div>
 
         <div className={styles.actions}>
             <button type="button" className={styles.button}>
-                <span>Apresentação das Funcionalidades</span>
+                <span>Apresentação das funcionalidades</span>
                 <div className={styles.divider} />
                 <FeatherPlayCircleIcon />
             </button>

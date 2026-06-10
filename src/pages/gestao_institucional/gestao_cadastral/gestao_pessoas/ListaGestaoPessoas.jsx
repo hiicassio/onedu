@@ -16,11 +16,11 @@ const PERFIL_ICONS = {
 };
 
 const PESSOAS_COLUMNS = [
-    { key: 'nome', label: 'NOME', width: '3.5fr', align: 'start' },
+    { key: 'nome', label: 'Nome', width: '3.5fr', align: 'start' },
     { key: 'cpf', label: 'CPF', width: '1.4fr' },
-    { key: 'dataNasc', label: 'DATA NASC.', width: '1.1fr' },
-    { key: 'genero', label: 'SEXO', width: '1fr' },
-    { key: 'perfis', label: 'PERFIS', width: '0.9fr' },
+    { key: 'dataNasc', label: 'Data de nascimento', width: '1.1fr' },
+    { key: 'genero', label: 'Sexo', width: '1fr' },
+    { key: 'perfis', label: 'Perfis', width: '0.9fr' },
 ];
 
 const ListaGestaoPessoas = () => {
@@ -50,8 +50,8 @@ const ListaGestaoPessoas = () => {
             <CadastralListHeader title="Gestão de Pessoas" breadcrumb="Gestão Cadastral" />
 
             <CadastralListFiltro
-                searchPlaceholder="Pesquisar por Nome, ID, CPF ou Data de Nascimento"
-                addLabel="Nova Pessoa"
+                searchPlaceholder="Pesquisar por nome, ID, CPF ou data de nascimento"
+                addLabel="Nova pessoa"
             />
 
             <CadastralListTable

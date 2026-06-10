@@ -1,0 +1,58 @@
+@import '../../styles/typography.scss';
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: var(--font-family-base);
+}
+
+.contentCard {
+    background-color: #fff;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    padding: 20px 24px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.contentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eeeef0;
+
+    h2 {
+        @include text-body;
+        font-weight: var(--font-weight-bold);
+        color: #00397b;
+        margin: 0;
+        font-size: 16px;
+    }
+}
+
+.backLink {
+    border: none;
+    background: transparent;
+    color: #00397b;
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+    font-family: var(--font-family-base);
+}
+
+.pageDescription {
+    @include text-body;
+    color: #929291;
+    margin: 0;
+}

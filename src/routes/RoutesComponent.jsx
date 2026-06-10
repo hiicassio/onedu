@@ -29,6 +29,11 @@ import ListaGestaoEmpresas from "../pages/gestao_institucional/gestao_cadastral/
 import ControleAplicacoesLayout from "../pages/controle_aplicacoes/ControleAplicacoesLayout.jsx";
 import ControleAplicacoes from "../pages/controle_aplicacoes/ControleAplicacoes.jsx";
 import SecaoAplicacoes from "../pages/controle_aplicacoes/views/SecaoAplicacoes.jsx";
+import DadosEscolaresLayout from "../pages/dados_escolares/DadosEscolaresLayout.jsx";
+import DadosEscolares from "../pages/dados_escolares/DadosEscolares.jsx";
+import DadosEscolaresListaView from "../pages/dados_escolares/views/DadosEscolaresListaView.jsx";
+import DadosEscolaresPainelView from "../pages/dados_escolares/views/DadosEscolaresPainelView.jsx";
+import DadosEscolaresWizardView from "../pages/dados_escolares/views/DadosEscolaresWizardView.jsx";
 
 const router = createHashRouter([
     {
@@ -170,6 +175,56 @@ const router = createHashRouter([
                             {
                                 path: ":page",
                                 element: <SecaoAplicacoes />,
+                            },
+                        ],
+                    },
+                    {
+                        path: "dados-escolares",
+                        element: <DadosEscolaresLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <DadosEscolares />,
+                            },
+                            {
+                                path: "relatorios-prontos",
+                                element: <DadosEscolaresListaView />,
+                            },
+                            {
+                                path: "onreport",
+                                element: <DadosEscolaresListaView />,
+                            },
+                            {
+                                path: "relatorios-prontos/gerador",
+                                element: <DadosEscolaresWizardView />,
+                            },
+                            {
+                                path: "relatorios-prontos/gerador/:reportId",
+                                element: <DadosEscolaresWizardView />,
+                            },
+                            {
+                                path: "onreport/gerador",
+                                element: <DadosEscolaresWizardView />,
+                            },
+                            {
+                                path: "onreport/gerador/:reportId",
+                                element: <DadosEscolaresWizardView />,
+                            },
+                            {
+                                path: "onreport-graficos",
+                                element: <DadosEscolaresPainelView />,
+                            },
+                            {
+                                path: "onreport-graficos/:page",
+                                element: <DadosEscolaresPainelView />,
+                            },
+                            {
+                                path: "sala-situacao",
+                                element: <DadosEscolaresPainelView />,
+                            },
+                            {
+                                path: "sala-situacao/:page",
+                                element: <DadosEscolaresPainelView />,
                             },
                         ],
                     }

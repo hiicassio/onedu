@@ -101,7 +101,7 @@ const DashboardInstitucional = () => {
 
                 <div className={styles.statsCard}>
                     <div className={styles.statsHeader}>
-                        <span>Minha Escola</span>
+                        <span>Minha escola</span>
                     </div>
 
                     <div className={styles.statsContent}>
@@ -117,7 +117,7 @@ const DashboardInstitucional = () => {
 
             {submenu.length > 0 && (
                 <div className={styles.extraSection}>
-                    <span className={styles.extraTitle}>Funções Adicionais:</span>
+                    <span className={styles.extraTitle}>Funções adicionais</span>
                     <div className={styles.extraDivider} />
 
                     <div className={styles.extraGrid}>

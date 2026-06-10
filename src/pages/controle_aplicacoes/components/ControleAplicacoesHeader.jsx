@@ -4,7 +4,7 @@ import AppsAddIcon from '../../../components/icones/AppsAddIcon';
 const ControleAplicacoesHeader = () => (
     <ModuleBlueHeader
         title="Controle de Aplicações"
-        description="Este é um conjunto de ferramentas para secretárias e gestores escolares realizarem operações administrativas e pedagógicas."
+        description="Este é um conjunto de ferramentas para que secretárias e gestores escolares realizem operações administrativas e pedagógicas."
         headerIcon={AppsAddIcon}
     />
 );

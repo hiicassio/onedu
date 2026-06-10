@@ -1,22 +1,3 @@
-export const DASHBOARD_CARDS = [
-    {
-        id: 'relatorios-prontos',
-        label: 'Relatórios Prontos',
-    },
-    {
-        id: 'onreport',
-        label: 'Gerador de Relatórios',
-    },
-    {
-        id: 'onreport-graficos',
-        label: 'Gerador de Gráficos',
-    },
-    {
-        id: 'sala-situacao',
-        label: 'Sala de Situação',
-    },
-];
-
 export const MOCK_REPORTS = [
     {
         id: 1,

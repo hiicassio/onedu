@@ -1,3 +1,5 @@
+@import '../../../styles/typography.scss';
+
 .filtro {
     display: flex;
     flex-direction: column;
@@ -84,11 +86,8 @@
 }
 
 .filterLabel {
-    font-size: 9px;
-    font-weight: 700;
+    @include text-section-label;
     color: #929291;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
 }
 
 .chips {

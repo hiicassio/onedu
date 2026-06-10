@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import ControleAplicacoesHeader from './components/ControleAplicacoesHeader';
-import styles from './ControleAplicacoes.module.scss';
+import layoutStyles from '../../components/ModulePageLayout/ModulePageLayout.module.scss';
 
 const ControleAplicacoesLayout = () => (
-    <section className={styles.container}>
+    <section className={layoutStyles.container}>
         <ControleAplicacoesHeader />
         <Outlet />
     </section>
