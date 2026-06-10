@@ -375,14 +375,17 @@
                 }
               }
 
-              .menuItemSubmenu {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.2s ease;
+              .menuItemActive {
+                background-color: #f3f4f1;
+
+                .menuItemContent {
+                  color: #00397b;
+                  font-weight: 600;
+                }
               }
 
-              .menuItemSubmenuOpen {
-                max-height: 40px;
+              .menuItemSubmenu {
+                padding-left: 28px;
               }
             }
           }

@@ -1,6 +1,11 @@
-import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useMemo, useState, useEffect } from 'react';
 import styles from './MenuComponent.module.scss';
+import { DADOS_ESCOLARES_MENU } from '../pages/dados_escolares/data/menuItems';
+import DocumentIcon from '../pages/listagem/gestao_matricula/icones/DocumentIcon';
+import ConvertDocumentIcon from '../pages/listagem/gestao_matricula/icones/ConvertDocumentIcon';
+import DiagramSankeyIcon from '../pages/listagem/gestao_matricula/icones/DiagramSankeyIcon';
+import RadarIcon from '../pages/listagem/gestao_matricula/icones/RadarIcon';
 
 import user from './icones/user.png';
 import logo from './icones/logo.png';
@@ -33,11 +38,18 @@ const menu = [
     { id: 2, rota: "/gestao-matricula", icone: <BellSchoolIcon /> },
     { id: 3, rota: "", icone: <AppsAddIcon /> },
     { id: 4, rota: "/minha-escola", icone: <GraduationCapIcon /> },
-    { id: 5, rota: "", icone: <PenSquareIcon /> },
-    { id: 6, rota: "", icone: <DiscoverIcon /> },
+    { id: 5, rota: "/dados-escolares", icone: <DiscoverIcon /> },
+    { id: 6, rota: "", icone: <PenSquareIcon /> },
     { id: 7, rota: "", icone: <OneproIcon /> },
     { id: 8, rota: "", icone: <ChatbotSpeechBubbleIcon /> },
 ];
+
+const DADOS_ESCOLARES_ICONS = {
+    'relatorios-prontos': DocumentIcon,
+    onreport: ConvertDocumentIcon,
+    'onreport-graficos': DiagramSankeyIcon,
+    'sala-situacao': RadarIcon,
+};
 
 const matriculas = [
     { id: 1, descricao: "Controle de Matrícula", rota: "/gestao-matricula/controle-matricula", icone: <GraduationCapIcon />, submenu: [] },
@@ -64,8 +76,34 @@ const MenuComponent = () => {
     const [thema, setThema] = useState(true);
     const [menuOpenClose, setMenuOpenClose] = useState(true);
     const [menuSelected, setMenuSelected] = useState(null);
+    const [menuSearch, setMenuSearch] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
+
+    const rotaBase = String(location.pathname).split('/').filter(Boolean)[0] ?? '';
+    const isDadosEscolares = rotaBase === 'dados-escolares';
+    const activeSec = new URLSearchParams(location.search).get('sec');
+
+    const dadosEscolaresMenu = useMemo(() => {
+        const term = menuSearch.trim().toLowerCase();
+        if (!term) return DADOS_ESCOLARES_MENU;
+
+        return DADOS_ESCOLARES_MENU.map((item) => {
+            const parentMatch = item.label.toLowerCase().includes(term);
+            const filteredSubmenu = item.submenu.filter((sub) =>
+                sub.label.toLowerCase().includes(term)
+            );
+
+            if (parentMatch || filteredSubmenu.length > 0) {
+                return {
+                    ...item,
+                    submenu: parentMatch ? item.submenu : filteredSubmenu,
+                };
+            }
+
+            return null;
+        }).filter(Boolean);
+    }, [menuSearch]);
 
     const handleMenu = (id) => {
         setMenuSelected(prev => (prev === id ? null : id));
@@ -82,6 +120,26 @@ const MenuComponent = () => {
         navigate(rota);
     };
 
+    const handleDadosEscolaresSelect = (itemId) => {
+        if (!itemId) {
+            navigate('/dados-escolares');
+            return;
+        }
+
+        navigate(`/dados-escolares?sec=${itemId}`);
+    };
+
+    const isDadosEscolaresItemActive = (itemId) => {
+        if (!activeSec) return false;
+        if (activeSec === itemId) return true;
+
+        const parent = DADOS_ESCOLARES_MENU.find(
+            (item) => item.id === itemId && item.submenu.some((sub) => sub.id === activeSec)
+        );
+
+        return Boolean(parent);
+    };
+
     const MENU_WIDTH_EXPANDED = 286;
     const MENU_WIDTH_COLLAPSED = 75;
 
@@ -93,6 +151,12 @@ const MenuComponent = () => {
             `calc(${menuWidth}px + 20px)`
         );
     }, [menuOpenClose]);
+
+    useEffect(() => {
+        if (!isDadosEscolares) {
+            setMenuSearch('');
+        }
+    }, [isDadosEscolares]);
 
     return (
         <div className={styles.containerMenuComponent}>
@@ -112,20 +176,23 @@ const MenuComponent = () => {
                     <div className={styles.menuTop}>
 
                         {menu.map((item) => {
-                            const rotaBase = String(location.pathname).split('/')[1];
+                            const rotaItem = String(item.rota).split('/').filter(Boolean)[0] ?? '';
+                            const isActive = Boolean(rotaItem) && rotaBase === rotaItem;
 
-                            const rotaItem = String(item.rota).split('/')[1]
                             return (
                                 <button
+                                    key={item.id}
+                                    type="button"
+                                    title={item.rota ? undefined : 'Em breve'}
                                     onClick={() => item.rota ? handleNavigate(item.rota) : undefined}
                                     className={`
                                         ${styles.menuButton}
-                                        ${rotaBase === rotaItem ? styles.menuButtonSelect : ''}
+                                        ${isActive ? styles.menuButtonSelect : ''}
                                     `}
                                 >
                                     {item.icone}
                                 </button>
-                            )
+                            );
                         })}
                     </div>
                 </div>
@@ -170,7 +237,12 @@ const MenuComponent = () => {
                         <div className={styles.areaSearch}>
                             <label>
                                 <FeatherSearchIcon />
-                                <input type="text" placeholder='Buscar' />
+                                <input
+                                    type="text"
+                                    placeholder="Buscar"
+                                    value={menuSearch}
+                                    onChange={(e) => setMenuSearch(e.target.value)}
+                                />
                             </label>
                         </div>
 
@@ -179,40 +251,97 @@ const MenuComponent = () => {
                                 <span className={styles.menuTitle}>MATRÍCULAS</span>
 
                                 <div className={styles.menuList}>
-                                    {matriculas.map((matricula) => (
-                                        <div key={matricula.id}>
-                                            <button
-                                                onClick={() =>
-                                                    matricula.rota
-                                                        ? handleNavigate(matricula.rota)
-                                                        : handleMenu(matricula.id)
-                                                }
-                                                className={styles.menuItem}
-                                            >
-                                                <div className={styles.menuItemContent}>
-                                                    {matricula.icone}
-                                                    <span>{matricula.descricao}</span>
-                                                </div>
+                                    {isDadosEscolares ? (
+                                        dadosEscolaresMenu.map((item) => {
+                                            const Icon = DADOS_ESCOLARES_ICONS[item.id] ?? DocumentIcon;
+                                            const hasSubmenu = item.submenu.length > 0;
+                                            const isExpanded = menuSelected === item.id || isDadosEscolaresItemActive(item.id);
 
-                                                {matricula.submenu.length > 0 && <CaretDownIcon className={menuSelected === matricula.id ? styles.iconeExpaned : ''} />}
-                                            </button>
-
-                                            {matricula.submenu.length > 0 && menuSelected === matricula.id &&
-                                                matricula.submenu.map((sub) => (
+                                            return (
+                                                <div key={item.id}>
                                                     <button
-                                                        key={`${matricula.id}-${sub.id}`}
-                                                        onClick={() => handleNavigate(sub.rota)}
-                                                        className={`${styles.menuItem} ${styles.menuItemSubmenu}`}
+                                                        type="button"
+                                                        onClick={() =>
+                                                            hasSubmenu
+                                                                ? handleMenu(item.id)
+                                                                : handleDadosEscolaresSelect(item.id)
+                                                        }
+                                                        className={`${styles.menuItem} ${
+                                                            isDadosEscolaresItemActive(item.id) ? styles.menuItemActive : ''
+                                                        }`}
                                                     >
                                                         <div className={styles.menuItemContent}>
-                                                            <AngleSmallRightIcon />
-                                                            <span>{sub.descricao}</span>
+                                                            <Icon />
+                                                            <span>{item.label}</span>
                                                         </div>
+
+                                                        {hasSubmenu && (
+                                                            <CaretDownIcon
+                                                                className={isExpanded ? styles.iconeExpaned : ''}
+                                                            />
+                                                        )}
                                                     </button>
-                                                ))
-                                            }
-                                        </div>
-                                    ))}
+
+                                                    {hasSubmenu && isExpanded &&
+                                                        item.submenu.map((sub) => (
+                                                            <button
+                                                                key={`${item.id}-${sub.id}`}
+                                                                type="button"
+                                                                onClick={() => handleDadosEscolaresSelect(sub.id)}
+                                                                className={`${styles.menuItem} ${styles.menuItemSubmenu} ${
+                                                                    activeSec === sub.id ? styles.menuItemActive : ''
+                                                                }`}
+                                                            >
+                                                                <div className={styles.menuItemContent}>
+                                                                    <AngleSmallRightIcon />
+                                                                    <span>{sub.label}</span>
+                                                                </div>
+                                                            </button>
+                                                        ))}
+                                                </div>
+                                            );
+                                        })
+                                    ) : (
+                                        matriculas.map((matricula) => (
+                                            <div key={matricula.id}>
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        matricula.rota
+                                                            ? handleNavigate(matricula.rota)
+                                                            : handleMenu(matricula.id)
+                                                    }
+                                                    className={styles.menuItem}
+                                                >
+                                                    <div className={styles.menuItemContent}>
+                                                        {matricula.icone}
+                                                        <span>{matricula.descricao}</span>
+                                                    </div>
+
+                                                    {matricula.submenu.length > 0 && (
+                                                        <CaretDownIcon
+                                                            className={menuSelected === matricula.id ? styles.iconeExpaned : ''}
+                                                        />
+                                                    )}
+                                                </button>
+
+                                                {matricula.submenu.length > 0 && menuSelected === matricula.id &&
+                                                    matricula.submenu.map((sub) => (
+                                                        <button
+                                                            key={`${matricula.id}-${sub.id}`}
+                                                            type="button"
+                                                            onClick={() => handleNavigate(sub.rota)}
+                                                            className={`${styles.menuItem} ${styles.menuItemSubmenu}`}
+                                                        >
+                                                            <div className={styles.menuItemContent}>
+                                                                <AngleSmallRightIcon />
+                                                                <span>{sub.descricao}</span>
+                                                            </div>
+                                                        </button>
+                                                    ))}
+                                            </div>
+                                        ))
+                                    )}
                                 </div>
                             </div>
 
@@ -222,26 +351,53 @@ const MenuComponent = () => {
                                 <span className={styles.menuTitle}>CONTA</span>
 
                                 <div className={styles.menuList}>
-                                    <button className={styles.menuItem}>
-                                        <div className={styles.menuItemContent}>
-                                            <NotificationIcon />
-                                            <span>Rematrícula</span>
-                                        </div>
-                                    </button>
+                                    {isDadosEscolares ? (
+                                        <>
+                                            <button type="button" className={styles.menuItem}>
+                                                <div className={styles.menuItemContent}>
+                                                    <NotificationIcon />
+                                                    <span>Notificações</span>
+                                                </div>
+                                            </button>
 
-                                    <button className={styles.menuItem}>
-                                        <div className={styles.menuItemContent}>
-                                            <MessagesIcon />
-                                            <span>Ações na Matrícula</span>
-                                        </div>
-                                    </button>
+                                            <button type="button" className={styles.menuItem}>
+                                                <div className={styles.menuItemContent}>
+                                                    <MessagesIcon />
+                                                    <span>Mensagens</span>
+                                                </div>
+                                            </button>
 
-                                    <button className={styles.menuItem}>
-                                        <div className={styles.menuItemContent}>
-                                            <ControlesDeslizantesIcon />
-                                            <span>Rotina Escolar</span>
-                                        </div>
-                                    </button>
+                                            <button type="button" className={styles.menuItem}>
+                                                <div className={styles.menuItemContent}>
+                                                    <ControlesDeslizantesIcon />
+                                                    <span>Configurações</span>
+                                                </div>
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <button type="button" className={styles.menuItem}>
+                                                <div className={styles.menuItemContent}>
+                                                    <NotificationIcon />
+                                                    <span>Rematrícula</span>
+                                                </div>
+                                            </button>
+
+                                            <button type="button" className={styles.menuItem}>
+                                                <div className={styles.menuItemContent}>
+                                                    <MessagesIcon />
+                                                    <span>Ações na Matrícula</span>
+                                                </div>
+                                            </button>
+
+                                            <button type="button" className={styles.menuItem}>
+                                                <div className={styles.menuItemContent}>
+                                                    <ControlesDeslizantesIcon />
+                                                    <span>Rotina Escolar</span>
+                                                </div>
+                                            </button>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>

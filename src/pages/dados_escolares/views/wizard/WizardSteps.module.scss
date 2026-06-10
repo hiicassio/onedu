@@ -1,0 +1,225 @@
+.step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.hint {
+    font-size: 12px;
+    color: #929291;
+    margin: 0 0 8px;
+
+    strong {
+        color: #00397B;
+    }
+}
+
+.optionList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.optionItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid #ECECEC;
+    border-radius: 6px;
+    background: #F3F4F1;
+    cursor: pointer;
+    font-size: 12px;
+    color: #00397B;
+
+    input {
+        accent-color: #00397B;
+    }
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkboxLabel {
+    font-size: 10px;
+    color: #929291;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.checkboxItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #00397B;
+    cursor: pointer;
+
+    input {
+        accent-color: #00397B;
+    }
+}
+
+.previewTable {
+    border: 1px solid #ECECEC;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.previewHeader,
+.previewRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+    padding: 10px 14px;
+}
+
+.previewHeader {
+    background: #F3F4F1;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.previewTh {
+    font-size: 10px;
+    font-weight: 700;
+    color: #929291;
+}
+
+.previewTd {
+    font-size: 12px;
+    color: #00397B;
+}
+
+.previewRow {
+    border-bottom: 1px solid #F0F0F0;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.reportCard {
+    border: 1px solid #ECECEC;
+    border-radius: 8px;
+    padding: 20px 24px;
+    background: #F3F4F1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.reportHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h3 {
+        margin: 0;
+        font-size: 16px;
+        color: #00397B;
+    }
+
+    span {
+        font-size: 11px;
+        color: #929291;
+    }
+}
+
+.reportMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    p {
+        margin: 0;
+        font-size: 12px;
+        color: #00397B;
+    }
+}
+
+.reportSummary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.summaryItem {
+    background: #fff;
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+        font-size: 10px;
+        color: #929291;
+    }
+
+    strong {
+        font-size: 20px;
+        color: #197DFF;
+    }
+}
+
+.exportActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.exportBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid #ececec;
+    background: #fff;
+    color: #00397b;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.85;
+    }
+
+    svg {
+        font-size: 14px;
+    }
+}
+
+.exportBtnPrimary {
+    background: #00397b;
+    border-color: #00397b;
+    color: #fff;
+}
+
+.reportNote {
+    font-size: 11px;
+    color: #929291;
+    margin: 0;
+    line-height: 1.5;
+}

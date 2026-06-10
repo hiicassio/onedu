@@ -1,0 +1,90 @@
+.wizard {
+    background: #fff;
+    border: 1px solid #F0F0F0;
+    border-radius: 10px;
+    box-shadow: 0 4px 5.9px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    min-height: 480px;
+}
+
+.progressBar {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px 24px 8px;
+    border-bottom: 1px solid #EEEEF0;
+}
+
+.progressStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 6px;
+}
+
+.progressTrack {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.progressLine {
+    flex: 1;
+    height: 2px;
+    background-color: #E1E1E1;
+    min-width: 4px;
+}
+
+.progressLineDone {
+    background-color: #00397B;
+}
+
+.progressCircle {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    background-color: #E1E1E1;
+    color: #929291;
+    border: 2px solid #E1E1E1;
+}
+
+.progressCircleActive,
+.progressCircleDone {
+    background-color: #00397B;
+    color: #fff;
+    border-color: #00397B;
+}
+
+.progressLabel {
+    font-size: 8px;
+    color: #929291;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 72px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progressLabelActive {
+    color: #00397B;
+    font-weight: 700;
+}
+
+.content {
+    padding: 24px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}

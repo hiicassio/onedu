@@ -19,6 +19,7 @@ import ControleTransferencias from "../pages/listagem/controle_transferencias/Co
 import ControleDesligamento from "../pages/listagem/controle_desligamento/ControleDesligamento.jsx";
 import CentralEstudante from "../pages/listagem/central_estudante/CentralEstudante.jsx";
 import MinhaEscola from "../pages/MinhaEscola/index.jsx";
+import DadosEscolares from "../pages/dados_escolares/DadosEscolares.jsx";
 
 const router = createHashRouter([
     {
@@ -118,6 +119,10 @@ const router = createHashRouter([
                     {
                         path: "minha-escola",
                         element: <MinhaEscola />
+                    },
+                    {
+                        path: "dados-escolares",
+                        element: <DadosEscolares />
                     }
                 ]
             }

@@ -1,0 +1,150 @@
+.filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.topRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 8px;
+    background: #f3f4f1;
+    border: 1px solid #ececec;
+
+    svg {
+        font-size: 13px;
+        color: #00397b;
+        flex-shrink: 0;
+    }
+
+    input {
+        flex: 1;
+        min-width: 0;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 12px;
+        color: #00397b;
+
+        &::placeholder {
+            color: #cccccc;
+        }
+    }
+}
+
+.novoBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: none;
+    background: #15b86c;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    svg {
+        font-size: 16px;
+    }
+}
+
+.filterRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filterLabel {
+    font-size: 9px;
+    font-weight: 700;
+    color: #929291;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #ececec;
+    background: #fff;
+    color: #00397b;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+        border-color: #00397b;
+    }
+}
+
+.chipActive {
+    background: #00397b;
+    border-color: #00397b;
+    color: #fff;
+}
+
+.metaRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.resultCount {
+    font-size: 11px;
+    color: #929291;
+}
+
+.activeChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.activeChip {
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px dashed #00397b;
+    background: rgba(0, 57, 123, 0.06);
+    color: #00397b;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}

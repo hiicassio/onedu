@@ -1,0 +1,60 @@
+.container {
+    --de-page-max-width: min(938px, 75vw);
+    --de-page-gap: 14px;
+    --de-primary-dark: #002d4d;
+    --de-primary: #00397B;
+    --de-surface: #ffffff;
+    --de-border: #ECECEC;
+    --de-radius-md: 8px;
+    --de-radius-lg: 10px;
+    --de-header-padding-y: 32px;
+    --de-header-padding-x: 40px;
+
+    width: 100%;
+    max-width: var(--de-page-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.contentCard {
+    background-color: var(--de-surface);
+    border: 1px solid var(--de-border);
+    border-radius: var(--de-radius-lg);
+    padding: 20px 24px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.contentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #EEEEF0;
+
+    h2 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--de-primary);
+        margin: 0;
+    }
+}
+
+.backLink {
+    border: none;
+    background: transparent;
+    color: var(--de-primary);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+}
