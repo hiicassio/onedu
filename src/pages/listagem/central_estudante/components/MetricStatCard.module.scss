@@ -1,0 +1,28 @@
+.metricCard {
+    flex: 1;
+    min-width: 100px;
+    background: #f3f4f1;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+
+    .label {
+        font-size: 10px;
+        color: #929291;
+    }
+
+    .value {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .trend {
+        font-size: 9px;
+        color: #065f46;
+    }
+}

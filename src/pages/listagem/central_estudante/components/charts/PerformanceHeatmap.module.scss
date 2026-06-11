@@ -1,0 +1,92 @@
+.heatmap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow-x: auto;
+}
+
+.headerRow {
+    display: grid;
+    grid-template-columns: 42px repeat(10, minmax(36px, 1fr));
+    gap: 3px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 42px repeat(10, minmax(36px, 1fr));
+    gap: 3px;
+}
+
+.corner {
+    min-height: 24px;
+}
+
+.colHeader,
+.rowHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #929291;
+}
+
+.rowHeader {
+    justify-content: flex-start;
+    padding-left: 2px;
+}
+
+.cell {
+    min-height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.interventionBtn {
+    border: 1px solid #00397b;
+    background: #fff;
+    color: #00397b;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+        background: #00397b;
+        color: #fff;
+    }
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    color: #929291;
+}
+
+.legendCell {
+    width: 14px;
+    height: 10px;
+    border-radius: 2px;
+}

@@ -1,0 +1,164 @@
+.aprendizagem {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #00397b;
+}
+
+.filters {
+    display: flex;
+    gap: 6px;
+}
+
+.filterSelect {
+    height: 30px;
+    border: 1px solid #ececec;
+    border-radius: 6px;
+    background: #fff;
+    padding: 0 10px;
+    font-size: 11px;
+    color: #00397b;
+    font-family: var(--font-family-base);
+}
+
+.summaryRow {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, minmax(110px, 1fr)) 1.6fr;
+    gap: 10px;
+}
+
+.insightCard {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 5.9px rgba(0, 0, 0, 0.25);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 92px;
+}
+
+.insightLabel {
+    font-size: 10px;
+    color: #929291;
+}
+
+.insightText {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+    color: #555;
+}
+
+.insightValue {
+    font-size: 24px;
+    font-weight: 700;
+    color: #197dff;
+    line-height: 1.1;
+}
+
+.approved {
+    color: #12b76a;
+    font-size: 20px;
+}
+
+.insightTrend {
+    font-size: 9px;
+    color: #065f46;
+    font-weight: 700;
+}
+
+.insightSub {
+    font-size: 9px;
+    color: #929291;
+}
+
+.aiCard {
+    gap: 6px;
+}
+
+.aiStatus {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f79009;
+}
+
+.aiText {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.4;
+    color: #666;
+}
+
+.aiLink {
+    align-self: flex-start;
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 10px;
+    font-weight: 700;
+    color: #197dff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.chartsRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 14px;
+}
+
+.chartWide {
+    min-width: 0;
+}
+
+.chartWrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.bimesterLabels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: #aaa;
+    padding-top: 4px;
+}
+
+.placeholderText {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #929291;
+}
+
+@media (max-width: 1100px) {
+    .summaryRow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chartsRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .summaryRow {
+        grid-template-columns: 1fr;
+    }
+}

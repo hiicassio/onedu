@@ -43,8 +43,9 @@ const menu = [
     { id: 3, rota: "/controle-aplicacoes", icone: <AppsAddIcon /> },
     { id: 4, rota: "/gestao-institucional", icone: <GraduationCapIcon /> },
     { id: 5, rota: "/dados-escolares", icone: <DiscoverIcon /> },
-    { id: 7, rota: "", icone: <OneproIcon /> },
-    { id: 8, rota: "", icone: <ChatbotSpeechBubbleIcon /> },
+    { id: 6, rota: "/dev/protocolo-digital", icone: <DocumentIcon />, title: "Protocolo" },
+    { id: 7, rota: "", icone: <OneproIcon />, title: "Onepro" },
+    { id: 8, rota: "", icone: <ChatbotSpeechBubbleIcon />, title: "Chatbot" },
 ];
 
 const INSTITUCIONAL_ICONS = {
@@ -107,7 +108,6 @@ const MenuComponent = () => {
     const activeAplicacaoPage = isControleAplicacoes ? (pathParts[1] ?? '') : '';
     const activeDadosSection = isDadosEscolares ? (pathParts[1] ?? '') : '';
     const activeDadosPage = isDadosEscolares ? (pathParts[2] ?? '') : '';
-
     const dadosEscolaresMenu = useMemo(() => {
         const term = menuSearch.trim().toLowerCase();
         if (!term) return DADOS_ESCOLARES_MENU;
@@ -213,14 +213,21 @@ const MenuComponent = () => {
                     <div className={styles.menuTop}>
 
                         {menu.map((item) => {
-                            const rotaItem = String(item.rota).split('/').filter(Boolean)[0] ?? '';
-                            const isActive = Boolean(rotaItem) && rotaBase === rotaItem;
+                            const rotaParts = String(item.rota).split('/').filter(Boolean);
+                            const rotaItem = rotaParts[0] ?? '';
+                            const isProtocoloItem =
+                                rotaParts[0] === 'dev' && rotaParts[1] === 'protocolo-digital';
+                            const isProtocoloActive =
+                                pathParts[0] === 'dev' && pathParts[1] === 'protocolo-digital';
+                            const isActive = isProtocoloItem
+                                ? isProtocoloActive
+                                : Boolean(rotaItem) && rotaBase === rotaItem;
 
                             return (
                                 <button
                                     key={item.id}
                                     type="button"
-                                    title={item.rota ? undefined : 'Em breve'}
+                                    title={item.title ?? (item.rota ? undefined : 'Em breve')}
                                     onClick={() => item.rota ? handleNavigate(item.rota) : undefined}
                                     className={`
                                         ${styles.menuButton}

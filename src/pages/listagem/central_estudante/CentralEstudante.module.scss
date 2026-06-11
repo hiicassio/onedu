@@ -1,52 +1,12 @@
-.container {
+.pageContent {
     width: 100%;
-    max-width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    min-width: 0;
 }
 
-/* ─── Tab bar ─── */
-.tabBar {
-    background: #fff;
-    border: 1px solid #E8E8E8;
-    border-radius: 10px;
-    padding: 4px;
-    display: flex;
-    gap: 4px;
-
-    .tabBtn {
-        flex: 1;
-        height: 36px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 400;
-        color: #888;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        transition: background .15s, color .15s;
-        white-space: nowrap;
-
-        &:hover {
-            background: #F3F4F6;
-            color: #00397B;
-        }
-    }
-
-    .tabBtnActive {
-        background: #00397B;
-        color: #fff;
-        font-weight: 600;
-
-        &:hover {
-            background: #00297A;
-            color: #fff;
-        }
-    }
-}
-
-/* ─── Content area ─── */
-.content {
+.contentPanel {
     width: 100%;
+    min-width: 0;
 }

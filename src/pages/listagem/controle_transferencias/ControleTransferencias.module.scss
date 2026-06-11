@@ -196,17 +196,6 @@
                                 justify-content: flex-end;
                                 align-items: center;
                                 gap: 8px;
-
-                                svg {
-                                    font-size: 15px;
-                                    color: #00397B;
-                                    cursor: pointer;
-
-                                    &:first-child {
-                                        color: #E34141;
-                                        font-size: 18px;
-                                    }
-                                }
                             }
                         }
                     }

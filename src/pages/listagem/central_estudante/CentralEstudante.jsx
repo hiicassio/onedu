@@ -1,49 +1,34 @@
 import { useState } from 'react';
-import styles from './CentralEstudante.module.scss';
-import StudentHeader from './components/StudentHeader';
-import TabPerfil from './tabs/TabPerfil';
+import layoutStyles from '../../../components/ModulePageLayout/ModulePageLayout.module.scss';
+import StudentIdentificationCard from '../../../components/StudentIdentificationCard';
+import CentralEstudanteHeader from './components/CentralEstudanteHeader';
+import { STUDENT } from './data/mockData';
+import TabAprendizagem from './tabs/TabAprendizagem';
 import TabOcorrencias from './tabs/TabOcorrencias';
 import TabNotas from './tabs/TabNotas';
 import TabFrequencia from './tabs/TabFrequencia';
 import TabResumo from './tabs/TabResumo';
-
-const TABS = [
-    { id: 1, label: 'Perfil'       },
-    { id: 2, label: 'Ocorrências'  },
-    { id: 3, label: 'Notas'        },
-    { id: 4, label: 'Frequência'   },
-    { id: 5, label: 'Resumo'       },
-];
+import styles from './CentralEstudante.module.scss';
 
 const CentralEstudante = () => {
-    const [tab, setTab] = useState(1);
+    const [view, setView] = useState(1);
 
     return (
-        <div className={styles.container}>
-            <StudentHeader />
+        <section className={layoutStyles.container}>
+            <CentralEstudanteHeader activeView={view} onViewChange={setView} />
 
-            {/* Tab bar */}
-            <div className={styles.tabBar}>
-                {TABS.map(t => (
-                    <button
-                        key={t.id}
-                        className={`${styles.tabBtn} ${tab === t.id ? styles.tabBtnActive : ''}`}
-                        onClick={() => setTab(t.id)}
-                    >
-                        {t.label}
-                    </button>
-                ))}
-            </div>
+            <div className={styles.pageContent}>
+                <StudentIdentificationCard student={STUDENT} />
 
-            {/* Content */}
-            <div className={styles.content}>
-                {tab === 1 && <TabPerfil />}
-                {tab === 2 && <TabOcorrencias />}
-                {tab === 3 && <TabNotas />}
-                {tab === 4 && <TabFrequencia />}
-                {tab === 5 && <TabResumo />}
+                <div className={styles.contentPanel}>
+                    {view === 1 && <TabAprendizagem />}
+                    {view === 2 && <TabOcorrencias />}
+                    {view === 3 && <TabNotas />}
+                    {view === 4 && <TabFrequencia />}
+                    {view === 5 && <TabResumo />}
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

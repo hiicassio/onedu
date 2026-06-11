@@ -1,37 +1,39 @@
+import formStyles from '../../../../components/form/FormComponents.module.scss';
 import styles from './Tabs.module.scss';
 import { OCCURRENCES, TREND_DATA } from '../data/mockData';
 import LineChart from '../components/charts/LineChart';
 import BarChart from '../components/charts/BarChart';
+import ContentCard from '../components/ContentCard';
 
 const GRAVITY_STYLE = {
-    elogio: { bg: '#D1FAE5', color: '#065F46', label: 'Elogio'           },
-    baixa:  { bg: '#FEF3C7', color: '#92400E', label: 'Baixa'            },
-    media:  { bg: '#FEE2E2', color: '#991B1B', label: 'Média'            },
-    alta:   { bg: '#FEE2E2', color: '#7F1D1D', label: 'Alta'             },
+    elogio: { bg: '#D1FAE5', color: '#065F46', label: 'Elogio' },
+    baixa: { bg: '#FEF3C7', color: '#92400E', label: 'Baixa' },
+    media: { bg: '#FEE2E2', color: '#991B1B', label: 'Média' },
+    alta: { bg: '#FEE2E2', color: '#7F1D1D', label: 'Alta' },
 };
 
 const typeBarData = [
-    { label: 'Elogios',   value: 1, color: '#12B76A' },
-    { label: 'Atrasos',   value: 1, color: '#F79009' },
-    { label: 'Advertências', value: 2, color: '#F04438' },
-    { label: 'Justif.',   value: 1, color: '#197DFF' },
+    { label: 'Elogios', value: 1, color: '#12B76A' },
+    { label: 'Atrasos', value: 1, color: '#F79009' },
+    { label: 'Advert.', value: 2, color: '#F04438' },
+    { label: 'Justif.', value: 1, color: '#197DFF' },
 ];
 
 const TabOcorrencias = () => (
     <div className={styles.colStack}>
-        {/* Alert */}
-        <div className={styles.alertBox}>
-            <span className={styles.alertTitle}>⚠ Atenção</span>
-            <p>Este aluno possui <strong>2 advertências</strong> registradas no período. Confira os detalhes abaixo e, se necessário, acione o responsável.</p>
+        <div className={formStyles.infoAlertBox}>
+            <span>Atenção</span>
+            <p>
+                Este aluno possui <strong>2 advertências</strong> registradas no período. Confira os detalhes abaixo e,
+                se necessário, acione o responsável.
+            </p>
         </div>
 
         <div className={styles.tabGrid}>
-            {/* Lista de ocorrências */}
-            <div className={styles.card} style={{ flex: '1.5' }}>
-                <span className={styles.cardTitle}>Histórico de Ocorrências</span>
+            <ContentCard title="Histórico de Ocorrências" flex="1.5">
                 <div className={styles.occList}>
-                    {OCCURRENCES.map(occ => {
-                        const g = GRAVITY_STYLE[occ.gravidade] || GRAVITY_STYLE.media;
+                    {OCCURRENCES.map((occ) => {
+                        const gravity = GRAVITY_STYLE[occ.gravidade] || GRAVITY_STYLE.media;
                         return (
                             <div key={occ.id} className={styles.occRow}>
                                 <div className={styles.occDate}>{occ.data}</div>
@@ -41,31 +43,28 @@ const TabOcorrencias = () => (
                                 </div>
                                 <span
                                     className={styles.occBadge}
-                                    style={{ background: g.bg, color: g.color }}
+                                    style={{ background: gravity.bg, color: gravity.color }}
                                 >
-                                    {g.label}
+                                    {gravity.label}
                                 </span>
                             </div>
                         );
                     })}
                 </div>
-            </div>
+            </ContentCard>
 
-            {/* Gráficos */}
             <div className={styles.colRight}>
-                <div className={styles.card}>
-                    <span className={styles.cardTitle}>Tipo de Ocorrências</span>
+                <ContentCard title="Tipo de Ocorrências">
                     <div className={styles.chartWrap}>
                         <BarChart data={typeBarData} height={110} />
                     </div>
-                </div>
+                </ContentCard>
 
-                <div className={styles.card}>
-                    <span className={styles.cardTitle}>Tendência de Desempenho</span>
+                <ContentCard title="Tendência de Desempenho">
                     <div className={styles.chartWrap}>
                         <LineChart data={TREND_DATA} height={80} color="#F79009" />
                     </div>
-                </div>
+                </ContentCard>
             </div>
         </div>
     </div>

@@ -1,0 +1,64 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.summaryList {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.summaryRow {
+    border: 1px solid #ececec;
+    border-radius: 6px;
+    padding: 9px 12px;
+    background-color: #f3f4f1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    span {
+        font-size: 10px;
+        color: #929291;
+    }
+
+    p {
+        font-size: 12px;
+        color: #00397b;
+        margin: 0;
+        font-weight: 400;
+    }
+}
+
+.motivoField {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    span {
+        font-size: 10px;
+        color: #929291;
+    }
+
+    textarea {
+        min-height: 90px;
+        border: 1px solid #ececec;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 12px;
+        font-family: inherit;
+        color: #00397b;
+        resize: vertical;
+        outline: none;
+
+        &::placeholder {
+            color: #ccc;
+        }
+
+        &:focus {
+            border-color: #00397b;
+        }
+    }
+}
