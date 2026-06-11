@@ -48,7 +48,10 @@ const StudentHeader = ({ student = STUDENT, enablePhotoEdit = false, onPhotoClic
                     <button
                         type="button"
                         className={styles.cameraButton}
-                        onClick={onPhotoClick}
+                        onClick={(event) => {
+                            event.stopPropagation();
+                            onPhotoClick?.();
+                        }}
                         title="Alterar foto do aluno"
                     >
                         <CameraIcon />

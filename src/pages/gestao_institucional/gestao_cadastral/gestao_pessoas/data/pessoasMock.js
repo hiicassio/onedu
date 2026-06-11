@@ -51,3 +51,33 @@ export const PESSOAS_MOCK = [
 
 export const findPessoaById = (pessoaId) =>
     PESSOAS_MOCK.find((pessoa) => pessoa.id === pessoaId) ?? null;
+
+export const findPessoaForMatriculaStudent = (student) => {
+    if (!student) return null;
+
+    const byId = findPessoaById(String(student.id));
+    if (byId) return byId;
+
+    const byMatricula = PESSOAS_MOCK.find(
+        (pessoa) =>
+            (student.protocolo && pessoa.matricula === student.protocolo) ||
+            (student.matricula && pessoa.matricula === student.matricula)
+    );
+    if (byMatricula) return byMatricula;
+
+    return {
+        id: String(student.id),
+        name: student.name,
+        matricula: student.protocolo ?? student.matricula ?? String(student.id),
+        turma: student.turma ?? '—',
+        nivel: student.nivel ?? '—',
+        turno: student.turno ?? '—',
+        cpf: '—',
+        dataNasc: '—',
+        genero: '—',
+        perfis: ['aluno'],
+        avatar: aluno,
+        status: 'Ativo',
+        unidade: 'E.M Geraldo Resende Filho',
+    };
+};

@@ -1,26 +1,29 @@
 import { useEffect, useState } from 'react';
-import TrashIcon from './icones/TrashIcon';
-import PenSquareIcon from './icones/PenSquareIcon';
 import ArrowAngleBottomIcon from './icones/ArrowAngleBottomIcon';
 import styles from './DocumentosExpress.module.scss';
 import user from './icones/user.png';
 import user2 from './icones/user2.png';
 import students from './students.json';
-import CrossCircleIcon from './icones/CrossCircleIcon';
-import PrintIcon from './icones/PrintIcon';
-import TelegramIcon from './icones/TelegramIcon';
-import InfoIcon from './icones/InfoIcon';
-import WhatsappIcon from './icones/WhatsappIcon';
 import CircleAIcon from './icones/CircleAIcon';
 import Circle1Icon from './icones/Circle1Icon';
 import Header from './Header';
 import Filtro from './Filtro';
 import Loading from '../../../components/Loading';
+import DesligamentoExpress from '../../desligamento_express/DesligamentoExpress';
+import CadastroPessoasDrawer from '../../gestao_institucional/gestao_cadastral/gestao_pessoas/CadastroPessoasDrawer';
+import DocumentosExpressDrawer from '../../documentos_express/DocumentosExpressDrawer';
+import AnaliseCandidato from '../../analise_candidato/AnaliseCandidato';
+import MatriculaRowActions from '../gestao_matricula/components/MatriculaRowActions';
 
 const DocumentosExpress = () => {
     const [selectHead, setSelectHead] = useState(1);
     const [rowColapse, setRowColapse] = useState(0);
     const [loading, setLoading] = useState(true);
+    const [openDesligamento, setOpenDesligamento] = useState(false);
+    const [openInfoPessoa, setOpenInfoPessoa] = useState(false);
+    const [openDocumentosExpress, setOpenDocumentosExpress] = useState(false);
+    const [openTransferencia, setOpenTransferencia] = useState(false);
+    const [selectedStudent, setSelectedStudent] = useState(null);
 
     const handleRowColapse = (id) => {
         setRowColapse(prev => prev === id ? 0 : id);
@@ -103,13 +106,15 @@ const DocumentosExpress = () => {
                                                     <span>Usuário Responsável</span>
                                                     <span>Simone Tabet Filha</span>
                                                 </div>
-                                                <div>
-                                                    <TrashIcon />
-                                                    <PenSquareIcon />
-                                                    <PrintIcon />
-                                                    <TelegramIcon />
-                                                    <WhatsappIcon />
-                                                </div>
+                                                <MatriculaRowActions
+                                                    onDesligamento={() => setOpenDesligamento(true)}
+                                                    onInfo={() => {
+                                                        setSelectedStudent(student);
+                                                        setOpenInfoPessoa(true);
+                                                    }}
+                                                    onDocumentos={() => setOpenDocumentosExpress(true)}
+                                                    onTransferencia={() => setOpenTransferencia(true)}
+                                                />
                                             </div>
                                         }
                                     </div>
@@ -119,6 +124,24 @@ const DocumentosExpress = () => {
                     </div>
                 </>
             }
+
+            <DesligamentoExpress
+                openCloseDrawer={openDesligamento}
+                setOpenCloseDrawer={setOpenDesligamento}
+            />
+            <CadastroPessoasDrawer
+                openCloseDrawer={openInfoPessoa}
+                setOpenCloseDrawer={setOpenInfoPessoa}
+                student={selectedStudent}
+            />
+            <DocumentosExpressDrawer
+                openCloseDrawer={openDocumentosExpress}
+                setOpenCloseDrawer={setOpenDocumentosExpress}
+            />
+            <AnaliseCandidato
+                openCloseDrawer={openTransferencia}
+                setOpenCloseDrawer={setOpenTransferencia}
+            />
         </div>
     )
 }

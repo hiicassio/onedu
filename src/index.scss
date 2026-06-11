@@ -14,6 +14,14 @@
 
 @import './styles/typography.scss';
 
+:root {
+  --layout-page-max-width: 1200px;
+  --layout-content-padding-top: 44px;
+  --layout-content-padding-right: 28px;
+  --layout-content-padding-bottom: 24px;
+  --layout-content-padding-left: 16px;
+}
+
 * {
   padding: 0;
   margin: 0;

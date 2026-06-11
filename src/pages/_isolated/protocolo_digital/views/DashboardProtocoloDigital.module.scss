@@ -1,0 +1,176 @@
+.dashboard {
+    width: 100%;
+}
+
+.areaMenu {
+    width: 100%;
+    display: flex;
+    gap: 11px;
+    flex-wrap: wrap;
+}
+
+.menu {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.menuItem {
+    flex: 1 1 0;
+    min-width: 152px;
+    height: 138px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 16px;
+    background-color: #fff;
+    border: solid 1px transparent;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.17);
+        border-color: #00397b;
+    }
+
+    svg {
+        font-size: 42px;
+        color: #00397b;
+    }
+
+    &:first-child svg {
+        font-size: 48px;
+    }
+
+    &:nth-child(2) svg {
+        font-size: 37px;
+    }
+}
+
+.menuText {
+    font-weight: 400;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #00397b;
+    line-height: 1.3;
+
+    strong {
+        font-weight: 700;
+    }
+}
+
+.menuBadge {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: #e0ebfa;
+    color: #000;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+}
+
+.statsCard {
+    flex-grow: 1;
+    height: 138px;
+    border-radius: 10px;
+    border: 1px dashed #197dff;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-width: 294px;
+}
+
+.statsHeader {
+    border-bottom: 1px solid #d5d5d5;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding: 0 39px;
+
+    span {
+        font-weight: 400;
+        font-size: 10px;
+        color: #929291;
+    }
+}
+
+.statsContent {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.statLabel {
+    font-weight: 400;
+    font-size: 7px;
+    text-align: center;
+    line-height: 1.2;
+    color: #929291;
+    max-width: 72px;
+}
+
+.statValue {
+    min-width: 49px;
+    height: 49px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.statValueSuccess {
+    background: #c3ffcf;
+    color: #089a25;
+}
+
+.statValueDanger {
+    background: #ffe0e0;
+    color: #ff0000;
+}
+
+.statValueWarning {
+    background: #ffdac0;
+    color: #f58334;
+}
+
+.statValueInfo {
+    background: #cee3ff;
+    color: #197dff;
+}
+
+@media (max-width: 900px) {
+    .menu {
+        width: 100%;
+    }
+
+    .statsCard {
+        width: 100%;
+        min-width: 0;
+    }
+}

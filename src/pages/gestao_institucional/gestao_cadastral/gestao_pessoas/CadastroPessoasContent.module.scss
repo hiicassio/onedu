@@ -1,0 +1,12 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+.emptyState {
+    font-size: 14px;
+    color: #777;
+}

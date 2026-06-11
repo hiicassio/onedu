@@ -16,7 +16,6 @@ import ControleRematriculaValidacoes from "../pages/listagem/controle_rematricul
 import DashboardHome from "../pages/dashboard_home/DashboardHome.jsx";
 import ControleOcorrencias from "../pages/listagem/controle_ocorrencias/ControleOcorrencias.jsx";
 import ControleTransferencias from "../pages/listagem/controle_transferencias/ControleTransferencias.jsx";
-import ControleDesligamento from "../pages/listagem/controle_desligamento/ControleDesligamento.jsx";
 import CentralEstudante from "../pages/listagem/central_estudante/CentralEstudante.jsx";
 import GestaoInstitucionalLayout from "../pages/gestao_institucional/GestaoInstitucionalLayout.jsx";
 import GestaoInstitucional from "../pages/gestao_institucional/GestaoInstitucional.jsx";
@@ -34,6 +33,9 @@ import DadosEscolares from "../pages/dados_escolares/DadosEscolares.jsx";
 import DadosEscolaresListaView from "../pages/dados_escolares/views/DadosEscolaresListaView.jsx";
 import DadosEscolaresPainelView from "../pages/dados_escolares/views/DadosEscolaresPainelView.jsx";
 import DadosEscolaresWizardView from "../pages/dados_escolares/views/DadosEscolaresWizardView.jsx";
+import ProtocoloDigitalLayout from "../pages/_isolated/protocolo_digital/ProtocoloDigitalLayout.jsx";
+import ProtocoloDigital from "../pages/_isolated/protocolo_digital/ProtocoloDigital.jsx";
+import SecaoProtocolo from "../pages/_isolated/protocolo_digital/views/SecaoProtocolo.jsx";
 
 const router = createHashRouter([
     {
@@ -110,11 +112,6 @@ const router = createHashRouter([
                                 element: <ControleTransferencias />
                             },
                             {
-                                path: "desligamento-express",
-                                index: true,
-                                element: <ControleDesligamento />
-                            },
-                            {
                                 path: "central-estudante",
                                 index: true,
                                 element: <CentralEstudante />
@@ -175,6 +172,20 @@ const router = createHashRouter([
                             {
                                 path: ":page",
                                 element: <SecaoAplicacoes />,
+                            },
+                        ],
+                    },
+                    {
+                        path: "dev/protocolo-digital",
+                        element: <ProtocoloDigitalLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <ProtocoloDigital />,
+                            },
+                            {
+                                path: ":page",
+                                element: <SecaoProtocolo />,
                             },
                         ],
                     },

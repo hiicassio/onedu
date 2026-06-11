@@ -189,18 +189,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: flex-end;
-                        gap: 8px;
                         padding: 11px 29px 11px 0;
-
-                        svg {
-                            font-size: 15.5px;
-                            color: #00397B;
-                            cursor: pointer;
-
-                            &:first-child {
-                                color: #E34141;
-                            }
-                        }
                     }
                 }
 

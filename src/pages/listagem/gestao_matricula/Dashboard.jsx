@@ -13,7 +13,6 @@ import RadarIcon from './icones/RadarIcon';
 import EditIcon from './icones/EditIcon';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DocumentosExpressDrawer from '../../documentos_express/DocumentosExpressDrawer';
 
 const MENU = [
     {
@@ -99,7 +98,6 @@ const ExtraCard = ({ item, func }) => {
 
 const Dashboard = () => {
     const [menuSelected, setMenuSelected] = useState(null);
-    const [openDocumentosExpress, setOpenDocumentosExpress] = useState(false);
     const navigation = useNavigate();
 
     const SUBMENUS = {
@@ -108,8 +106,6 @@ const Dashboard = () => {
             { id: 2, title: "Monitoramento de", subtitle: "Ocorrências", description: "Visão Geral de Lançamentos",      icon: AlertaSensorIcon,  rota: "/gestao-matricula/controle-ocorrencias" },
             { id: 3, title: "Gestão de",       subtitle: "Transferências", description: "Visão Geral de Lançamentos",    icon: PriorityArrowsIcon, rota: "/gestao-matricula/controle-transferencias" },
             { id: 4, title: "Central do",      subtitle: "Estudante",     description: "Perfil completo do aluno",       icon: DiagramSankeyIcon, rota: "/gestao-matricula/central-estudante" },
-            { id: 5, title: "Desligamento",    subtitle: "Express",       description: "Encerramento ágil de matrícula", icon: AlertaSensorIcon,  rota: "/gestao-matricula/desligamento-express" },
-            { id: 6, title: "Central de",      subtitle: "Documentos",    description: "Documentos Express e emissões",  icon: DocumentIcon,      onClick: () => setOpenDocumentosExpress(true) },
         ],
         4: [
             { id: 1, title: "Histórico",       subtitle: "Escolar",       description: "Controle de Registros",          icon: ConvertDocumentIcon, rota: "/gestao-matricula/historico-escolar" },
@@ -188,11 +184,6 @@ const Dashboard = () => {
                     </div>
                 )}
             </div>
-
-            <DocumentosExpressDrawer
-                openCloseDrawer={openDocumentosExpress}
-                setOpenCloseDrawer={setOpenDocumentosExpress}
-            />
         </>
     );
 };

@@ -24,6 +24,11 @@ const Navegar = () => {
         <div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cum enim maxime velit nam perspiciatis ratione, consectetur obcaecati cupiditate voluptatum nesciunt beatae, voluptate pariatur provident, repudiandae cumque ab ipsa dolor?</p>
             <br />
+            <button style={styles} onClick={() => navigation("/dev/protocolo-digital")}>
+                [isolado] protocolo digital
+            </button>
+            <br />
+            <br />
             <button style={styles} onClick={() => navigation("/dados-escolares")}>dados escolares</button>
             <br />
             <br />

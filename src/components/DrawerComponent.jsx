@@ -1,4 +1,4 @@
-import AngleSmallLeftIcon from '../pages/analise_candidato/icones/AngleSmallLeftIcon';
+import { createPortal } from 'react-dom';
 import CircleXMarkIcon from '../pages/analise_candidato/icones/CircleXMarkIcon';
 import styles from './DrawerComponent.module.scss';
 
@@ -10,12 +10,15 @@ const DrawerComponent = ({
     btnsFooterModal,
     titulo
 }) => {
-
     const handleClose = () => setOpenCloseDrawer(false);
 
-    return (
+    if (!openCloseDrawer) {
+        return null;
+    }
+
+    return createPortal(
         <div
-            className={`${styles.drawerContainer} ${openCloseDrawer ? styles.drawerOpen : ''}`}
+            className={`${styles.drawerContainer} ${styles.drawerOpen}`}
             onClick={handleClose}
         >
             <div
@@ -51,7 +54,8 @@ const DrawerComponent = ({
                 </div>
 
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 

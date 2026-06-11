@@ -1,25 +1,30 @@
 import { useEffect, useState } from 'react';
-import AlertaSensorIcon from './icones/AlertaSensorIcon';
-import DocumentIconList from './icones/DocumentIconList';
 import ArrowAngleBottomIcon from './icones/ArrowAngleBottomIcon';
 import styles from './ControleMatricula.module.scss';
 import user from './icones/user.png';
 import user2 from './icones/user2.png';
 import students from './students.json';
-import CrossCircleIcon from './icones/CrossCircleIcon';
 import CircleAIcon from './icones/CircleAIcon';
 import Circle1Icon from './icones/Circle1Icon';
 import InfoIcon from './icones/InfoIcon';
-import WhatsappIcon from './icones/WhatsappIcon';
 import Header from './Header';
 import Filtro from './Filtro';
-import PriorityArrowsIcon from './icones/PriorityArrowsIcon';
 import Loading from '../../../components/Loading';
+import DesligamentoExpress from '../../desligamento_express/DesligamentoExpress';
+import CadastroPessoasDrawer from '../../gestao_institucional/gestao_cadastral/gestao_pessoas/CadastroPessoasDrawer';
+import DocumentosExpressDrawer from '../../documentos_express/DocumentosExpressDrawer';
+import AnaliseCandidato from '../../analise_candidato/AnaliseCandidato';
+import MatriculaRowActions from '../gestao_matricula/components/MatriculaRowActions';
 
 const ControleMatricula = () => {
     const [rowColapse, setRowColapse] = useState(0);
     const [selectHead, setSelectHead] = useState(1);
     const [loading, setLoading] = useState(true);
+    const [openDesligamento, setOpenDesligamento] = useState(false);
+    const [openInfoPessoa, setOpenInfoPessoa] = useState(false);
+    const [openDocumentosExpress, setOpenDocumentosExpress] = useState(false);
+    const [openTransferencia, setOpenTransferencia] = useState(false);
+    const [selectedStudent, setSelectedStudent] = useState(null);
 
     const handleRowColapse = (id) => {
         setRowColapse(prev => prev === id ? 0 : id);
@@ -44,7 +49,7 @@ const ControleMatricula = () => {
                     <div className={styles.tableArea}>
                         <div className={styles.table}>
                             <div className={styles.header}>
-                                <div className={styles.th}>NOME ALUNO</div>
+                                <div className={styles.th}>NOME ALUNO(A)</div>
                                 <div className={styles.th}>MATRÍCULA</div>
                                 <div className={styles.th}>NIVEL/TURMA</div>
                                 <div className={styles.th}>TURNO</div>
@@ -112,16 +117,19 @@ const ControleMatricula = () => {
                                                 <ArrowAngleBottomIcon className={styles.arrowIcon} />
                                             </div>
                                         </div>
-                                        {rowColapse === student?.id &&
+                                        {rowColapse === student?.id && (
                                             <div className={styles.dropdown}>
-                                                <CrossCircleIcon />
-                                                <InfoIcon />
-                                                <DocumentIconList />
-                                                <PriorityArrowsIcon />
-                                                <AlertaSensorIcon />
-                                                <WhatsappIcon />
+                                                <MatriculaRowActions
+                                                    onDesligamento={() => setOpenDesligamento(true)}
+                                                    onInfo={() => {
+                                                        setSelectedStudent(student);
+                                                        setOpenInfoPessoa(true);
+                                                    }}
+                                                    onDocumentos={() => setOpenDocumentosExpress(true)}
+                                                    onTransferencia={() => setOpenTransferencia(true)}
+                                                />
                                             </div>
-                                        }
+                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -129,6 +137,24 @@ const ControleMatricula = () => {
                     </div>
                 </>
             }
+
+            <DesligamentoExpress
+                openCloseDrawer={openDesligamento}
+                setOpenCloseDrawer={setOpenDesligamento}
+            />
+            <CadastroPessoasDrawer
+                openCloseDrawer={openInfoPessoa}
+                setOpenCloseDrawer={setOpenInfoPessoa}
+                student={selectedStudent}
+            />
+            <DocumentosExpressDrawer
+                openCloseDrawer={openDocumentosExpress}
+                setOpenCloseDrawer={setOpenDocumentosExpress}
+            />
+            <AnaliseCandidato
+                openCloseDrawer={openTransferencia}
+                setOpenCloseDrawer={setOpenTransferencia}
+            />
         </div>
     )
 }
