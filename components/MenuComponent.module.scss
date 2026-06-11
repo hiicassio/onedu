@@ -387,6 +387,11 @@
               .menuItemSubmenu {
                 padding-left: 28px;
               }
+
+              .menuItemNoAction {
+                cursor: default;
+                opacity: 0.72;
+              }
             }
           }
 

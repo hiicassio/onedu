@@ -1,0 +1,159 @@
+.containerHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titleArea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #00397b;
+}
+
+.infoIcon {
+    font-size: 12px;
+    color: #707070;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.iconButton {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: #197dff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        font-size: 16px;
+    }
+}
+
+.iconButtonSecondary {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        color: #00397b;
+        font-size: 12px;
+    }
+}
+
+.actionButton {
+    height: 30px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 9px;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        font-size: 12px;
+        color: #00397b;
+    }
+}
+
+.dividir {
+    background-color: #b4b4b4;
+    width: 1px;
+    height: 16px;
+}
+
+.actionText {
+    font-weight: 400;
+    font-size: 10px;
+    color: #00397b;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.stats {
+    background-color: #fff;
+    min-height: 59px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 6px;
+}
+
+.statButton {
+    min-width: 90px;
+    height: 49px;
+    border-radius: 5px;
+    background: #f3f4f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border: none;
+    cursor: pointer;
+    padding: 0 8px;
+}
+
+.statButtonPrimary {
+    background-color: #00397b;
+    color: #fff;
+
+    .statLabel {
+        color: #fff;
+    }
+
+    .statValue {
+        color: #fff;
+    }
+}
+
+.statLabel {
+    font-weight: 400;
+    font-size: 7px;
+    text-align: center;
+    color: #929291;
+    max-width: 80px;
+    line-height: 1.2;
+}
+
+.statValue {
+    font-weight: 700;
+    font-size: 20px;
+    color: #00397b;
+}

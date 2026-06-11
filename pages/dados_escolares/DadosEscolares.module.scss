@@ -1,5 +1,5 @@
 .container {
-    --de-page-max-width: min(938px, 75vw);
+    --de-page-max-width: var(--layout-page-max-width, 1200px);
     --de-page-gap: 14px;
     --de-primary-dark: #002d4d;
     --de-primary: #00397B;
@@ -12,7 +12,6 @@
 
     width: 100%;
     max-width: var(--de-page-max-width);
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
