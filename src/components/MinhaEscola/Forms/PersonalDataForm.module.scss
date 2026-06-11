@@ -1,0 +1,61 @@
+.personalDataForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    .formGrid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+
+        .fullWidth {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .formGrid {
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 12px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .formGrid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .mapImage {
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid #ECECEC;
+        display: block;
+        object-fit: cover;
+    }
+
+    .inepSearchBtn {
+        min-width: 58px;
+        height: 33px;
+        padding: 0 10px;
+        border: none;
+        border-radius: 5px;
+        background: #00397B;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: opacity 0.2s ease-in-out;
+
+        &:hover:not(:disabled) {
+            opacity: 0.85;
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+    }
+}

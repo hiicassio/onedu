@@ -1,0 +1,144 @@
+.photoCapture {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+
+        @media (min-width: 460px) {
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+        }
+    }
+
+    .sectionTitle {
+        font-size: 11px;
+        font-weight: 700;
+        color: #00397B;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .mobileSection {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+        border-radius: 10px;
+        border: 1px solid #ECECEC;
+        background: #F3F4F1;
+    }
+
+    .qrContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid #E8E8E8;
+        background: #fff;
+    }
+
+    .qrImage {
+        width: 100%;
+        max-width: 140px;
+        aspect-ratio: 1;
+        object-fit: contain;
+        display: block;
+    }
+
+    .qrInstruction {
+        font-size: 11px;
+        line-height: 1.45;
+        color: #707070;
+        text-align: center;
+        padding: 0 4px;
+    }
+
+    .desktopSection {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cameraFeed {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        border-radius: 10px;
+        border: 2px dashed #ECECEC;
+        background: #F3F4F1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        overflow: hidden;
+        position: relative;
+
+        .preview,
+        .guidanceImage {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .preview {
+            object-fit: cover;
+        }
+
+        .placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #929291;
+            font-size: 11px;
+            text-align: center;
+            padding: 0 16px;
+
+            svg {
+                font-size: 28px;
+                color: #00397B;
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        button {
+            min-height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 0 14px;
+            border: none;
+            width: 100%;
+        }
+
+        .takePhotoBtn {
+            color: #fff;
+            background: #00397B;
+        }
+
+        .uploadBtn {
+            color: #00397B;
+            background: #E1E1E1;
+        }
+
+        .hiddenInput {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+:root {
+    --font-family-base: 'AlteHaasGrotesk', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    --text-module-title-size: 20px;
+    --text-body-size: 12px;
+    --text-caption-size: 10px;
+    --text-label-size: 10px;
+
+    --text-module-title-weight: 700;
+    --text-body-weight: 400;
+    --text-label-weight: 400;
+}
+
+@mixin font-base {
+    font-family: var(--font-family-base);
+}
+
+@mixin text-module-title {
+    @include font-base;
+    font-size: var(--text-module-title-size);
+    font-weight: var(--text-module-title-weight);
+    line-height: 1.2;
+}
+
+@mixin text-body {
+    @include font-base;
+    font-size: var(--text-body-size);
+    font-weight: var(--text-body-weight);
+    line-height: 1.5;
+}
+
+@mixin text-table-header {
+    @include font-base;
+    font-size: var(--text-label-size);
+    font-weight: var(--text-label-weight);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+@mixin text-section-label {
+    @include font-base;
+    font-size: var(--text-caption-size);
+    font-weight: var(--text-label-weight);
+    letter-spacing: 0.02em;
+}

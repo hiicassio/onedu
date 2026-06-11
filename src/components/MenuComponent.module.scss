@@ -1,0 +1,482 @@
+.containerMenuComponent {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  flex-shrink: 0;
+  height: calc(100vh - 20px);
+  max-height: calc(100vh - 20px);
+  display: flex;
+  gap: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
+  .menuWrapper {
+    width: 73px;
+    height: 100%;
+    min-height: calc(100vh - 20px);
+    padding: 12px;
+    flex-shrink: 0;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    background:
+      linear-gradient(90deg, rgba(15, 50, 95, .9) 50%, rgba(15, 50, 95, .9) 100%),
+      url(./icones/fundo.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+
+    .menuButton {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+
+      svg {
+        color: #fff;
+        font-size: 15px;
+      }
+
+      &:hover {
+        background: #F3F4F133;
+      }
+
+      &.menuButtonNone {
+        opacity: 0;
+      }
+    }
+
+    .menuButtonSelect {
+      background: #F3F4F133;
+    }
+
+    .dividir {
+      width: 100%;
+      border-bottom: solid 1px #F3F4F133;
+
+      &.dividirNone {
+        border-color: transparent;
+      }
+    }
+
+    .menuArea {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      flex-grow: 1;
+      min-height: 0;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.28);
+        border-radius: 3px;
+      }
+
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
+
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+
+      .menuTop {
+        .menuButton {
+          &:nth-child(7) svg {
+            font-size: 18px;
+          }
+
+          &:last-child svg {
+            font-size: 21px;
+          }
+        }
+      }
+    }
+
+    .menuBottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .areaBtns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .menuAvatarButton {
+          height: 34px;
+          width: 34px;
+          border-radius: 50%;
+          border: 2px solid #fff;
+          margin: 40px 0 14px;
+
+          .userImage {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+
+        &.areaBtnsNone {
+          opacity: 0;
+        }
+      }
+
+      .themeToggle {
+        background: #F3F4F133;
+        height: 21px;
+        width: 41px;
+        border-radius: 20px;
+        display: flex;
+        padding: 2px;
+
+        .themeIconLight,
+        .themeIconDark {
+          width: 17px;
+          height: 17px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            font-size: 10px;
+          }
+        }
+
+        .themeIconLight {
+          background: #fff;
+
+          svg {
+            color: #000;
+          }
+        }
+
+        .themeIconDark {
+          background: #000;
+
+          svg {
+            color: #fff;
+          }
+        }
+
+        &.light {
+          justify-content: flex-start;
+        }
+
+        &.dark {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  .bodyMenu {
+    background-color: #fff;
+    width: 211px;
+    height: 100%;
+    max-height: calc(100vh - 20px);
+    border-radius: 10px;
+    border: 1px solid #F0F0F0;
+    box-shadow: 0px 4px 5.9px 0px #00000040;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out, width 0.1s ease-in-out;
+
+    .topoMenu {
+      height: 64px;
+      padding: 13px 13px 17px 29px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid #F0F0F0;
+
+      img {
+        width: 69px;
+        height: 34px;
+      }
+
+      button {
+        background-color: transparent;
+        height: 20px;
+        width: 20px;
+
+        svg {
+          font-size: 15px;
+          color: #E9E9E9;
+        }
+      }
+    }
+
+    .areaMenu {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 211px;
+
+      .menuContent {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        overflow: hidden;
+
+        .areaSearch {
+          padding: 13px 13px 0px 13px;
+
+          label {
+            height: 28px;
+            border-radius: 5px;
+            background: #F3F4F1;
+            display: flex;
+            align-items: center;
+            padding: 0 11px;
+            gap: 11px;
+
+            svg {
+              color: #929291;
+              font-size: 12px;
+            }
+
+            input {
+              flex-grow: 1;
+              height: 100%;
+              min-width: 0;
+              background-color: transparent;
+              outline: none;
+              border: none;
+              font-size: 10px;
+            }
+          }
+        }
+
+        .menu {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          overflow-y: auto;
+          overflow-x: hidden;
+          min-height: 0;
+
+          &::-webkit-scrollbar {
+            width: 4px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #D7E8FF;
+            border-radius: 4px;
+          }
+
+          scrollbar-width: thin;
+          scrollbar-color: #D7E8FF transparent;
+
+          .menuOpcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+            padding: 0px 13px;
+
+            .menuTitle {
+              font-size: 8px;
+              color: #616161;
+              padding-left: 15px;
+            }
+
+            .menuList {
+              display: flex;
+              flex-direction: column;
+
+              .menuItem {
+                min-height: 28px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                padding: 0px 14px 0px 16px;
+                background-color: transparent;
+                gap: 6px;
+                width: 100%;
+
+                .menuItemContent {
+                  color: #707070;
+                  display: flex;
+                  align-items: center;
+                  gap: 14px;
+                  flex-grow: 1;
+
+                  svg {
+                    font-size: 13px;
+                  }
+
+                  span {
+                    font-size: 12px;
+                  }
+                }
+
+                svg {
+                  font-size: 12px;
+                  color: #707070;
+                  transition: .2s ease-in-out;
+                }
+
+                .iconeExpaned {
+                  rotate: 180deg;
+                }
+              }
+
+              .menuItemActive {
+                background-color: #f3f4f1;
+
+                .menuItemContent {
+                  color: #00397b;
+                  font-weight: 600;
+                }
+              }
+
+              .menuItemSubmenu {
+                padding-left: 28px;
+              }
+
+              .menuItemNoAction {
+                cursor: default;
+                opacity: 0.72;
+              }
+            }
+          }
+
+          .dividir {
+            border-bottom: solid 1px #F0F0F0;
+          }
+
+          .menuOpcoesConta {
+            flex-grow: 0;
+            padding-bottom: 30px;
+          }
+        }
+      }
+
+      .menuFooter {
+        padding: 0px 4px 2px 2px;
+
+        .schoolInfo {
+          background-color: #D7E8FF;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 13px 0 25px;
+
+          .schoolName {
+            font-size: 12px;
+          }
+
+          svg {
+            font-size: 10px;
+          }
+        }
+
+        .userContent {
+          background: #F3F4F1;
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+          display: flex;
+          padding: 11px 17px 13px 12px;
+          gap: 11px;
+
+          .userAvatar {
+            border: 2px solid #fff;
+            border-radius: 50%;
+            min-width: 43px;
+            height: 43px;
+            overflow: hidden;
+
+            .userImage {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .userText {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+
+            .userName {
+              font-size: 10px;
+              font-weight: 700;
+            }
+
+            .userRole {
+              font-size: 10px;
+            }
+          }
+
+          .moreIcon {
+            font-size: 11px;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .bodyMenuClose {
+    width: 0;
+    transform: translateX(-15px);
+    opacity: 0;
+    pointer-events: none;
+  }
+}

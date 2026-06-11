@@ -1,0 +1,163 @@
+@import '../../../../styles/typography.scss';
+
+.tableArea {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    min-width: 760px;
+}
+
+.header,
+.row {
+    display: grid;
+    align-items: center;
+}
+
+.header {
+    background: #e9e9e9;
+    border-radius: 9px;
+    height: 46px;
+    padding: 0 8px;
+}
+
+.th {
+    @include text-table-header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    border-right: 1px solid #ccc;
+
+    &:last-child {
+        border-right: none;
+    }
+}
+
+.thStart {
+    justify-content: flex-start;
+    padding-left: 23px;
+}
+
+.headerActions {
+    display: flex;
+    gap: 4px;
+}
+
+.viewButton {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+        font-size: 10px;
+        color: #777;
+    }
+}
+
+.active {
+    border-color: #00397b;
+
+    svg {
+        color: #00397b;
+    }
+}
+
+.body {
+    margin-top: 10px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 9px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.areaRow {
+    background: #f5f8fb;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+
+    &:nth-child(even) {
+        background: transparent;
+    }
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+.row {
+    min-height: 44px;
+}
+
+.td {
+    font-weight: 400;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #00397b;
+}
+
+.tdStart {
+    justify-content: flex-start;
+    padding-left: 23px;
+}
+
+.userIcon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.idText {
+    font-weight: 700;
+}
+
+.perfis {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.perfilIcon {
+    font-size: 14px;
+    color: #00397b;
+}
+
+.ocupacoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.ocupacaoTag {
+    background: #f3f4f1;
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-size: 10px;
+    color: #00397b;
+    white-space: nowrap;
+}
+
+.arrowIcon {
+    font-size: 20px;
+    color: #00397b;
+}

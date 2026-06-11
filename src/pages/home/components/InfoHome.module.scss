@@ -1,0 +1,68 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    max-width: 430px;
+
+    .textSection {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+
+        .title {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 16px;
+            letter-spacing: 0%;
+            color: #fff;
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p {
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0%;
+                color: #fff;
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .primaryButton {
+            width: 100%;
+            width: 240px;
+            height: 34px;
+            border-radius: 30px;
+            border-width: 1px;
+            border-color: #fff;
+            border-style: solid;
+            background-color: transparent;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            padding-left: 15px;
+            gap: 10px;
+
+            span {
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0%;
+            }
+
+            svg {
+                font-size: 13px;
+            }
+        }
+    }
+}

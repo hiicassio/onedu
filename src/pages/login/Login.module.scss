@@ -1,0 +1,256 @@
+.containerLogin {
+    display: flex;
+    height: 100dvh;
+    width: 100vw;
+    padding: 10px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, .9) 50%, rgba(255, 255, 255, .9) 100%),
+        url(./icones/fundo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    .left {
+        flex-grow: 1;
+        padding: 51px 69px;
+        width: 100%;
+        max-width: 958px;
+        box-shadow: 0px 4px 4px 0px #00000040 inset;
+
+        backdrop-filter: blur(10px);
+        background:
+            linear-gradient(90deg, rgba(0, 0, 0, .5) 50%, rgba(0, 0, 0, .5) 100%),
+            url(./icones/fundo.gif);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        border-radius: 10px;
+        border-top-right-radius: 5px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+
+        .backButton {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            background-color: transparent;
+            gap: 5px;
+
+            svg {
+                font-size: 17px;
+            }
+
+            span {
+                font-size: 12px;
+
+                strong {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .hero {
+            max-width: 532px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 334px;
+
+            @keyframes textContent {
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+
+            .textContent {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                animation: textContent .5s forwards;
+
+                .title {
+                    font-weight: 700;
+                    font-size: 25px;
+                }
+
+                .subtitle {
+                    font-size: 14px;
+                }
+            }
+
+            .dots {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+
+                .dot {
+                    height: 9px;
+                    width: 9px;
+                    background: #CCC;
+                    border-radius: 10px;
+                }
+
+                .dotSelected {
+                    width: 24px;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+
+    .right {
+        padding: 167px 68px 67px 68px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        min-width: 500px;
+        gap: 43px;
+
+        .form {
+            width: 100%;
+            max-width: 243px;
+            display: flex;
+            flex-direction: column;
+            gap: 43px;
+            align-items: center;
+            flex-grow: 1;
+
+            .logo {
+                width: 165px;
+                height: 81px;
+            }
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                gap: 13px;
+                width: 100%;
+
+                .inputGroup {
+                    height: 40px;
+                    border-radius: 20px;
+                    border: 1px solid #E9E9E9;
+                    background-color: #F3F4F1;
+                    display: flex;
+                    padding: 0 7px;
+                    align-items: center;
+                    gap: 16px;
+
+                    .icon {
+                        min-width: 28px;
+                        height: 28px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        svg {
+                            font-size: 14px;
+                        }
+                    }
+
+                    input {
+                        flex-grow: 1;
+                        min-width: 0;
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .helpLogin {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                width: 100%;
+
+                span {
+                    font-size: 10px;
+                    color: #707070;
+
+                    a {
+                        font-weight: 700;
+                    }
+                }
+
+                .loginButton {
+                    min-width: 40px;
+                    height: 40px;
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #00397B;
+                    position: relative;
+
+                    span {
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        position: absolute;
+                        background-color: #00397B;
+                        left: -8px;
+                        top: calc(50% - 8px);
+                    }
+
+                    svg {
+                        font-size: 14px;
+                        color: #fff;
+                    }
+                }
+            }
+
+            .divider {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+
+                .line {
+                    width: 43px;
+                    border-bottom: 1px solid #F3F4F1;
+                }
+
+                span {
+                    font-size: 12px;
+                }
+            }
+
+            .govButton {
+                width: 100%;
+                height: 40px;
+                border-radius: 20px;
+                background-color: #F3F4F1;
+                border: 1px solid #E9E9E9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 47px;
+                    height: 17px;
+                }
+            }
+        }
+
+        .footer {
+            font-size: 10px;
+            color: #707070;
+            text-align: center;
+        }
+    }
+}

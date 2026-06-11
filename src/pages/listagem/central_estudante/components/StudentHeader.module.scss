@@ -1,0 +1,183 @@
+.header {
+    background: #fff;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-grow: 1;
+
+        .avatarWrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #E0EBFA;
+            display: block;
+        }
+
+        .cameraButton {
+            position: absolute;
+            right: -2px;
+            bottom: -2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #197DFF;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            cursor: pointer;
+
+            svg {
+                color: #fff;
+                font-size: 9px;
+            }
+
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            .nameRow {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .name {
+                font-weight: 700;
+                font-size: 15px;
+                color: #00397B;
+            }
+
+            .sub {
+                font-size: 11px;
+                color: #888;
+            }
+        }
+    }
+
+    .badge {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 9px;
+        border-radius: 20px;
+    }
+
+    .badgeActive {
+        background: #D1FAE5;
+        color: #065F46;
+    }
+
+    .stats {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 16px;
+        border-left: 1px solid #EEE;
+        border-right: 1px solid #EEE;
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+
+            .statValue {
+                font-weight: 700;
+                font-size: 18px;
+                color: #197DFF;
+            }
+
+            .statLabel {
+                font-size: 9px;
+                color: #999;
+                white-space: nowrap;
+            }
+        }
+
+        .statDivider {
+            width: 1px;
+            height: 30px;
+            background: #EFEFEF;
+        }
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid #ECECEC;
+            border-radius: 8px;
+            padding: 6px 12px;
+            background: #FAFAFA;
+
+            svg {
+                font-size: 14px;
+                color: #999;
+                flex-shrink: 0;
+            }
+
+            input {
+                border: none;
+                outline: none;
+                background: transparent;
+                font-size: 12px;
+                width: 140px;
+                color: #444;
+
+                &::placeholder {
+                    color: #CCC;
+                }
+            }
+        }
+
+        .actionBtn {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #ECECEC;
+            border-radius: 8px;
+            background: #FAFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color .15s, background .15s;
+
+            svg {
+                font-size: 15px;
+                color: #00397B;
+            }
+
+            &:hover {
+                border-color: #00397B;
+                background: #E0EBFA;
+            }
+        }
+    }
+}
